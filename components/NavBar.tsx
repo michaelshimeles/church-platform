@@ -17,6 +17,11 @@ import {
 import { ModeToggle } from "./ModeToggle"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { Profile } from "./Profile"
+import { Sheet } from "lucide-react"
+import { Button } from "./ui/button"
+import { SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "./ui/sheet"
+import { Dialog } from "@radix-ui/react-dialog"
+import { GiHamburgerMenu } from "react-icons/gi"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -42,6 +47,21 @@ const components: { title: string; href: string; description: string }[] = [
 export function NavBar() {
     return (
         <div className="flex min-w-full justify-between p-2 border-b">
+            <Dialog>
+                <SheetTrigger className="min-[825px]:hidden p-2">
+                    <GiHamburgerMenu />
+                </SheetTrigger>
+                <SheetContent side="left">
+                    <SheetHeader>
+                        <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+                        <SheetDescription>
+                            This action cannot be undone. This will permanently delete your account
+                            and remove your data from our servers.
+                        </SheetDescription>
+                    </SheetHeader>
+                </SheetContent>
+            </Dialog>
+
             <NavigationMenu>
                 <NavigationMenuList className="max-[825px]:hidden">
                     <Image src="/TBF.webp" width={50} height={50} alt="logo" />
@@ -69,7 +89,6 @@ export function NavBar() {
                                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                             href="/"
                                         >
-                                            {/* <Icons.logo className="h-6 w-6" /> */}
                                             <Image src="/TBF.webp" width={50} height={50} alt="logo" />
                                             <div className="mb-2 mt-4 text-lg font-medium">
                                                 Tsega Bible Church
