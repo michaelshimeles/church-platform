@@ -63,7 +63,7 @@ export function NavBar() {
             </Dialog>
 
             <NavigationMenu>
-                <NavigationMenuList className="max-[825px]:hidden">
+                <NavigationMenuList className="max-[825px]:hidden ">
                     <Link href="/">
                         <Image src="/TBF.webp" width={50} height={50} alt="logo" />
                     </Link>
@@ -77,7 +77,7 @@ export function NavBar() {
                     <NavigationMenuItem>
                         <Link href="/give" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Giving
+                                Give
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>

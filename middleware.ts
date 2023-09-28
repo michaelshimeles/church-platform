@@ -6,6 +6,12 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
   publicRoutes: [
     "/",
+    "/faith",
+    "/contact-us",
+    "/english-ministry",
+    "/amharic-ministry",
+    "/sign-in",
+    "/sign-out",
     "/resources/blog",
     "/contact-us"
 ],

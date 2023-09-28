@@ -1,13 +1,11 @@
 import React from 'react'
 
-interface pageProps {
+interface BibleStudyToolProps {}
 
+const BibleStudyTool: React.FC<BibleStudyToolProps> = ({ }) => {
+    return (
+        <></>
+    );
 }
 
-const page: React.FC<pageProps> = ({}) => {
-        return (
-            <></>
-        );
-}
-
-export default page;
+export default BibleStudyTool;

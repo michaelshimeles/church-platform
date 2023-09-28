@@ -1,9 +1,7 @@
 import ContactUs from '@/components/ContactUs';
 import React from 'react'
 
-interface ContactUsProps {
-
-}
+interface ContactUsProps {}
 
 const ContactUsPage: React.FC<ContactUsProps> = ({ }) => {
     return (

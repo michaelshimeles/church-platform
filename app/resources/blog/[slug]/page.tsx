@@ -98,6 +98,7 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
             </div>
         )
     }
+    
     return (
         <div className="w-full py-[4rem] px-[2rem]">
             <div className="flex flex-col items-center min-w-fit">

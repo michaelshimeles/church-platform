@@ -44,7 +44,7 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
 
     if (!post) {
         return (
-            <section className="w-full mb-8 p-[10rem]" data-id="23">
+            <section className="w-full mb-8 md:p-[5rem] lg:p-[10rem] md:flex lg:block" data-id="23">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-id="61">
                     <div className="w-full max-w-md mx-auto animate-pulse p-9">
                         <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>

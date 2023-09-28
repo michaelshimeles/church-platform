@@ -1,10 +1,8 @@
 import React from 'react'
 
-interface pageProps {
+interface DonationProps {}
 
-}
-
-const Donations: React.FC<pageProps> = ({ }) => {
+const Donations: React.FC<DonationProps> = ({ }) => {
     return (
         <section className="container px-4 mx-auto py-[10rem]">
             <div className="flex flex-col">
@@ -261,7 +259,6 @@ const Donations: React.FC<pageProps> = ({ }) => {
                     </div>
                 </div>
             </div>
-
             <div className="flex items-center justify-between mt-6">
                 <a href="#" className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:-scale-x-100">

@@ -45,8 +45,8 @@ export function Profile() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Avatar >
-                    <AvatarImage src={user?.imageUrl} alt="@shadcn" />
-                    <AvatarFallback>{user?.firstName?.[0] + "" + user?.lastName?.[0]}</AvatarFallback>
+                    <AvatarImage src={user?.imageUrl} alt="User Profile" />
+                    <AvatarFallback></AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">

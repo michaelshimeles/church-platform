@@ -1,13 +1,12 @@
 import React from 'react'
 
-interface pageProps {
+interface AmharicMinistryProp {}
 
+const AmharicMinistryPage: React.FC<AmharicMinistryProp> = ({ }) => {
+    return (
+        <>
+        </>
+    );
 }
 
-const page: React.FC<pageProps> = ({}) => {
-        return (
-            <></>
-        );
-}
-
-export default page;
+export default AmharicMinistryPage;

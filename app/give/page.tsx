@@ -1,13 +1,14 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react';
 
-interface pageProps {
+interface GivePageProps {}
 
-}
+const GivePage: React.FC<GivePageProps> = () => {
+  return (
+    <div className='flex min-w-screen justify-center pt-[10rem]'>
+     
+    </div>
+  );
+};
 
-const page: React.FC<pageProps> = ({}) => {
-        return (
-            <></>
-        );
-}
-
-export default page;
+export default GivePage;

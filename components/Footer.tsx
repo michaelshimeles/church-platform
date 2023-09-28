@@ -1,20 +1,14 @@
 import React from 'react'
 import Image from 'next/image';
-interface FooterProps {
 
-}
-
-const Footer: React.FC<FooterProps> = ({ }) => {
+const Footer = ({ }) => {
     return (
         <footer className='border-t'>
-            <div
-                className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
-            >
+            <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="text-teal-600">
                         <Image src='/TBF.webp' width={50} height={50} alt="logo" />
                     </div>
-
                     <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
                         <li>
                             <a
@@ -24,7 +18,6 @@ const Footer: React.FC<FooterProps> = ({ }) => {
                                 className="transition hover:opacity-75"
                             >
                                 <span className="sr-only">Facebook</span>
-
                                 <svg
                                     className="h-6 w-6"
                                     fill="currentColor"
@@ -39,7 +32,6 @@ const Footer: React.FC<FooterProps> = ({ }) => {
                                 </svg>
                             </a>
                         </li>
-
                         <li>
                             <a
                                 href="https://www.instagram.com/tbfchurch/"

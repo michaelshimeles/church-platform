@@ -2,9 +2,7 @@ import React from 'react'
 import { Button } from './ui/button';
 import { url } from 'inspector';
 
-interface HeroProps {
-
-}
+interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = ({ }) => {
     return (
