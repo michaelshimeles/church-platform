@@ -105,7 +105,7 @@ export function NavBar() {
                                     Visit and take part in our English speaking church.
                                 </ListItem>
                                 <ListItem href="/amharic-ministry" title="Amharic Church">
-                                    Visit and take part in our Amharic speaking church.
+                                    የአማርኛ ተናጋሪ ቤተክርስቲያናችንን ይጎብኙ እና ይሳተፉ
                                 </ListItem>
                             </ul>
                         </NavigationMenuContent>
