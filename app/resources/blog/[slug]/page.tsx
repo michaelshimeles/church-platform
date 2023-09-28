@@ -1,15 +1,10 @@
 "use client"
 import { client } from "@/sanity/lib/client"
-import { useEffect, useState } from "react"
-import Image from "next/image"
 import { urlForImage } from "@/sanity/lib/image"
-import { PortableText } from '@portabletext/react';
-import { Loader2 } from 'lucide-react';
-import { Skeleton } from "@/components/ui/skeleton"
+import { PortableText } from '@portabletext/react'
+import Image from "next/image"
+import { useEffect, useState } from "react"
 
-export const Icons = {
-    spinner: Loader2,
-};
 
 const SlugPage = ({ params }: { params: { slug: string } }) => {
     const { slug } = params

@@ -111,7 +111,7 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-id="61">
                         {post?.map((post: any, index: number) => {
                             return (
-                                <div>
+                                <div key={index}>
                                     <img
                                         alt="Tech Story Image"
                                         className="w-full h-64 object-cover object-center rounded-lg"

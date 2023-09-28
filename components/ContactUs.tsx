@@ -17,7 +17,7 @@ export default function ContactUs() {
                                 Contact Us
                             </h2>
                             <p className="text-zinc-500 dark:text-zinc-400" data-id="7">
-                                Fill out the form below and we'll get back to you as soon as possible.
+                                Fill out the form below and we&apos;ll get back to you as soon as possible.
                             </p>
                         </div>
                         <div className="space-y-4" data-id="8">
