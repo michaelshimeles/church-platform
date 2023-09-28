@@ -1,10 +1,5 @@
 "use client"
 
-import * as React from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/Icons"
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -14,14 +9,16 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { ModeToggle } from "./ModeToggle"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu"
-import { Profile } from "./Profile"
-import { Sheet } from "lucide-react"
-import { Button } from "./ui/button"
-import { SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "./ui/sheet"
+import { cn } from "@/lib/utils"
 import { Dialog } from "@radix-ui/react-dialog"
+import Image from "next/image"
+import Link from "next/link"
+import * as React from "react"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { ModeToggle } from "./ModeToggle"
+import { Profile } from "./Profile"
+import { SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
+import { useAuth } from "@clerk/nextjs";
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -45,6 +42,9 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavBar() {
+    const { isLoaded, userId, sessionId, getToken } = useAuth();
+
+
     return (
         <div className="flex min-w-full justify-between p-2 border-b">
             <Dialog>
@@ -136,7 +136,7 @@ export function NavBar() {
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="flex items-center gap-3">
-                <Profile />
+                {userId && <Profile />}
                 <ModeToggle />
             </div>
         </div>

@@ -14,7 +14,7 @@ import {
     UserPlus,
     Users,
 } from "lucide-react"
-
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -35,29 +35,38 @@ import {
     AvatarFallback,
     AvatarImage,
 } from "@/components/ui/avatar"
+import { SignOutButton, useUser } from "@clerk/nextjs";
+
 export function Profile() {
+    const { isSignedIn, user, isLoaded } = useUser();
+
+    console.log("User", user)
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Avatar >
-                    <AvatarImage src="" alt="@shadcn"/>
-                    <AvatarFallback>CH</AvatarFallback>
+                    <AvatarImage src={user?.imageUrl} alt="@shadcn" />
+                    <AvatarFallback>{user?.firstName?.[0] + "" + user?.lastName?.[0]}</AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        <User className="mr-2 h-4 w-4" />
-                        <span>Profile</span>
-                        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <CreditCard className="mr-2 h-4 w-4" />
-                        <span>Billing</span>
-                        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                    </DropdownMenuItem>
+                    <Link href="/user-profile">
+                        <DropdownMenuItem>
+                            <User className="mr-2 h-4 w-4" />
+                            <span>Profile</span>
+                            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                        </DropdownMenuItem>
+                    </Link>
+                    <Link href="/donations">
+                        <DropdownMenuItem>
+                            <CreditCard className="mr-2 h-4 w-4" />
+                            <span>Donations</span>
+                            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                        </DropdownMenuItem>
+                    </Link>
                     <DropdownMenuItem>
                         <Settings className="mr-2 h-4 w-4" />
                         <span>Settings</span>
@@ -118,11 +127,13 @@ export function Profile() {
                     <span>API</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Log out</span>
-                    <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                </DropdownMenuItem>
+                <SignOutButton>
+                    <DropdownMenuItem>
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>Log out</span>
+                        <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                </SignOutButton>
             </DropdownMenuContent>
         </DropdownMenu>
     )
