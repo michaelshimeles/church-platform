@@ -64,24 +64,54 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
 
     if (!post) {
         return (
-            <div className="flex justify-center items-center space-x-4 min-h-screen min-w-full">
-                <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                    <Skeleton className="h-4 w-[250px]" />
-                    <Skeleton className="h-4 w-[200px]" />
+            <div className="flex flex-col justify-center items-center space-x-4 min-w-full">
+                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                    <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+                    <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                    <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+                    <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                    <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+                    <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                    <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+                    <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                </div>
+                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                    <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
+                    <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
+                    <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
             </div>
         )
     }
     return (
-        <div className="w-full pt-[5rem] px-[3rem] pb-[3rem]">
+        <div className="w-full py-[4rem] px-[2rem]">
             <div className="flex flex-col items-center min-w-fit">
                 <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl text-center">{post?.title}</h1>
                 <div className="flex items-center border border-slate-700 p-2 w-[11rem] gap-1 rounded-full mt-[1rem]">
                     <img src={post?.authorImage?.url} alt={post?.author?.name} className="w-8 h-8 rounded-full" />
                     <p className="text-center font-semibold text-sm">{post?.author?.name}</p>
                 </div>
-                <div className="w-[97%] md:w-[95%] lg:w-[90%] xl:w-[70%] mt-4">
+                <div className="w-[100%] md:w-[95%] lg:w-[90%] xl:w-[70%] mt-4">
                     <PortableText value={post?.body} components={PortableTextComponent} />
                 </div>
             </div>
