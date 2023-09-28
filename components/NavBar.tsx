@@ -64,7 +64,9 @@ export function NavBar() {
 
             <NavigationMenu>
                 <NavigationMenuList className="max-[825px]:hidden">
-                    <Image src="/TBF.webp" width={50} height={50} alt="logo" />
+                    <Link href="/">
+                        <Image src="/TBF.webp" width={50} height={50} alt="logo" />
+                    </Link>
                     <NavigationMenuItem>
                         <Link href="/faith" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -99,10 +101,10 @@ export function NavBar() {
                                         </a>
                                     </NavigationMenuLink>
                                 </li>
-                                <ListItem href="/english" title="English Church">
+                                <ListItem href="/english-ministry" title="English Church">
                                     Visit and take part in our English speaking church.
                                 </ListItem>
-                                <ListItem href="/amharic" title="Amharic Church">
+                                <ListItem href="/amharic-ministry" title="Amharic Church">
                                     Visit and take part in our Amharic speaking church.
                                 </ListItem>
                             </ul>
@@ -125,7 +127,7 @@ export function NavBar() {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/shop" legacyBehavior passHref>
+                        <Link href="/contact-us" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 Contact Us
                             </NavigationMenuLink>
