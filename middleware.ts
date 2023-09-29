@@ -13,7 +13,8 @@ export default authMiddleware({
     "/sign-in",
     "/sign-out",
     "/resources/blog",
-    "/contact-us"
+    "/contact-us",
+    "/api/store-email"
 ],
 });
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Button } from './ui/button';
 import { url } from 'inspector';
+import Link from 'next/link';
 
-interface HeroProps {}
+interface HeroProps { }
 
 const Hero: React.FC<HeroProps> = ({ }) => {
     return (
@@ -14,8 +15,12 @@ const Hero: React.FC<HeroProps> = ({ }) => {
                 Grow In Grace. Grow In Knowledge.
             </h4>
             <div className='flex gap-5'>
-                <Button className='mt-3'>Learn More</Button>
-                <Button className='mt-3' variant="secondary">Statement of Faith</Button>
+                <Link href="/faith">
+                    <Button className='mt-3'>Learn More</Button>
+                </Link>
+                <Link href="/faith">
+                    <Button className='mt-3' variant="secondary">Statement of Faith</Button>
+                </Link>
             </div>
         </main >
     );
