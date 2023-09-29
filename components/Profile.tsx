@@ -43,7 +43,7 @@ export function Profile() {
     console.log("User", user)
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild className="w-[2.25rem] h-[2.25rem]">
                 <Avatar >
                     <AvatarImage src={user?.imageUrl} alt="User Profile" />
                     <AvatarFallback></AvatarFallback>

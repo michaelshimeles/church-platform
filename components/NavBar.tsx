@@ -29,15 +29,15 @@ const components: { title: string; href: string; description: string }[] = [
     },
     {
         title: "Courses",
-        href: "/resources/courses",
+        href: "/coming-soon",
         description:
-            "Coming Soon.",
+            "Take our free courses and grow in the knowledge of our Lord Jesus.",
     },
     {
         title: "Bible Study Tool",
-        href: "/resources/bible-study",
+        href: "/coming-soon",
         description:
-            "Coming Soon.",
+            "Use our Bible Study Tool to help you be more effective in your Bible Study.",
     },
 ]
 

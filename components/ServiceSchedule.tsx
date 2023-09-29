@@ -28,7 +28,7 @@ const ServiceSchedule: React.FC<ServiceScheduleProps> = ({ }) => {
                                 </h2>
 
                                 <div className="mt-4">
-                                    <a href="https://www.google.com/maps/place/Tsega+Bible+Fellowship+Church/@43.7183451,-79.3083306,17z/data=!3m1!4b1!4m6!3m5!1s0x89d4cdcb4c7c4faf:0xdc229ad703493b53!8m2!3d43.7183413!4d-79.3057503!16s%2Fg%2F11trldgc9b?entry=ttu" title=""
+                                    <a target='_blank' href="https://www.google.com/maps/place/Tsega+Bible+Fellowship+Church/@43.7183451,-79.3083306,17z/data=!3m1!4b1!4m6!3m5!1s0x89d4cdcb4c7c4faf:0xdc229ad703493b53!8m2!3d43.7183413!4d-79.3057503!16s%2Fg%2F11trldgc9b?entry=ttu" title=""
                                         className="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500">
                                         Visit us at 65 Sunrise Ave, Toronto, Ontario
                                         <svg aria-hidden="true" className="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
