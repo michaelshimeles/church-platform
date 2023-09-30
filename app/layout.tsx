@@ -9,8 +9,8 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Church Platform',
-  description: 'The Complete Church Platform',
+  title: 'Grace Bible Fellowship Church',
+  description: 'Grow In Grace. Grow In Knowledge.',
 }
 
 export default function RootLayout({
