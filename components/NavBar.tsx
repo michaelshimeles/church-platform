@@ -133,6 +133,13 @@ export function NavBar() {
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link href="/about" legacyBehavior passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                About Us
+                            </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="flex items-center gap-3">

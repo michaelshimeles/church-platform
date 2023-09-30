@@ -3,8 +3,7 @@ import { Button } from '@/components/ui/button';
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 
-interface GivePageProps { }
-const GivePage: React.FC<GivePageProps> = () => {
+const GivePage = () => {
   return (
     <section>
       <div

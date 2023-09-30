@@ -72,13 +72,8 @@ export function Profile() {
                         <span>Settings</span>
                         <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <Keyboard className="mr-2 h-4 w-4" />
-                        <span>Keyboard shortcuts</span>
-                        <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                    </DropdownMenuItem>
                 </DropdownMenuGroup>
-                <DropdownMenuSeparator />
+                {/* <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem>
                         <Users className="mr-2 h-4 w-4" />
@@ -126,7 +121,7 @@ export function Profile() {
                     <Cloud className="mr-2 h-4 w-4" />
                     <span>API</span>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator /> */}
                 <SignOutButton>
                     <DropdownMenuItem>
                         <LogOut className="mr-2 h-4 w-4" />

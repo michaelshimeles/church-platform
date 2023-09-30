@@ -147,38 +147,30 @@ const Footer = ({ }) => {
                             </li>
 
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Team
+                                <a href="/about" className=" transition hover:opacity-75">
+                                    About Us
                                 </a>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <p className="font-medium">Legal</p>
+                        <p className="font-medium">Next Steps</p>
 
                         <ul className="mt-6 space-y-4 text-sm">
                             <li>
                                 <a href="#" className=" transition hover:opacity-75">
-                                    Accessibility
+                                    Join Our Church
                                 </a>
                             </li>
-
                             <li>
                                 <a href="#" className=" transition hover:opacity-75">
-                                    Returns Policy
+                                    Cell Groups
                                 </a>
                             </li>
-
                             <li>
                                 <a href="#" className=" transition hover:opacity-75">
-                                    Refund Policy
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Hiring Statistics
+                                    Baptism
                                 </a>
                             </li>
                         </ul>
