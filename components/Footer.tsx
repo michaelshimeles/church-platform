@@ -185,7 +185,7 @@ const Footer = ({ }) => {
                     </div>
                 </div>
 
-                <div className='flex w-full justify-between'>
+                <div className='flex flex-col gap-4 justify-between'>
                     <p className="text-xs text-gray-500">
                         &copy; 2023. Tsega Bible Fellowship Church. All rights reserved.
                     </p>
