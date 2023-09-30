@@ -22,7 +22,7 @@ const FaithPage: React.FC<FaithPageProps> = ({ }) => {
                     The Bible
                 </h2>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The Bible (in the original manuscripts) is God's flawless Word on how to be restored to intimate relationship with him, as his child. Though humans wrote it, it was under the supernatural guidance of the Holy Spirit and is the final source for belief and how to live.
+                    The Bible (in the original manuscripts) is God&apos;s flawless Word on how to be restored to intimate relationship with him, as his child. Though humans wrote it, it was under the supernatural guidance of the Holy Spirit and is the final source for belief and how to live.
                 </p>
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     Spiritual Realm
@@ -34,7 +34,7 @@ const FaithPage: React.FC<FaithPageProps> = ({ }) => {
                     The Church
                 </h2>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The universal church consists of all true followers of Jesus Christ. The local church gathers as a community to worship God and support one another as we seek to become more like Christ. The primary task of the church and its members is to present the message and person of Jesus Christ to the world who is spiritually separated from him. Scripture challenges us to not give up meeting on a regular basis so that we can: 1) grow in Relationship to God and each other 2) Represent God to the world as Salt: A moral & spiritual influence Ambassadors: Presenting Christ's message of Forgiveness and Reconciliation to the world Image: Responsibility to care for creation on God's behalf Light: To reveal God's glory & truth wherever we go
+                    The universal church consists of all true followers of Jesus Christ. The local church gathers as a community to worship God and support one another as we seek to become more like Christ. The primary task of the church and its members is to present the message and person of Jesus Christ to the world who is spiritually separated from him. Scripture challenges us to not give up meeting on a regular basis so that we can: 1) grow in Relationship to God and each other 2) Represent God to the world as Salt: A moral & spiritual influence Ambassadors: Presenting Christ&apos;s message of Forgiveness and Reconciliation to the world Image: Responsibility to care for creation on God&apos;s behalf Light: To reveal God&apos;s glory & truth wherever we go
                 </p>
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     Jesus Christ
@@ -46,7 +46,7 @@ const FaithPage: React.FC<FaithPageProps> = ({ }) => {
                     The Holy Spirit
                 </h2>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The Holy Spirit is equal with the Father and Jesus, the Son. He is present in the world to make people aware of their need for Jesus Christ and his forgiveness. He resides in every believer from the moment of salvation, providing them with the ability to live a godly life, understand spiritual truths, guidance through life, and giving them special spiritual abilities for the strengthening of God's family. Followers of Jesus seek to live under the Holy Spirit's leadership daily.
+                    The Holy Spirit is equal with the Father and Jesus, the Son. He is present in the world to make people aware of their need for Jesus Christ and his forgiveness. He resides in every believer from the moment of salvation, providing them with the ability to live a godly life, understand spiritual truths, guidance through life, and giving them special spiritual abilities for the strengthening of God&apos;s family. Followers of Jesus seek to live under the Holy Spirit&apos;s leadership daily.
                 </p>
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     Salvation
@@ -76,7 +76,7 @@ const FaithPage: React.FC<FaithPageProps> = ({ }) => {
                     Eternity
                 </h2>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    We were created to exist forever. We will either exist eternally separated from God because of our sin (Judgement), or eternally in God's presence as his child, caring for a new perfected earth on his behalf (Heaven).
+                    We were created to exist forever. We will either exist eternally separated from God because of our sin (Judgement), or eternally in God&apos;s presence as his child, caring for a new perfected earth on his behalf (Heaven).
                 </p>
             </div>
         </section>
