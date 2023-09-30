@@ -22,7 +22,7 @@ const GivePage: React.FC<GivePageProps> = () => {
           </div>
 
           <div className="lg:py-24">
-            <h2 className="text-3xl font-bold sm:text-4xl">Thank you for using the Grace (Tsega) Church Online Giving Option</h2>
+            <h2 className="text-3xl font-bold sm:text-4xl">Thank you for using the Grace (ጸጋ) Church Online Giving Option</h2>
 
             <p className="mt-4 light:text-gray-600 dark:text-gray-300">
               Support the mission and vision of Tsega Bible Fellowship Church with your generous donations through our online giving platform. Your offering is an investment in serving our community and spreading the love of Jesus. Giving is a spiritual discipline and act of worship, helping to provide for the congregation and fulfill our mission. Donate easily and securely by entering the amount you would like to give. Thank you for your support, an act of worship and vital to spreading hope through Jesus.
@@ -74,7 +74,7 @@ const GivePage: React.FC<GivePageProps> = () => {
                 Online giving is a quick and easy way to give. Click on the blue &apos;Give Online&apos; button below which will take you
               </p>
               <Link href={`${process.env.NEXT_PUBLIC_STRIPE_LINK}`} target='_blank'>
-                <Button className='mt-3'>Give</Button>
+                <Button className='mt-3 w-full' variant="outline" size="sm">Give</Button>
               </Link>
             </div>
 
@@ -102,10 +102,10 @@ const GivePage: React.FC<GivePageProps> = () => {
             </span>
 
             <div>
-              <h2 className="text-lg font-bold">Sunday Giving</h2>
+              <h2 className="text-lg font-bold">Interac E-Transfer</h2>
 
               <p className="mt-1 text-sm light:text-gray-600 dark:text-gray-300">
-                If you prefer, you can give during our Sunday service
+                You can give by sending your gift via E-Transfer to tsegabfc@gmail.com
               </p>
             </div>
           </div>
@@ -161,12 +161,11 @@ const GivePage: React.FC<GivePageProps> = () => {
                 ></path>
               </svg>
             </span>
-
             <div>
-              <h2 className="text-lg font-bold">Interac E-Transfer</h2>
+              <h2 className="text-lg font-bold">Sunday Giving</h2>
 
               <p className="mt-1 text-sm light:text-gray-600 dark:text-gray-300">
-                Text the word &apos;GIVE&apos; to +17576459906. In return you will receive a text message with a link to our giving platform. (Msg & Data Rates Apply).
+                If you prefer, you can give during our Sunday service
               </p>
             </div>
           </div>
