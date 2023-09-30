@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = ({ }) => {
     return (
@@ -83,60 +84,47 @@ const Footer = ({ }) => {
                     className="grid grid-cols-1 gap-8 border-t light:border-gray-900 dark:border-gray-700 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-16"
                 >
                     <div>
-                        <p className="font-medium">Services</p>
+                        <p className="font-medium">Ministry</p>
 
                         <ul className="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    1on1 Coaching
+                                <a href="/faith" className=" transition hover:opacity-75">
+                                    Statement of Faith
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/english-ministry" className=" transition hover:opacity-75">
+                                    English Ministry
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Company Review
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Accounts Review
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    HR Consulting
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    SEO Optimisation
+                                <a href="/amharic-ministry" className=" transition hover:opacity-75">
+                                    Amharic Ministry
                                 </a>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <p className="font-medium">Company</p>
+                        <p className="font-medium">Resources</p>
 
                         <ul className="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    About
+                                <a href="/resources/blog" className=" transition hover:opacity-75">
+                                    Blog
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Meet the Team
+                                <a href="/coming-soon" className=" transition hover:opacity-75">
+                                    Courses
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Accounts Review
+                                <a href="/coming-soon" className=" transition hover:opacity-75">
+                                    Bible Study Tool
                                 </a>
                             </li>
                         </ul>
@@ -147,20 +135,20 @@ const Footer = ({ }) => {
 
                         <ul className="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Contact
+                                <a href="/give" className=" transition hover:opacity-75">
+                                    Give
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/contact-us" className=" transition hover:opacity-75">
+                                    Contact Us
                                 </a>
                             </li>
 
                             <li>
                                 <a href="#" className=" transition hover:opacity-75">
-                                    FAQs
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" className=" transition hover:opacity-75">
-                                    Live Chat
+                                    Team
                                 </a>
                             </li>
                         </ul>
@@ -197,9 +185,16 @@ const Footer = ({ }) => {
                     </div>
                 </div>
 
-                <p className="text-xs text-gray-500">
-                    &copy; 2022. Company Name. All rights reserved.
-                </p>
+                <div className='flex w-full justify-between'>
+                    <p className="text-xs text-gray-500">
+                        &copy; 2023. Tsega Bible Fellowship Church. All rights reserved.
+                    </p>
+                    <Link href="https://www.exoduslabs.xyz" target='_blank'>
+                        <p className="text-xs text-gray-500">
+                            Built by <span className='font-bold hover:underline hover:underline-offset-1'>Exodus Labs</span>.
+                        </p>
+                    </Link>
+                </div>
             </div>
         </footer>
     );

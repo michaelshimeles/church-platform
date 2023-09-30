@@ -8,7 +8,7 @@ const FaithPage: React.FC<FaithPageProps> = ({ }) => {
             <div className="max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
                 <div className="max-w-xl">
                     <h2 className="text-3xl font-bold sm:text-4xl">Our Statement of Faith</h2>
-                    <p className="mt-4 text-gray-300">
+                    <p className="mt-4 dark:text-gray-300">
                         Discover our unwavering faith in Our Lord Jesus Christ as we share our foundational beliefs on our Statement of Faith.
                     </p>
                 </div>
