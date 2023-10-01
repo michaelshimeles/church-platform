@@ -15,7 +15,6 @@ const ChurchCard: React.FC<ChurchCardProps> = ({ image, language, church, descri
                 src={image}
                 className="absolute inset-0 h-full w-full object-cover opacity-50 transition-opacity group-hover:opacity-40 rounded-sm"
             />
-
             <div className="relative p-4 sm:p-6 lg:p-8">
                 <p className="text-sm font-medium uppercase tracking-widest drop-shadow-xl">
                     {language}

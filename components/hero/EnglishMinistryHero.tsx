@@ -7,7 +7,7 @@ import Link from "next/link"
 export default function EnglishMinistryHero() {
     return (
         <section
-            className="w-full py-12 md:py-24 lg:py-32 bg-cover bg-center"
+            className="w-full py-12 md:py-24 lg:py-32 bg-cover bg-center opacity-80            "
             style={{
                 backgroundImage: "url(/praise.jpg?height=1080&width=1920)",
             }}

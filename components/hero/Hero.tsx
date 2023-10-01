@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import { url } from 'inspector';
 import Link from 'next/link';
 

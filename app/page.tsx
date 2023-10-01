@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+import Hero from '@/components/hero/Hero'
 import ServiceSchedule from '@/components/ServiceSchedule'
 import ChurchCard from '@/components/card/ChurchCard'
 

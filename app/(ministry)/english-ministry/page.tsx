@@ -1,5 +1,5 @@
 import CTA from '@/components/CTA';
-import EnglishMinistryHero from '@/components/EnglishMinistryHero';
+import EnglishMinistryHero from '@/components/hero/EnglishMinistryHero';
 import HowWeServeCard from '@/components/card/HowWeServeCard';
 import ScheduleCard from '@/components/card/ScheduleCard';
 import React from 'react'
