@@ -78,7 +78,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, event
                         <DialogHeader>
                             <DialogTitle>Register for our {eventName}</DialogTitle>
                             <DialogDescription>
-                                We'll text you link to our church whatsapp group and to stay up to date
+                                We&apos;ll text you link to our church whatsapp group and to stay up to date
                             </DialogDescription>
                         </DialogHeader>
                         <div className="grid gap-4 py-4">
