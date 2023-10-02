@@ -5,7 +5,7 @@ interface ContactUsProps {}
 
 const ContactUsPage: React.FC<ContactUsProps> = ({ }) => {
     return (
-        <div className="mx-auto max-w-screen-xl px-4 mt-[6rem] sm:px-6 lg:px-8 min-h-screen">
+        <div className="mx-auto max-w-screen-xl px-4 mt-[3rem] sm:px-6 lg:px-8 min-h-screen">
             <div className="flex max-[1240px]:flex-col items-center gap-4 p-2">
                 <div className="lg:col-span-2 lg:py-9">
                     <p className="max-w-xl text-lg">

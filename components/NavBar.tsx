@@ -93,7 +93,7 @@ export function NavBar() {
                             </Link>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Link href="/about-us">
+                            <Link href="/about">
                                 <Button variant="outline" className="w-full">About Us</Button>
                             </Link>
                         </DialogClose>
