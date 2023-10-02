@@ -117,7 +117,7 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
                                         className="w-full h-64 object-cover object-center rounded-lg"
                                         data-id="63"
                                         height="400"
-                                        src={post?.image.url}
+                                        src={post?.image?.url}
                                         width="600"
                                     />
                                     <h3 className="text-xl font-bold mb-2 mt-4" data-id="64">

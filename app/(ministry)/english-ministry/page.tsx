@@ -16,9 +16,9 @@ const EnglishMinistryPage: React.FC<EnglishMinistryProps> = ({ }) => {
                         Weekly Schedule
                     </h2>
                     <div className='flex flex-wrap justify-center mt-[2rem] gap-4'>
-                        <ScheduleCard eventName='Virtual Bible Study' eventLead='Michael Shimeles' eventTime="7:30pm" eventDate="Wednesday" eventAddress="Online" />
-                        <ScheduleCard eventName='In-Person Bible Study & Prayer' eventLead='Michael Shimeles' eventTime="9:00pm" eventDate="Friday" eventAddress="100 Halsey Ave" />
-                        <ScheduleCard eventName='Church Service' eventLead='Michael Shimeles' eventTime="4:00pm" eventDate="Sunday" eventAddress="65 Sunrise Ave" />
+                        <ScheduleCard eventName='Virtual Bible Study' eventLead='Michael Shimeles' eventTime="7:30pm" eventDate="Wednesday" eventAddress="Online" eventDescription={`Embark on a spiritual journey from the comfort of your home with our Virtual Bible Study sessions. Dive deep into the Word and connect with like-minded seekers online`} />
+                        <ScheduleCard eventName='In-Person Bible Study & Prayer' eventLead='Michael Shimeles' eventTime="9:00pm" eventDate="Friday" eventAddress="100 Halsey Ave" eventDescription={`Join us for enriching in-person Bible study and heartfelt prayer gatherings where Jesus is glorified, and we are edified, fostering a sense of community and spiritual growth`}/>
+                        <ScheduleCard eventName='Church Service' eventLead='Michael Shimeles' eventTime="4:00pm" eventDate="Sunday" eventAddress="65 Sunrise Ave" eventDescription={`Come as you are and be part of our welcoming faith community, where we worship, pray, and learn about Jesus, deepening our spiritual journey and forging lasting connections in the process.`}/>
                     </div>
                 </div>
                 <div className='mt-[3rem]'>

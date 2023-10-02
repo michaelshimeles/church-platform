@@ -19,6 +19,8 @@ import { ModeToggle } from "./ModeToggle"
 import { Profile } from "./Profile"
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
 import { useAuth } from "@clerk/nextjs";
+import { Button } from "./ui/button"
+import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -53,12 +55,20 @@ export function NavBar() {
                 </SheetTrigger>
                 <SheetContent side="left">
                     <SheetHeader>
-                        <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+                        <SheetTitle>Grace (ጸጋ) Bible Fellowship Church</SheetTitle>
                         <SheetDescription>
-                            This action cannot be undone. This will permanently delete your account
-                            and remove your data from our servers.
+                            Grow In Grace. Grow In Knowledge.
                         </SheetDescription>
                     </SheetHeader>
+                    <div className="flex flex-col space-y-3 mt-[1rem]">
+                        <Button variant="outline">Statement of Faith</Button>
+                        <Button variant="outline">Give</Button>
+                        <Button variant="outline">English Ministry</Button>
+                        <Button variant="outline">Amharic Ministry</Button>
+                        <Button variant="outline">Resources</Button>
+                        <Button variant="outline">Contact Us</Button>
+                        <Button variant="outline">About Us</Button>
+                    </div>
                 </SheetContent>
             </Dialog>
 

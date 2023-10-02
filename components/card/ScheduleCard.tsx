@@ -17,10 +17,11 @@ interface ScheduleCardProps {
     eventLead: string
     eventDate: string,
     eventTime: string,
-    eventAddress: string
+    eventAddress: string,
+    eventDescription: string
 }
 
-const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, eventDate, eventTime, eventAddress }) => {
+const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, eventDate, eventTime, eventAddress, eventDescription }) => {
     return (
         <div
             className="relative block overflow-hidden rounded-lg border border-gray-800 p-4 sm:p-6 lg:p-8"
@@ -49,8 +50,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, event
 
             <div className="mt-4">
                 <p className="max-w-[40ch] text-sm dark:text-gray-300 light:text-gray-600">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum
-                    provident a, ipsa maiores deleniti consectetur nobis et eaque.
+                    {eventDescription}
                 </p>
             </div>
 
