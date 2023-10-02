@@ -22,8 +22,8 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
             h2: ({ children }: any) => <h2 className="pt-[1rem] pb-[1rem] scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">{children}</h2>,
             h3: ({ children }: any) => <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">{children}</h3>,
             h4: ({ children }: any) => <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">{children}</h4>,
-            p: ({ children }: any) => <p className="pb-9 leading-7 [&:not(:first-child)]:mt-6">{children}</p>,
-            blockquote: ({ children }: any) => <blockquote className="mt-6 border-l-2 pl-6 italic">{children}</blockquote>,
+            normal: ({ children }: any) => <p className="pb-3 leading-7 [&:not(:first-child)]:mt-1">{children}</p>,
+            blockquote: ({ children }: any) => <blockquote className="my-4 border-l-2 pl-6 italic">{children}</blockquote>,
         },
         list: {
             bullet: ({ children }: any) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>,
