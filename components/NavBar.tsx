@@ -10,7 +10,7 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
-import { Dialog } from "@radix-ui/react-dialog"
+import { Dialog, DialogClose } from "@radix-ui/react-dialog"
 import Image from "next/image"
 import Link from "next/link"
 import * as React from "react"
@@ -61,13 +61,42 @@ export function NavBar() {
                         </SheetDescription>
                     </SheetHeader>
                     <div className="flex flex-col space-y-3 mt-[1rem]">
-                        <Button variant="outline">Statement of Faith</Button>
-                        <Button variant="outline">Give</Button>
-                        <Button variant="outline">English Ministry</Button>
-                        <Button variant="outline">Amharic Ministry</Button>
-                        <Button variant="outline">Resources</Button>
-                        <Button variant="outline">Contact Us</Button>
-                        <Button variant="outline">About Us</Button>
+                        <DialogClose asChild>
+                            <Link href="/faith">
+                                <Button variant="outline" className="w-full">Statement of Faith</Button>
+                            </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+                            <Link href="/give">
+                                <Button variant="outline" className="w-full">Give</Button>
+                            </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+
+                            <Link href="/english-ministry">
+                                <Button variant="outline" className="w-full">English Ministry</Button>
+                            </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+                            <Link href="/amharic-ministry">
+                                <Button variant="outline" className="w-full">Amharic Ministry</Button>
+                            </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+                            <Link href="/resources/blog">
+                                <Button variant="outline" className="w-full">Blog</Button>
+                            </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+                            <Link href="/contact-us">
+                                <Button variant="outline" className="w-full">Contact Us</Button>
+                            </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+                            <Link href="/about-us">
+                                <Button variant="outline" className="w-full">About Us</Button>
+                            </Link>
+                        </DialogClose>
                     </div>
                 </SheetContent>
             </Dialog>
