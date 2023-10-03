@@ -27,7 +27,7 @@ const components: { title: string; href: string; description: string }[] = [
         title: "Blog",
         href: "/resources/blog",
         description:
-            "Deepen your knowledge.",
+            "Deepen your knowledge about The Word of God with our blog.",
     },
     {
         title: "Courses",
@@ -132,7 +132,7 @@ export function NavBar() {
                                         >
                                             <Image src="/TBF.webp" width={50} height={50} alt="logo" />
                                             <div className="mb-2 mt-4 text-lg font-medium">
-                                                Tsega Bible Church
+                                                Grace (ጸጋ) Bible Fellowship Church
                                             </div>
                                             <p className="text-sm leading-tight text-muted-foreground">
                                                 Grow In Grace. Grow In Knowledge.

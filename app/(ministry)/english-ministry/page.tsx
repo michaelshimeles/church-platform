@@ -27,8 +27,8 @@ const EnglishMinistryPage: React.FC<EnglishMinistryProps> = ({ }) => {
                     </h2>
 
                     <div className='flex flex-wrap justify-center mt-[2rem] gap-4'>
-                        <HowWeServeCard title={"Sunday Service"} description={`Our church disciples believers through biblical teaching and equipping them to fulfill their calling through service. We foster growth in faith through prayer, worship and obedience to God's commands.`} imageUrl={'/bible.jpg'} />
-                        <HowWeServeCard title={"Bible Studies"} description={`The large, corporate gathering of our church community every Sunday.`} imageUrl={'/bible.jpg'} />
+                        <HowWeServeCard title={"Sunday Service"} description={`Our church disciples believers through biblical teaching and equipping them to fulfill their calling through service. We foster growth in faith through prayer, worship and obedience to God's commands.`} imageUrl={'/sermon.jpg'} />
+                        <HowWeServeCard title={"Bible Study"} description={`The large, corporate gathering of our church community every Sunday.`} imageUrl={'/biblestudy.jpg'} />
                         <HowWeServeCard title={"Prayer"} description={`Each week, we come together in the spirit of faith and unity to lay our hearts' desires and worries at the feet of Jesus, with humble hearts and steadfast trust, praying for healing, peace, joy, and all the fruits of the Spirit to manifest in our lives and the world around us.`} imageUrl={'/prayer.png'} />
                         <HowWeServeCard title={"Young Adults"} description={`The large, corporate gathering of our church community every Sunday.`} imageUrl={'/young-adults.png'} />
                         <HowWeServeCard title={"Youth"} description={`Nurturing young hearts with love, we gracefully guide them towards the light of Jesus Christ, leading them through teachings, prayers, and guidance towards a life filled with faith in the Lord..`} imageUrl={'/youth.png'} />

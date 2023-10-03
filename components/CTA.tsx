@@ -1,9 +1,5 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/UpgQ2fSbTB0
- */
+
 import Link from "next/link"
-import Image from "next/image"
 export default function CTA() {
     return (
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -24,9 +20,6 @@ export default function CTA() {
                         </Link>
                     </div>
                 </div>
-                {/* <div className="hidden lg:block">
-                    <Image alt="Grace Bible Fellowship" height="500" src="/bible.jpg" width="800" />
-                </div> */}
             </div>
         </section>
     )
