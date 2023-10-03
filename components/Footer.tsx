@@ -119,7 +119,7 @@ const Footer = ({ }) => {
                         <p className="font-medium">Next Steps</p>
                         <ul className="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" className=" transition hover:opacity-75">
+                                <a href="/join-us" className=" transition hover:opacity-75">
                                     Join Our Church
                                 </a>
                             </li>
