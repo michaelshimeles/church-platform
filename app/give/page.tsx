@@ -45,7 +45,7 @@ const GivePage = () => {
           className="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3"
         >
           <div className="flex items-start gap-4">
-            <span className="shrink-0 rounded-lg bg-gray-800 p-4">
+            <span className="shrink-0 rounded-lg dark:bg-gray-800 p-4 border ">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -79,7 +79,7 @@ const GivePage = () => {
 
           </div>
           <div className="flex items-start gap-4">
-            <span className="shrink-0 rounded-lg bg-gray-800 p-4">
+            <span className="shrink-0 rounded-lg dark:bg-gray-800 p-4 border">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -110,7 +110,7 @@ const GivePage = () => {
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="shrink-0 rounded-lg bg-gray-800 p-4">
+            <span className="shrink-0 rounded-lg dark:bg-gray-800 p-4 border">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -140,7 +140,7 @@ const GivePage = () => {
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <span className="shrink-0 rounded-lg bg-gray-800 p-4">
+            <span className="shrink-0 rounded-lg dark:bg-gray-800 p-4 border">
               <svg
                 className="h-5 w-5"
                 fill="none"
@@ -161,7 +161,7 @@ const GivePage = () => {
               </svg>
             </span>
             <div>
-              <h2 className="text-lg font-bold">Sunday Giving</h2>
+              <h2 className="text-lg font-bold ">Sunday Giving</h2>
 
               <p className="mt-1 text-sm light:text-gray-600 dark:text-gray-300">
                 If you prefer, you can give during our Sunday service

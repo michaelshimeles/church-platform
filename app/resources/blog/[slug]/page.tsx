@@ -4,6 +4,7 @@ import { urlForImage } from "@/sanity/lib/image"
 import { PortableText } from '@portabletext/react'
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import ReactPlayer from "react-player"
 
 
 const SlugPage = ({ params }: { params: { slug: string } }) => {
@@ -14,8 +15,15 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
     const PortableTextComponent = {
         types: {
             image: ({ value }: { value: any }) => (
-                <Image src={urlForImage(value).url()} alt='' />
-            )
+                <Image src={urlForImage(value).url()} alt='' width={1090} height={1050} />
+            ),
+            youtube: ({ value }: {
+                value: {
+                    url: string
+                }
+            }) => {
+                return (<div className="flex justify-center"><ReactPlayer url={value?.url} /></div>)
+            },
         },
         block: {
             h1: ({ children }: any) => <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">{children}</h1>,
@@ -59,36 +67,36 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
 
     if (!post) {
         return (
-            <div className="flex flex-col justify-center items-center space-x-4 min-w-full">
-                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+            <div className="flex flex-col justify-center items-center space-x-4 min-w-screen">
+                <div className="min-w-full lg:min-w-[70%] max-w-md mx-auto animate-pulse p-9">
                     <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
                     <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
-                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                <div className="min-w-full lg:min-w-[70%] max-w-md mx-auto animate-pulse p-9">
                     <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
                     <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
-                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                <div className="min-w-full lg:min-w-[70%] max-w-md mx-auto animate-pulse p-9">
                     <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
                     <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
-                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                <div className="min-w-full lg:min-w-[70%] max-w-md mx-auto animate-pulse p-9">
                     <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
                     <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-64 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-4/5 h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                 </div>
-                <div className="w-full max-w-md mx-auto animate-pulse p-9">
+                <div className="min-w-full lg:min-w-[70%] max-w-md mx-auto animate-pulse p-9">
                     <h1 className="h-2 bg-gray-300 rounded-lg w-52 dark:bg-gray-600"></h1>
                     <p className="w-48 h-2 mt-6 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
                     <p className="w-full h-2 mt-4 bg-gray-200 rounded-lg dark:bg-gray-700"></p>
@@ -98,7 +106,7 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
             </div>
         )
     }
-    
+
     return (
         <div className="w-full py-[4rem] px-[2rem]">
             <div className="flex flex-col items-center min-w-fit">

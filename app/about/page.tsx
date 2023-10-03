@@ -1,10 +1,30 @@
-import React from 'react'
+const team = [{
+    name: "Pastor Berhanu & Pastor Almaz",
+    position: "Senior & Executive Pastor",
+    src: "/pastor-berhanu.jpg"
+}, {
+    name: "Grace Woldegiorgis",
+    position: "Worship Coordinator",
+    src: "/grace.png"
 
-interface AboutUsProps {
+}, {
+    name: "Bizuye Gebre Medhin",
+    position: "Deacon Coordinator",
+    src: "/bezuye.png"
 
-}
+}, {
+    name: "Pastor Simon",
+    position: "Administrative Pastor",
+    src: "/pastor-berhanu.jpg"
 
-const AboutUs: React.FC<AboutUsProps> = ({ }) => {
+}, {
+    name: "Michael Shimeles",
+    position: "Youth Pastor",
+    src: "/youth.png"
+
+}]
+
+const AboutUs = () => {
     return (
         <section className='container px-6 py-10 mx-auto'>
             <div className='mt-[1rem]'>
@@ -22,47 +42,13 @@ const AboutUs: React.FC<AboutUsProps> = ({ }) => {
                 <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                     Our Team</h1>
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-                    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="/pastor-berhanu.jpg" alt="" />
+                    {team?.map((member) => (<div key={member?.name} className="flex flex-col items-center p-8 transition-colors duration-300 transform border rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
+                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={member?.src} alt="" />
 
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Pastor Berhanu</h1>
+                        <h1 className="mt-4 text-md font-semibold text-gray-700 capitalize dark:text-white">{member?.name}</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Senior Pastor</p>
-                    </div>
-
-                    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" alt="" />
-
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Pastor Almaz</h1>
-
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Execute Pastor</p>
-                    </div>
-                    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="/grace.png" alt="" />
-
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Grace Woldegiorgis</h1>
-
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Worship Pastor</p>
-                    </div>
-                    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="/bezuye.png" alt="" />
-
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Bizuye Gebre Medhin</h1>
-
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Deacon Pastor</p>
-                    </div>
-                    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Pastor Simon</h1>
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Administrative Pastor</p>
-                    </div>
-                    <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl group dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="/mike.png" alt="" />
-
-                        <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">Michael Shimeles</h1>
-
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Youth Pastor</p>
-                    </div>
+                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300">{member?.position}</p>
+                    </div>))}
                 </div>
             </div>
         </section>

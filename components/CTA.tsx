@@ -1,5 +1,17 @@
 
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import Link from "next/link"
+import { Button } from "./ui/button"
 export default function CTA() {
     return (
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -12,15 +24,40 @@ export default function CTA() {
                         We are a community that believes in the Life giving Lord & King Jesus Christ.
                     </p>
                     <div className="flex space-x-4">
-                        <Link
-                            className="inline-flex h-10 items-center justify-center rounded-md px-8 text-sm font-medium text-white shadow transition-colors hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-50/90 dark:focus-visible:ring-zinc-300"
-                            href="#"
-                        >
-                            Join Our Fellowship
-                        </Link>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button className="inline-flex h-10 items-center justify-center rounded-md px-8 text-sm font-medium text-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-50/90 dark:focus-visible:ring-zinc-300">Join Our Fellowship</Button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-[425px]">
+                                <DialogHeader>
+                                    <DialogTitle>Join Our Church</DialogTitle>
+                                    <DialogDescription>
+                                        We&apos;ll text you link to our church whatsapp group and to stay up to date
+                                    </DialogDescription>
+                                </DialogHeader>
+                                <div className="grid gap-4 py-4">
+                                    <div className="grid grid-cols-4 items-center gap-4">
+                                        <Label className="text-right">
+                                            Full Name
+                                        </Label>
+                                        <Input id="name" className="col-span-3" />
+                                    </div>
+                                    <div className="grid grid-cols-4 items-center gap-4">
+                                        <Label className="text-right">
+                                            Phone #
+                                        </Label>
+                                        <Input className="col-span-3" />
+                                    </div>
+                                </div>
+                                <DialogFooter>
+                                    <Button type="submit">Save changes</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 </div>
             </div>
+
         </section>
     )
 }

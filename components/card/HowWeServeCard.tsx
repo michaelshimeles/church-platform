@@ -9,7 +9,7 @@ interface HowWeServeCardProps {
 
 const HowWeServeCard: React.FC<HowWeServeCardProps> = ({ title, description, imageUrl }) => {
     return (
-        <div className="max-w-xs border border-gray-800 rounded-lg shadow">
+        <div className="max-w-xs border dark:border-gray-800 rounded-lg shadow">
             <Image className="rounded-t-lg" src={imageUrl} alt="" width={320} height={240} />
             <div className="p-5">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
