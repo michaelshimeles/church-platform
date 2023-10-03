@@ -20,11 +20,11 @@ const Hero: React.FC<HeroProps> = ({}) => {
                 Grow In Grace. Grow In Knowledge.
             </h4>
             <div className="flex gap-5">
-                <Link href="/faith">
-                    <Button className="mt-3">Join Us</Button>
+                <Link href="/join-us">
+                    <Button className="mt-3" variant="outline">Join Us</Button>
                 </Link>
                 <Link href="/faith">
-                    <Button className="mt-3" variant="secondary">
+                    <Button className="mt-3" >
                         Statement of Faith
                     </Button>
                 </Link>

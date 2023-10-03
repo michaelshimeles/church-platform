@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex min-w-screen flex-col items-center justify-between">
       <Hero />
-      <div className='flex flex-col mt-[4rem] text-center mb-12 p-3 sm:md:w-[100%] md:w-[70%]'>
+      <div className='flex flex-col mt-[4rem] text-center mb-12 p-3 sm:md:w-[100%] md:w-[60%]'>
         <h1 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl">
           One Family. Different Languages.
         </h1>
