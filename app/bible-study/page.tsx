@@ -6,6 +6,25 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Label } from "@radix-ui/react-dropdown-menu"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@radix-ui/react-select"
 
+function CardWithForm() {
+    return (
+        <Card className="w-[350px]">
+            <CardHeader>
+                <CardTitle>Coming Soon</CardTitle>
+                <CardDescription>Study the Word of God with ease.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <p>This tool is being developed and will be launched soon!</p>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+                <Link href="/">
+                    <Button>Back Home</Button>
+                </Link>
+            </CardFooter>
+        </Card>
+    )
+}
+
 export default function BibleStudyTool() {
     return (
         <div key="1" className="relative grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
@@ -156,24 +175,5 @@ export default function BibleStudyTool() {
                 <CardWithForm />
             </div>
         </div>
-    )
-}
-
-export function CardWithForm() {
-    return (
-        <Card className="w-[350px]">
-            <CardHeader>
-                <CardTitle>Coming Soon</CardTitle>
-                <CardDescription>Study the Word of God with ease.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <p>This tool is being developed and will be launched soon!</p>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-                <Link href="/">
-                    <Button>Back Home</Button>
-                </Link>
-            </CardFooter>
-        </Card>
     )
 }
