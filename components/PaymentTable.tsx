@@ -2,11 +2,36 @@
 import { TableCaption, TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import { useUser } from "@clerk/nextjs";
 import { useState, useEffect } from "react"
+import { Receipt } from "lucide-react";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Loader2 } from 'lucide-react';
 
+export const Icon = {
+    spinner: Loader2,
+};
+
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { DialogClose } from "@radix-ui/react-dialog";
 export default function PaymentTable() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [finance, setFinance] = useState<any>(null)
+    const [billingInfo, setBillingInfo] = useState<any>(null)
+    const [paymentInfo, setPaymentInfo] = useState<any>(null)
+    const [loading, setLoading] = useState<boolean>(false)
+
     useEffect(() => {
+        setLoading(true)
         const getFinanceInfo = async () => {
             const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
                 method: "POST",
@@ -18,13 +43,20 @@ export default function PaymentTable() {
 
             setFinance(result)
 
+            setLoading(false)
             return result
         }
 
         getFinanceInfo()
     }, [user])
 
-    console.log("finance", finance?.financials?.payments)
+    // console.log("finance", finance?.financials?.payments)
+
+    const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
+    const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
+    console.log("paymentObject", paymentObject)
+
+
     return (
         <div className="flex flex-col gap-5">
             <div>
@@ -35,34 +67,79 @@ export default function PaymentTable() {
                     Track all your donations to our church
                 </p>
             </div>
-            <Table>
-                <TableCaption>Financial Donations to the Church</TableCaption>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead className="w-[150px]">Email</TableHead>
-                        <TableHead>Amount</TableHead>
-                        <TableHead>Currency</TableHead>
-                        <TableHead>Date</TableHead>
-                        <TableHead>Time</TableHead>
-                        <TableHead className="text-right">Receipt Email</TableHead>
-                        <TableHead className="text-right">Receipt Link</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-
-                    {finance?.financials?.payments.length > 0 && finance?.financials?.payments?.map((info: any) => {
+            {!loading ?
+                <Table>
+                    <TableCaption>Financial Donations to the Church</TableCaption>
+                    <TableHeader>
                         <TableRow>
-                            <TableCell className="font-medium">{finance?.financials?.payments?.[0].email}</TableCell>
-                            <TableCell>{Number(finance?.financials?.payments?.[0]?.amount) / 100}</TableCell>
-                            <TableCell>{finance?.financials?.payments?.[0]?.currency}</TableCell>
-                            <TableCell>{finance?.financials?.payments?.[0]?.payment_date}</TableCell>
-                            <TableCell>{finance?.financials?.payments?.[0]?.payment_time}</TableCell>
-                            <TableCell className="text-right">{finance?.financials?.payments?.[0]?.receipt_email}</TableCell>
-                            <TableCell className="text-right">{finance?.financials?.payments?.[0]?.receipt_url.substr(8, 40)}...</TableCell>
+                            <TableHead className="w-[150px]">Email</TableHead>
+                            <TableHead>Amount</TableHead>
+                            <TableHead>Currency</TableHead>
+                            <TableHead>Date</TableHead>
+                            <TableHead>Time</TableHead>
+                            <TableHead>Receipt Email</TableHead>
+                            <TableHead className="text-center">Receipt Link</TableHead>
+                            <TableHead className="text-center">More Info</TableHead>
                         </TableRow>
-                    })}
-                </TableBody>
-            </Table>
+                    </TableHeader>
+                    <TableBody>
+                        {finance?.financials?.payments?.map((info: any, index: number) => (
+                            <TableRow key={index} onClick={() => {
+                                console.log("Clicked", info)
+                                setBillingInfo(info)
+                                setPaymentInfo(info)
+                            }}>
+                                <TableCell className="font-medium">{info?.email}</TableCell>
+                                <TableCell>${Number(info?.amount) / 100}</TableCell>
+                                <TableCell>{info?.currency?.toUpperCase()}</TableCell>
+                                <TableCell>{info?.payment_date}</TableCell>
+                                <TableCell>{info?.payment_time}</TableCell>
+                                <TableCell>{info?.receipt_email}</TableCell>
+                                <TableCell>
+                                    <Link target="_blank" href={info?.receipt_url} className="flex justify-center cursor-pointer">
+                                        <Receipt />
+                                    </Link>
+                                </TableCell>
+                                <TableCell>
+                                    <Dialog>
+                                        <DialogTrigger asChild>
+                                            <Button variant="outline">More Info</Button>
+                                        </DialogTrigger>
+                                        <DialogContent className="sm:max-w-[425px]">
+                                            <DialogHeader>
+                                                <DialogTitle>Donation Info</DialogTitle>
+                                                <DialogDescription>
+                                                    Make changes to your profile here. Click save when you're done.
+                                                </DialogDescription>
+                                            </DialogHeader>
+                                            <div className="grid gap-2 py-4">
+                                                <h1>Billing Details</h1>
+                                                <p>{billingObject?.name}</p>
+                                                <p>{billingObject?.email}</p>
+                                                <p>{billingObject?.phone}</p>
+                                                <p>{billingObject?.address?.line1}</p>
+                                                <p>{billingObject?.address?.line2}</p>
+                                                <p>{billingObject?.address?.city}</p>
+                                                <p>{billingObject?.address?.state}</p>
+                                                <p>{billingObject?.address?.postal_code}</p>
+                                                <p>{billingObject?.address?.country}</p>
+                                            </div>
+                                            <DialogFooter>
+                                                <DialogClose>
+                                                    <Button type="button">Close</Button>
+                                                </DialogClose>
+                                            </DialogFooter>
+                                        </DialogContent>
+                                    </Dialog>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+
+                </Table> : <div className="flex flex-col justify-center items-center min-w-screen">
+                    <Icon.spinner className="h-4 w-4 animate-spin" />
+                </div>
+            }
         </div>
     )
 }

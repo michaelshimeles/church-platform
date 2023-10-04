@@ -28,8 +28,8 @@
     "@sanity/vision": "^3.16.7",
     "@supabase/auth-helpers-nextjs": "^0.8.1",
     "@supabase/supabase-js": "^2.36.0",
-    "@tanstack/react-query": "^4.35.3",
-    "@tanstack/react-query-devtools": "^4.35.3",
+    "@tanstack/react-query": "^4.35.7",
+    "@tanstack/react-query-devtools": "^4.35.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.4",
@@ -51,6 +51,7 @@
     "zod": "^3.22.3"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.36.0",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
