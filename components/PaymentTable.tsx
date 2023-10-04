@@ -41,15 +41,19 @@ export default function PaymentTable() {
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
                     })
                 })
+                console.log("response", response)
+
                 const result = await response.json()
 
-                if (result) {
-                    setLoading(false)
-                    setFinance(result)
-                }
+                setFinance(result)
 
+                setLoading(false)
+
+                console.log("Result", result)
                 return result
+
             } catch (error) {
+                console.log("Error", error)
                 return error
             }
         }
