@@ -14,10 +14,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 const ContactUsForm = z.object({
     firstName: z.string().min(3, {
-        message: "First Name is required"
+        message: "First name is required"
     }),
     lastName: z.string().min(3, {
-        message: "Last Name is required"
+        message: "Last name is required"
     }),
     message: z.string().min(3, {
         message: "Message is required"
@@ -26,8 +26,11 @@ const ContactUsForm = z.object({
         message: "Valid email is required"
     })
 })
+
+type ContactUsFormInput = z.infer<typeof ContactUsForm>
+
 export default function ContactUs() {
-    const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset, } = useForm<z.infer<typeof ContactUsForm>>({
+    const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset, } = useForm<ContactUsFormInput>({
         resolver: zodResolver(ContactUsForm),
         defaultValues: {
             firstName: "",
@@ -99,12 +102,14 @@ export default function ContactUs() {
                                             First name
                                         </Label>
                                         <Input {...register("firstName", { required: true })} placeholder="Enter your first name" />
+                                        {errors?.firstName?.message && <p className="text-red-500 text-sm">{errors.firstName.message}</p>}
                                     </div>
                                     <div className="space-y-2">
                                         <Label>
                                             Last name
                                         </Label>
                                         <Input {...register("lastName", { required: true })} placeholder="Enter your last name" />
+                                        {errors?.lastName?.message && <p className="text-red-500 text-sm">{errors.lastName.message}</p>}
                                     </div>
                                 </div>
                                 <div className="space-y-2">
@@ -112,12 +117,14 @@ export default function ContactUs() {
                                         Email
                                     </Label>
                                     <Input {...register("email", { required: true })} placeholder="Enter your email" type="email" />
+                                    {errors?.email?.message && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                                 </div>
                                 <div className="space-y-2">
                                     <Label>
                                         Message
                                     </Label>
                                     <Textarea className="min-h-[100px]" {...register("message", { required: true })} placeholder="Enter your message" />
+                                    {errors?.message?.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
                                 </div>
                                 <Button disabled={isSubmitting} type="submit">
                                     {isSubmitting && <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />}
