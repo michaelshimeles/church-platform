@@ -31,8 +31,8 @@ export default function PaymentTable() {
     const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() => {
-        setLoading(true)
         const getFinanceInfo = async () => {
+            setLoading(true)
             const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
                 method: "POST",
                 body: JSON.stringify({
@@ -49,8 +49,6 @@ export default function PaymentTable() {
 
         getFinanceInfo()
     }, [user])
-
-    // console.log("finance", finance?.financials?.payments)
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
     const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
