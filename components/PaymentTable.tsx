@@ -2,7 +2,7 @@
 import { TableCaption, TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import { useUser } from "@clerk/nextjs";
 import { useState, useEffect } from "react"
-import { Receipt } from "lucide-react";
+import { Info, Receipt } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -108,13 +108,15 @@ export default function PaymentTable() {
                                 <TableCell>{info?.receipt_email}</TableCell>
                                 <TableCell>
                                     <Link target="_blank" href={info?.receipt_url} className="flex justify-center cursor-pointer">
-                                        <Receipt />
+                                        <Receipt size={16} strokeWidth={2.5} />
                                     </Link>
                                 </TableCell>
                                 <TableCell>
                                     <Dialog>
                                         <DialogTrigger asChild>
-                                            <Button variant="outline">More Info</Button>
+                                            <div className="flex justify-center">
+                                                <Info size={16} strokeWidth={2.5} />
+                                            </div>
                                         </DialogTrigger>
                                         <DialogContent className="sm:max-w-[425px]">
                                             <DialogHeader>
