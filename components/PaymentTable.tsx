@@ -1,10 +1,30 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/fBYsKwyCaRa
- */
+"use client"
 import { TableCaption, TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
+import { useUser } from "@clerk/nextjs";
+import { useState, useEffect } from "react"
 
 export default function PaymentTable() {
+    const { isLoaded, isSignedIn, user } = useUser();
+    const [finance, setFinance] = useState<any>(null)
+    useEffect(() => {
+        const getFinanceInfo = async () => {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
+                method: "POST",
+                body: JSON.stringify({
+                    emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
+                })
+            })
+            const result = await response.json()
+
+            setFinance(result)
+
+            return result
+        }
+
+        getFinanceInfo()
+    }, [user])
+
+    console.log("finance", finance?.financials?.payments)
     return (
         <div className="flex flex-col gap-5">
             <div>
@@ -29,51 +49,18 @@ export default function PaymentTable() {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    <TableRow>
-                        <TableCell className="font-medium">JohnDoe@example.com</TableCell>
-                        <TableCell>$500.00</TableCell>
-                        <TableCell>USD</TableCell>
-                        <TableCell>January 1, 2023</TableCell>
-                        <TableCell>12:00 PM</TableCell>
-                        <TableCell className="text-right">JohnDoeReceipt@example.com</TableCell>
-                        <TableCell className="text-right">www.receipt-link.com</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell className="font-medium">JaneSmith@example.com</TableCell>
-                        <TableCell>$800.00</TableCell>
-                        <TableCell>USD</TableCell>
-                        <TableCell>February 15, 2023</TableCell>
-                        <TableCell>12:00 PM</TableCell>
-                        <TableCell className="text-right">JaneSmithReceipt@example.com</TableCell>
-                        <TableCell className="text-right">www.receipt-link.com</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell className="font-medium">RobertJohnson@example.com</TableCell>
-                        <TableCell>$1000.00</TableCell>
-                        <TableCell>USD</TableCell>
-                        <TableCell>March 20, 2023</TableCell>
-                        <TableCell>12:00 PM</TableCell>
-                        <TableCell className="text-right">RobertJohnsonReceipt@example.com</TableCell>
-                        <TableCell className="text-right">www.receipt-link.com</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell className="font-medium">LauraWilliams@example.com</TableCell>
-                        <TableCell>$700.00</TableCell>
-                        <TableCell>USD</TableCell>
-                        <TableCell>April 25, 2023</TableCell>
-                        <TableCell>12:00 PM</TableCell>
-                        <TableCell className="text-right">LauraWilliamsReceipt@example.com</TableCell>
-                        <TableCell className="text-right">www.receipt-link.com</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell className="font-medium">MichaelBrown@example.com</TableCell>
-                        <TableCell>$600.00</TableCell>
-                        <TableCell>USD</TableCell>
-                        <TableCell>May 30, 2023</TableCell>
-                        <TableCell>12:00 PM</TableCell>
-                        <TableCell className="text-right">MichaelBrownReceipt@example.com</TableCell>
-                        <TableCell className="text-right">www.receipt-link.com</TableCell>
-                    </TableRow>
+
+                    {finance?.financials?.payments.length > 0 && finance?.financials?.payments?.map((info: any) => {
+                        <TableRow>
+                            <TableCell className="font-medium">{finance?.financials?.payments?.[0].email}</TableCell>
+                            <TableCell>{Number(finance?.financials?.payments?.[0]?.amount) / 100}</TableCell>
+                            <TableCell>{finance?.financials?.payments?.[0]?.currency}</TableCell>
+                            <TableCell>{finance?.financials?.payments?.[0]?.payment_date}</TableCell>
+                            <TableCell>{finance?.financials?.payments?.[0]?.payment_time}</TableCell>
+                            <TableCell className="text-right">{finance?.financials?.payments?.[0]?.receipt_email}</TableCell>
+                            <TableCell className="text-right">{finance?.financials?.payments?.[0]?.receipt_url.substr(8, 40)}...</TableCell>
+                        </TableRow>
+                    })}
                 </TableBody>
             </Table>
         </div>

@@ -107,14 +107,14 @@ export function NavBar() {
                         <Image src="/TBF.webp" width={50} height={50} alt="logo" />
                     </Link>
                     <NavigationMenuItem>
-                        <Link href="/faith" legacyBehavior passHref>
+                        <Link href="/faith" legacyBehavior passHref className="cursor-pointer">
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 Statement of Faith
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/give" legacyBehavior passHref>
+                        <Link href="/give" legacyBehavior passHref className="cursor-pointer">
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 Give
                             </NavigationMenuLink>
@@ -166,14 +166,14 @@ export function NavBar() {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/contact-us" legacyBehavior passHref>
+                        <Link href="/contact-us" legacyBehavior passHref className="cursor-pointer">
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 Contact Us
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/about" legacyBehavior passHref>
+                        <Link href="/about" legacyBehavior passHref className="cursor-pointer">
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 About Us
                             </NavigationMenuLink>

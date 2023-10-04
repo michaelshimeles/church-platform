@@ -11,6 +11,10 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useForm } from "react-hook-form"
+import { DialogClose } from '@radix-ui/react-dialog';
+import { useToast } from "@/components/ui/use-toast"
+import { ToastAction } from '../ui/toast';
 
 interface ScheduleCardProps {
     eventName: string,
@@ -22,6 +26,38 @@ interface ScheduleCardProps {
 }
 
 const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, eventDate, eventTime, eventAddress, eventDescription }) => {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+        reset
+    } = useForm()
+    const { toast } = useToast()
+
+    const onSubmit = async (data: any) => {
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/text/register`, {
+                method: "POST",
+                body: JSON.stringify({
+                    "fullName": data?.fullName,
+                    "phoneNumber": data?.phoneNumber,
+                    "event": eventName
+                })
+            })
+
+            const result = await response.json()
+            console.log("Result", result)
+            toast({
+                title: `You've been registered`,
+                description: `As the ${eventName} get closer, we'll shoot you a text as a reminder!`,
+            })
+            reset()
+            return result
+        } catch (error) {
+            return error
+        }
+    }
     return (
         <div
             className="relative block overflow-hidden rounded-lg border dark:border-gray-800 p-4 sm:p-6 lg:p-8"
@@ -35,17 +71,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, event
                     <h3 className="text-lg font-bold sm:text-xl">
                         {eventName}
                     </h3>
-
-                    {/* <p className="mt-1 text-xs font-medium dark:text-grey-400 light:text-gray-600">By {eventLead}</p> */}
                 </div>
-
-                {/* <div className="hidden sm:block sm:shrink-0">
-                    <img
-                        alt="Paul Clapton"
-                        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-                        className="h-16 w-16 rounded-lg object-cover shadow-sm"
-                    />
-                </div> */}
             </div>
 
             <div className="mt-4">
@@ -75,29 +101,33 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, event
                         <Button>Join</Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
-                        <DialogHeader>
-                            <DialogTitle>Register for our {eventName}</DialogTitle>
-                            <DialogDescription>
-                                We&apos;ll text you link to our church whatsapp group and to stay up to date
-                            </DialogDescription>
-                        </DialogHeader>
-                        <div className="grid gap-4 py-4">
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="name" className="text-right">
-                                    Full Name
-                                </Label>
-                                <Input id="name" className="col-span-3" />
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <DialogHeader>
+                                <DialogTitle>Register for our {eventName}</DialogTitle>
+                                <DialogDescription className='pb-[0.5rem] pt-[0.1rem]'>
+                                    We&apos;ll text you link to our church whatsapp group and to stay up to date
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="grid gap-4 py-4">
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label className="text-right">
+                                        Full Name
+                                    </Label>
+                                    <Input {...register("fullName", { required: true })} className="col-span-3" />
+                                </div>
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label className="text-right">
+                                        Phone #
+                                    </Label>
+                                    <Input {...register("phoneNumber", { required: true })} className="col-span-3" />
+                                </div>
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="username" className="text-right">
-                                    Phone #
-                                </Label>
-                                <Input id="username" className="col-span-3" />
-                            </div>
-                        </div>
-                        <DialogFooter>
-                            <Button type="submit">Save changes</Button>
-                        </DialogFooter>
+                            <DialogFooter>
+                                <DialogClose asChild>
+                                    <Button type="submit">Save changes</Button>
+                                </DialogClose>
+                            </DialogFooter>
+                        </form>
                     </DialogContent>
                 </Dialog>
             </div >

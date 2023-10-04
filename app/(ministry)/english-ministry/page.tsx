@@ -1,3 +1,4 @@
+"use client"
 import CTA from '@/components/CTA';
 import EnglishMinistryHero from '@/components/hero/EnglishMinistryHero';
 import HowWeServeCard from '@/components/card/HowWeServeCard';

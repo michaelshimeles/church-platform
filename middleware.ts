@@ -14,7 +14,11 @@ export default authMiddleware({
     "/sign-out",
     "/resources/blog",
     "/contact-us",
-    "/api/store-email"
+    "/api/store-email",
+    "/api/text/receive",
+    "/api/text/notification",
+    "/api/payments/webhook",
+    "/api/payments/info",
 ],
 });
 
