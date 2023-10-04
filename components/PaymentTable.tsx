@@ -33,18 +33,25 @@ export default function PaymentTable() {
     useEffect(() => {
         const getFinanceInfo = async () => {
             setLoading(true)
-            const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
-                method: "POST",
-                body: JSON.stringify({
-                    emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
+            try {
+
+                const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
+                    })
                 })
-            })
-            const result = await response.json()
+                const result = await response.json()
 
-            setFinance(result)
+                if (result) {
+                    setLoading(false)
+                    setFinance(result)
+                }
 
-            setLoading(false)
-            return result
+                return result
+            } catch (error) {
+                return error
+            }
         }
 
         getFinanceInfo()
