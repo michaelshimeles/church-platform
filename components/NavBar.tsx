@@ -50,7 +50,7 @@ export function NavBar() {
     return (
         <div className="flex min-w-full justify-between p-2 border-b">
             <Dialog>
-                <SheetTrigger className="min-[825px]:hidden p-2">
+                <SheetTrigger className="min-[825px]:hidden p-2 transition">
                     <GiHamburgerMenu />
                 </SheetTrigger>
                 <SheetContent side="left">
@@ -61,6 +61,11 @@ export function NavBar() {
                         </SheetDescription>
                     </SheetHeader>
                     <div className="flex flex-col space-y-3 mt-[1rem]">
+                        <DialogClose asChild>
+                            <Link href="/">
+                                <Button variant="outline" className="w-full">Home</Button>
+                            </Link>
+                        </DialogClose>
                         <DialogClose asChild>
                             <Link href="/faith">
                                 <Button variant="outline" className="w-full">Statement of Faith</Button>

@@ -9,17 +9,37 @@ import { useRef } from 'react'
 import { useForm } from "react-hook-form"
 import { useToast } from "@/components/ui/use-toast"
 import { ReloadIcon } from "@radix-ui/react-icons"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
 
+const ContactUsForm = z.object({
+    firstName: z.string().min(3, {
+        message: "First Name is required"
+    }),
+    lastName: z.string().min(3, {
+        message: "Last Name is required"
+    }),
+    message: z.string().min(3, {
+        message: "Message is required"
+    }),
+    email: z.string().email().min(5, {
+        message: "Valid email is required"
+    })
+})
 export default function ContactUs() {
-    const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset, } = useForm();
+    const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset, } = useForm<z.infer<typeof ContactUsForm>>({
+        resolver: zodResolver(ContactUsForm),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            message: "",
+            email: ""
+        }
+    });
     const form = useRef();
     const { toast } = useToast()
 
-    const onSubmit = async (data: any) => {
-        toast({
-            title: "Message Sent.",
-            description: "Thank you for contacting us. We will get back to you shortly.",
-        })
+    const onSubmit = async (data: z.infer<typeof ContactUsForm>) => {
         emailjs.sendForm('service_p9gb36g', 'template_uqbopbj', form.current as any, 'fbXgpdLqo_SRGMh72')
             .then((result) => {
                 toast({
@@ -73,28 +93,28 @@ export default function ContactUs() {
                         </div>
                         <form ref={form as any} onSubmit={handleSubmit(onSubmit)}>
                             <div className="space-y-4">
-                                <div className="grid grid-cols-2 gap-4" data-id="9">
+                                <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <Label data-id="11" htmlFor="first-name">
+                                        <Label>
                                             First name
                                         </Label>
                                         <Input {...register("firstName", { required: true })} placeholder="Enter your first name" />
                                     </div>
                                     <div className="space-y-2">
-                                        <Label data-id="14" htmlFor="last-name">
+                                        <Label>
                                             Last name
                                         </Label>
                                         <Input {...register("lastName", { required: true })} placeholder="Enter your last name" />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <Label data-id="17" htmlFor="email">
+                                    <Label>
                                         Email
                                     </Label>
                                     <Input {...register("email", { required: true })} placeholder="Enter your email" type="email" />
                                 </div>
                                 <div className="space-y-2">
-                                    <Label data-id="32" htmlFor="message">
+                                    <Label>
                                         Message
                                     </Label>
                                     <Textarea className="min-h-[100px]" {...register("message", { required: true })} placeholder="Enter your message" />
