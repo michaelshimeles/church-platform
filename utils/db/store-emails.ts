@@ -2,16 +2,18 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export const storeEmail = async (
-  name: string,
+  firstName: string,
+  lastName: string,
   email: string,
-  source: string
+  source: string,
+  message: string
 ) => {
   const supabase = createServerComponentClient({ cookies });
 
   try {
     const { data, error } = await supabase
       .from("emails")
-      .insert([{ name, email, source }])
+      .insert([{ firstName, lastName, email, source, message }])
       .select();
 
     if (data) {
