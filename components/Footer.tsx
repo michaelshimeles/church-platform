@@ -86,7 +86,7 @@ const Footer = ({ }) => {
                             </li>
 
                             <li>
-                                <a href="/coming-soon" className=" transition hover:opacity-75">
+                                <a href="/bible-study" className=" transition hover:opacity-75">
                                     Bible Study Tool
                                 </a>
                             </li>
