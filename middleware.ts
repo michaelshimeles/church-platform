@@ -19,7 +19,9 @@ export default authMiddleware({
     "/api/payments/webhook",
     "/api/payments/info",
     "/api/text/register",
-    "/login"
+    "/login",
+    "/join",
+    "/bible-study"
 ],
 });
 
