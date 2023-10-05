@@ -9,7 +9,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         <main
             className="flex flex-col items-center border-b w-full bg-cover bg-center bg-no-repeat lg:py-[15rem] py-[11rem]"
             style={{
-                backgroundImage: "url(https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/background.jpg)",
+                backgroundImage: `url(${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/background.webp)`,
                 backgroundAttachment: "fixed", // Add this line to make the image fixed
             }}
         >

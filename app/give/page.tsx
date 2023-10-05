@@ -16,7 +16,7 @@ const GivePage = () => {
           >
             <Image
               alt="Party"
-              src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/tithe.jpg"
+              src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/tithe.jpg`}
               className="absolute inset-0 h-full w-full object-cover"
               width={465}
               height={520}

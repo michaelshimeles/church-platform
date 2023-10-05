@@ -4,26 +4,26 @@ const AboutUs = () => {
     const team = [{
         name: "Pastor Berhanu & Pastor Almaz",
         position: "Senior & Executive Pastor",
-        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/almiyeandpastor.png"
+        src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/almiyeandpastor.png`
     }, {
         name: "Grace Woldegiorgis",
         position: "Worship Coordinator",
-        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/grace.png"
+        src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/grace.png`
 
     }, {
         name: "Bizuye Gebre Medhin",
         position: "Deacon Coordinator",
-        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/bezuye.png"
+        src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/bezuye.png`
 
     }, {
         name: "Pastor Simon",
         position: "Administrative Coordinator",
-        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/placeholder.png"
+        src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/placeholder.png`
 
     }, {
         name: "Michael Shimeles",
         position: "Youth Pastor",
-        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/mike.png"
+        src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/mike.png`
 
     }]
 

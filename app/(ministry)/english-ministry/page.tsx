@@ -38,42 +38,42 @@ const EnglishMinistryPage = ({ }) => {
         {
             title: "Sunday Service",
             description: "Our church disciples believers through biblical teaching and equipping them to fulfill their calling through service. We foster growth in faith through prayer, worship and obedience to God's commands.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/sermon.jpg"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/sermon.jpg`
         },
         {
             title: "Bible Study",
             description: "Bible Study is important for Christians because it deepens their faith, strengthens their relationship with God, and provides guidance for living a righteous life.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/biblestudy.jpg"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/biblestudy.jpg`
         },
         {
             title: "Prayer",
             description: "Each week, we come together in the spirit of faith and unity to lay our hearts' desires and worries at the feet of Jesus, with humble hearts and steadfast trust, praying for healing, peace, joy, and all the fruits of the Spirit.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/prayer.png"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/prayer.png`
         },
         {
             title: "Young Adults",
             description: "Guiding young adults with love and wisdom, we help them discover the path to a faith-filled life in Jesus Christ through teachings, prayers, and guidance, nurturing their hearts along the way.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/young-adults.png"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/young-adults.png`
         },
         {
             title: "Youth",
             description: "Nurturing young hearts with love, we gracefully guide them towards the light of Jesus Christ, leading them through teachings, prayers, and guidance towards a life filled with faith in the Lord.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/youth.png"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/youth.png`
         },
         {
             title: "Kids",
             description: "Gently leading children with love and care, we introduce them to the joy of Jesus Christ, using age-appropriate teachings, prayers, and guidance to nurture their budding faith.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/kids.png"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/kids.png`
         },
         {
             title: "Baptism",
             description: "Baptism is a significant spiritual act symbolizing one's public declaration of faith in Jesus Christ, repentance of sins, and a commitment to follow Him, performed through immersion in water.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/bapt.png"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/bapt.png`
         },
         {
             title: "Cell Groups",
             description: "Join our close-knit cell groups for meaningful fellowship, spiritual growth, and support on your faith journey.",
-            imageUrl: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/family.jpeg"
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/family.jpeg`
         },
     ]
     return (
