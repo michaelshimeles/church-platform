@@ -63,6 +63,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 );
               }
             }
+
+            if (schedule?.[i]?.event === "In-Person Bible Study & Prayer") {
+              const message = await client.messages.create({
+                body: "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
+                messagingServiceSid: messagingServiceSid,
+                from: "+17576459906",
+                to: schedule[i]?.phoneNumber,
+              });
+
+              if (message) {
+                await textLog(
+                  "+17576459906",
+                  schedule[i]?.phoneNumber,
+                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                );
+              }
+            }
           }
 
           return NextResponse.json({ status: "Scheduled", schedule });
@@ -87,6 +104,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 );
               }
             }
+
+            if (schedule?.[i]?.event === "In-Person Bible Study & Prayer") {
+              const message = await client.messages.create({
+                body: "Just a friendly reminder that the In-Person Bible Study & Prayer is in 30 minutes! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
+                messagingServiceSid: messagingServiceSid,
+                from: "+17576459906",
+                to: schedule[i]?.phoneNumber,
+              });
+
+              if (message) {
+                await textLog(
+                  "+17576459906",
+                  schedule[i]?.phoneNumber,
+                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                );
+              }
+            }
           }
 
           return NextResponse.json({ status: "Scheduled", schedule });
@@ -108,6 +142,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   "+17576459906",
                   schedule[i]?.phoneNumber,
                   "Virtual Bible Study has started. See you there!"
+                );
+              }
+            }
+
+            if (schedule?.[i]?.event === "In-Person Bible Study & Prayer") {
+              const message = await client.messages.create({
+                body: "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!",
+                messagingServiceSid: messagingServiceSid,
+                from: "+17576459906",
+                to: schedule[i]?.phoneNumber,
+              });
+
+              if (message) {
+                await textLog(
+                  "+17576459906",
+                  schedule[i]?.phoneNumber,
+                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
                 );
               }
             }
