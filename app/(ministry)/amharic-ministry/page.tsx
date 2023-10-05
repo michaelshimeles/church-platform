@@ -37,28 +37,28 @@ const AmharicMinistryPage: React.FC = () => {
         {
             title: 'የእሁድ አገልግሎት',
             description: `የቤተ ክርስቲያናችን ደቀመዛሙርት አማኞች በመጽሐፍ ቅዱሳዊ ትምህርት እና ጥሪያቸውን በአገልግሎት እንዲፈጽሙ በማስታጠቅ።`,
-            imageUrl: '/sermon.jpg',
+            imageUrl: 'https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/sermon.jpg',
         },
         {
             title: 'የመጽሐፍ ቅዱስ ጥናት',
             description: 'The large, corporate gathering of our church community every Sunday.',
-            imageUrl: '/biblestudy.jpg',
+            imageUrl: 'https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/biblestudy.jpg',
         },
         {
             title: 'ጸሎት',
             description: `በየሳምንቱ፣ በየሳምንቱ፣ የልባችንን ፍላጎት እና ጭንቀቶችን በኢየሱስ እግር ስር ለማስቀመጥ በእምነት እና በአንድነት መንፈስ እንሰበሰባለን፣ በትሑት ልቦች እና ጽኑ እምነት፣ ለፈውስ፣ ሰላም፣ ደስታ እና የመንፈስ ፍሬዎች ሁሉ በህይወታችን እና በዙሪያችን ባለው ዓለም ውስጥ ይገለጣል.`,
-            imageUrl: '/prayer.png',
+            imageUrl: 'https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/prayer.png',
         },
         {
             title: "ጥምቀት",
             description: `The large, corporate gathering of our church community every Sunday`,
-            imageUrl: '/bapt.png'
+            imageUrl: 'https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/bapt.png'
 
         },
         {
             title: "Cell Groups",
             description: `The large, corporate gathering of our church community every Sunday.`,
-            imageUrl: '/family.jpeg'
+            imageUrl: 'https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/family.jpeg'
 
         }
     ];

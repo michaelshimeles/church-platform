@@ -1,28 +1,27 @@
-
 const AboutUs = () => {
     const team = [{
         name: "Pastor Berhanu & Pastor Almaz",
         position: "Senior & Executive Pastor",
-        src: "/pastor-berhanu.jpg"
+        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/almiyeandpastor.png"
     }, {
         name: "Grace Woldegiorgis",
         position: "Worship Coordinator",
-        src: "/grace.png"
+        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/grace.png"
 
     }, {
         name: "Bizuye Gebre Medhin",
         position: "Deacon Coordinator",
-        src: "/bezuye.png"
+        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/bezuye.png"
 
     }, {
         name: "Pastor Simon",
-        position: "Administrative Pastor",
-        src: "/pastor-berhanu.jpg"
+        position: "Administrative Coordinator",
+        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/placeholder.png"
 
     }, {
         name: "Michael Shimeles",
         position: "Youth Pastor",
-        src: "/youth.png"
+        src: "https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/mike.png"
 
     }]
 
@@ -33,7 +32,7 @@ const AboutUs = () => {
                     Our Vision
                 </h1>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    At Tsega Bible Fellowship Church, we believe that the process of becoming a disciple of Jesus is a lifelong journey of growth and transformation.
+                    At Grace (ጸጋ) Bible Fellowship Church, we believe that the process of becoming a disciple of Jesus is a lifelong journey of growth and transformation.
 
                     Our vision is to create a dynamic fellowship of believers who seek to connect with God, grow in their relationship with Jesus Christ, and serve others with love and compassion. We aim to be a supportive community where people can explore their faith, deepen their understanding of the Bible, and learn how to apply its teachings to their everyday lives. Our goal is to help our members become fully devoted followers of Jesus and to empower them to lead and impact in every sphere of life.
                 </p>

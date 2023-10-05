@@ -15,7 +15,7 @@ const GivePage = () => {
           >
             <img
               alt="Party"
-              src="/tithe.jpg"
+              src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/tithe.jpg"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>

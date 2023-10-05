@@ -10,7 +10,7 @@ export default function EnglishMinistryHero() {
         <section
             className="w-full py-12 md:py-24 lg:py-32 bg-cover bg-center           "
             style={{
-                backgroundImage: "url(/background.jpg?height=1920&width=1920)",
+                backgroundImage: "url(https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/background.jpg?height=1920&width=1920)",
             }}
         >
             <div className="container px-4 md:px-6">

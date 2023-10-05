@@ -109,7 +109,7 @@ export function NavBar() {
             <NavigationMenu>
                 <NavigationMenuList className="max-[825px]:hidden ">
                     <Link href="/">
-                        <Image src="/TBF.webp" width={50} height={50} alt="logo" />
+                        <Image src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/TBF.webp" width={50} height={50} alt="logo" />
                     </Link>
                     <NavigationMenuItem>
                         <Link href="/faith" legacyBehavior passHref className="cursor-pointer">
@@ -135,7 +135,7 @@ export function NavBar() {
                                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                             href="/"
                                         >
-                                            <Image src="/TBF.webp" width={50} height={50} alt="logo" />
+                                            <Image src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/TBF.webp" width={50} height={50} alt="logo" />
                                             <div className="mb-2 mt-4 text-lg font-medium">
                                                 Grace (ጸጋ) Bible Fellowship Church
                                             </div>

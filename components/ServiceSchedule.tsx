@@ -16,7 +16,7 @@ const ServiceSchedule: React.FC<ServiceScheduleProps> = ({ }) => {
                     >
                         <img
                             alt="Party"
-                            src="/church.png"
+                            src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/church.png"
                             className="absolute inset-0 h-full w-full object-cover"
                         />
                     </div>
