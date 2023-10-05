@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Image from 'next/image'
 interface ChurchCardProps {
     image: string,
     language: string,
@@ -10,9 +10,11 @@ interface ChurchCardProps {
 const ChurchCard: React.FC<ChurchCardProps> = ({ image, language, church, description }) => {
     return (
         <a href={language === "English" ? "/english-ministry" : "/amharic-ministry"} className="group relative block bg-black sm:w-[400px]">
-            <img
+            <Image
                 alt="Developer"
                 src={image}
+                width={400}
+                height={485}
                 className="absolute inset-0 h-full w-full object-cover opacity-50 transition-opacity group-hover:opacity-40 rounded-sm"
             />
             <div className="relative p-4 sm:p-6 lg:p-8">

@@ -1,10 +1,8 @@
 import React from 'react'
+import Image from 'next/image';
 
-interface ServiceScheduleProps {
 
-}
-
-const ServiceSchedule: React.FC<ServiceScheduleProps> = ({ }) => {
+const ServiceSchedule = ({ }) => {
     return (
         <section className='w-[90%] pt-[5rem]'>
             <div
@@ -14,10 +12,12 @@ const ServiceSchedule: React.FC<ServiceScheduleProps> = ({ }) => {
                     <div
                         className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
                     >
-                        <img
+                        <Image
                             alt="Party"
                             src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/church.png"
                             className="absolute inset-0 h-full w-full object-cover"
+                            width={705}
+                            height={555}
                         />
                     </div>
                     <section className="antialiased">

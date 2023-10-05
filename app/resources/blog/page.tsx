@@ -112,13 +112,12 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
                         {post?.map((post: any, index: number) => {
                             return (
                                 <div key={index}>
-                                    <img
-                                        alt="Tech Story Image"
+                                    <Image
+                                        alt="Blog Post Image"
                                         className="w-full h-64 object-cover object-center rounded-lg"
-                                        data-id="63"
-                                        height="400"
+                                        height={400}
                                         src={post?.image?.url}
-                                        width="600"
+                                        width={600}
                                     />
                                     <h3 className="text-xl font-bold mb-2 mt-4" data-id="64">
                                         {post?.title}

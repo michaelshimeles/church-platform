@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button';
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const GivePage = () => {
   return (
@@ -13,10 +14,12 @@ const GivePage = () => {
           <div
             className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
           >
-            <img
+            <Image
               alt="Party"
               src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/tithe.jpg"
               className="absolute inset-0 h-full w-full object-cover"
+              width={465}
+              height={520}
             />
           </div>
 

@@ -6,7 +6,6 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import ReactPlayer from "react-player"
 
-
 const SlugPage = ({ params }: { params: { slug: string } }) => {
     const { slug } = params
 
@@ -112,7 +111,7 @@ const SlugPage = ({ params }: { params: { slug: string } }) => {
             <div className="flex flex-col items-center min-w-fit">
                 <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl text-center">{post?.title}</h1>
                 <div className="flex items-center border border-slate-700 p-2 w-[11rem] gap-1 rounded-full mt-[1rem]">
-                    <img src={post?.authorImage?.url} alt={post?.author?.name} className="w-8 h-8 rounded-full" />
+                    <Image width={34} height={31} src={post?.authorImage?.url} alt={post?.author?.name} className="w-8 h-8 rounded-full" />
                     <p className="text-center font-semibold text-sm">{post?.author?.name}</p>
                 </div>
                 <div className="w-[100%] md:w-[95%] lg:w-[90%] xl:w-[70%] mt-4">

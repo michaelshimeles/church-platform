@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const AboutUs = () => {
     const team = [{
         name: "Pastor Berhanu & Pastor Almaz",
@@ -43,7 +45,7 @@ const AboutUs = () => {
                     Our Team</h1>
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
                     {team?.map((member) => (<div key={member?.name} className="flex flex-col items-center p-8 transition-colors duration-300 transform border rounded-xl hover:border-transparent group  dark:border-gray-700 dark:hover:border-transparent">
-                        <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={member?.src} alt="" />
+                        <Image width={120} height={130} className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={member?.src} alt="" />
 
                         <h1 className="mt-4 text-md font-semibold text-gray-700 capitalize dark:text-white">{member?.name}</h1>
 
