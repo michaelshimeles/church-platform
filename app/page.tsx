@@ -1,16 +1,6 @@
-import Hero from '@/components/hero/Hero'
 import ServiceSchedule from '@/components/ServiceSchedule'
 import ChurchCard from '@/components/card/ChurchCard'
-import { Metadata } from 'next'
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
-
-
-export async function generateMetadata({ params: { lang } }: Params): Promise<Metadata> {
-  return {
-    title: "Grace Bible Fellowship Church",
-    description: "Grow In Grace, Grow In Knowledge"
-  }
-}
+import Hero from '@/components/hero/Hero'
 
 export default function Home() {
   return (
