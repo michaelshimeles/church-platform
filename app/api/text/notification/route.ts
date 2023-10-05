@@ -76,7 +76,24 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 await textLog(
                   "+17576459906",
                   schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                  "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST"
+                );
+              }
+            }
+
+            if (schedule?.[i]?.event === "Church Service") {
+              const message = await client.messages.create({
+                body: "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST",
+                messagingServiceSid: messagingServiceSid,
+                from: "+17576459906",
+                to: schedule[i]?.phoneNumber,
+              });
+
+              if (message) {
+                await textLog(
+                  "+17576459906",
+                  schedule[i]?.phoneNumber,
+                  "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST"
                 );
               }
             }
@@ -100,7 +117,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 await textLog(
                   "+17576459906",
                   schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!"
+                  "JJust a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!"
                 );
               }
             }
@@ -118,6 +135,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   "+17576459906",
                   schedule[i]?.phoneNumber,
                   "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                );
+              }
+            }
+
+            if (schedule?.[i]?.event === "Church Service") {
+              const message = await client.messages.create({
+                body: "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!",
+                messagingServiceSid: messagingServiceSid,
+                from: "+17576459906",
+                to: schedule[i]?.phoneNumber,
+              });
+
+              if (message) {
+                await textLog(
+                  "+17576459906",
+                  schedule[i]?.phoneNumber,
+                  "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!"
                 );
               }
             }
@@ -158,7 +192,24 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 await textLog(
                   "+17576459906",
                   schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                  "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!"
+                );
+              }
+            }
+
+            if (schedule?.[i]?.event === "Church Service") {
+              const message = await client.messages.create({
+                body: "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!",
+                messagingServiceSid: messagingServiceSid,
+                from: "+17576459906",
+                to: schedule[i]?.phoneNumber,
+              });
+
+              if (message) {
+                await textLog(
+                  "+17576459906",
+                  schedule[i]?.phoneNumber,
+                  "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!"
                 );
               }
             }
