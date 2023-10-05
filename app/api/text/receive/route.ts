@@ -26,11 +26,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         to: result?.From,
       });
 
-      console.log("Message", message);
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
       // Instead of returning a string, return a JSON response with an error message.
       return NextResponse.json({ status: "Error", error: error.message });
     }
@@ -44,12 +41,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         from: result?.To,
         to: result?.From,
       });
-
-      console.log("Message", message);
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
       // Instead of returning a string, return a JSON response with an error message.
       return NextResponse.json({ status: "Error", error: error.message });
     }
@@ -63,12 +56,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
         from: result?.To,
         to: result?.From,
       });
-
-      console.log("Message", message);
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
       // Instead of returning a string, return a JSON response with an error message.
       return NextResponse.json({ status: "Error", error: error.message });
     }

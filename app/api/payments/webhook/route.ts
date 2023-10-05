@@ -27,7 +27,6 @@ export async function POST(req: NextRequest) {
     }
 
     if (response?.message === "error") {
-      console.log("Response", response);
       return NextResponse.json({ status: "Error", response });
     }
 

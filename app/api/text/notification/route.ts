@@ -224,7 +224,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
         return NextResponse.json({ status: "Failed", error: result.error });
       }
     } catch (error) {
-      console.log(error);
       return NextResponse.json({ status: "Failed", error });
     }
   } else {

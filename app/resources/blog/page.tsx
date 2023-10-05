@@ -34,7 +34,7 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
                 setPost(data)
 
             } catch (error) {
-                console.log("First Error", error)
+                return error
             }
 
 
@@ -100,7 +100,6 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
         )
     }
 
-    console.log("Post", post)
     return (
         <section className="w-full" data-id="1">
             <main className="container mx-auto px-4 md:px-6 py-8">
