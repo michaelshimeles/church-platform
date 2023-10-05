@@ -37,7 +37,7 @@ const components: { title: string; href: string; description: string }[] = [
     },
     {
         title: "Bible Study Tool",
-        href: "/coming-soon",
+        href: "/bible-study",
         description:
             "Use our Bible Study Tool to help you be more effective in your Bible Study.",
     },
@@ -48,7 +48,7 @@ export function NavBar() {
 
 
     return (
-        <div className="flex min-w-full justify-between p-2 border-b">
+        <div className="flex min-w-full justify-between p-2 border-b z-10">
             <Dialog>
                 <SheetTrigger className="min-[825px]:hidden p-2 transition">
                     <GiHamburgerMenu />

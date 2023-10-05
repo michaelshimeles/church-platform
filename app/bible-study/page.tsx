@@ -8,7 +8,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 
 function CardWithForm() {
     return (
-        <Card className="w-[350px]">
+        <Card className="w-[350px] z-1">
             <CardHeader>
                 <CardTitle>Coming Soon</CardTitle>
                 <CardDescription>Study the Word of God with ease.</CardDescription>
@@ -27,7 +27,7 @@ function CardWithForm() {
 
 export default function BibleStudyTool() {
     return (
-        <div key="1" className="relative grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+        <div key="1" className="relative grid h-screen min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr] z-0">
             <div className="hidden border-r bg-zinc-100/40 lg:block dark:bg-zinc-800/40">
                 <div className="flex flex-col gap-2">
                     <div className="flex h-[60px] items-center px-6">

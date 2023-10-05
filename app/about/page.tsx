@@ -1,30 +1,31 @@
-const team = [{
-    name: "Pastor Berhanu & Pastor Almaz",
-    position: "Senior & Executive Pastor",
-    src: "/pastor-berhanu.jpg"
-}, {
-    name: "Grace Woldegiorgis",
-    position: "Worship Coordinator",
-    src: "/grace.png"
-
-}, {
-    name: "Bizuye Gebre Medhin",
-    position: "Deacon Coordinator",
-    src: "/bezuye.png"
-
-}, {
-    name: "Pastor Simon",
-    position: "Administrative Pastor",
-    src: "/pastor-berhanu.jpg"
-
-}, {
-    name: "Michael Shimeles",
-    position: "Youth Pastor",
-    src: "/youth.png"
-
-}]
 
 const AboutUs = () => {
+    const team = [{
+        name: "Pastor Berhanu & Pastor Almaz",
+        position: "Senior & Executive Pastor",
+        src: "/pastor-berhanu.jpg"
+    }, {
+        name: "Grace Woldegiorgis",
+        position: "Worship Coordinator",
+        src: "/grace.png"
+
+    }, {
+        name: "Bizuye Gebre Medhin",
+        position: "Deacon Coordinator",
+        src: "/bezuye.png"
+
+    }, {
+        name: "Pastor Simon",
+        position: "Administrative Pastor",
+        src: "/pastor-berhanu.jpg"
+
+    }, {
+        name: "Michael Shimeles",
+        position: "Youth Pastor",
+        src: "/youth.png"
+
+    }]
+
     return (
         <section className='container px-6 py-10 mx-auto'>
             <div className='mt-[1rem]'>
