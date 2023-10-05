@@ -53,19 +53,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Virtual Bible Study" &&
               currentDate.getDay() === 2
             ) {
-              const message = await client.messages.create({
-                body: "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
 
@@ -73,19 +77,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "In-Person Bible Study & Prayer" &&
               currentDate.getDay() === 4
             ) {
-              const message = await client.messages.create({
-                body: "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
 
@@ -93,20 +101,22 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Church Service" &&
               currentDate.getDay() === 6
             ) {
-              const message = await client.messages.create({
-                body: "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST"
-                );
-              }
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST"
+                  );
+                }
+              } catch (error) {}
             }
           }
 
@@ -120,19 +130,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Virtual Bible Study" &&
               currentDate.getDay() === 3
             ) {
-              const message = await client.messages.create({
-                body: "Just a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Just a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "JJust a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "JJust a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
 
@@ -140,19 +154,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "In-Person Bible Study & Prayer" &&
               currentDate.getDay() === 5
             ) {
-              const message = await client.messages.create({
-                body: "Just a friendly reminder that the In-Person Bible Study & Prayer is in 30 minutes! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Just a friendly reminder that the In-Person Bible Study & Prayer is in 30 minutes! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
 
@@ -160,19 +178,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Church Service" &&
               currentDate.getDay() === 7
             ) {
-              const message = await client.messages.create({
-                body: "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
           }
@@ -187,19 +209,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Virtual Bible Study" &&
               currentDate.getDay() === 3
             ) {
-              const message = await client.messages.create({
-                body: "Virtual Bible Study has started. See you there!",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Virtual Bible Study has started. See you there!",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Virtual Bible Study has started. See you there!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Virtual Bible Study has started. See you there!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
 
@@ -207,19 +233,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "In-Person Bible Study & Prayer" &&
               currentDate.getDay() === 5
             ) {
-              const message = await client.messages.create({
-                body: "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
 
@@ -227,19 +257,23 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Church Service" &&
               currentDate.getDay() === 7
             ) {
-              const message = await client.messages.create({
-                body: "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!",
-                messagingServiceSid: messagingServiceSid,
-                from: "+17576459906",
-                to: schedule[i]?.phoneNumber,
-              });
+              try {
+                const message = await client.messages.create({
+                  body: "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!",
+                  messagingServiceSid: messagingServiceSid,
+                  from: "+17576459906",
+                  to: schedule[i]?.phoneNumber,
+                });
 
-              if (message) {
-                await textLog(
-                  "+17576459906",
-                  schedule[i]?.phoneNumber,
-                  "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!"
-                );
+                if (message) {
+                  await textLog(
+                    "+17576459906",
+                    schedule[i]?.phoneNumber,
+                    "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!"
+                  );
+                }
+              } catch (error) {
+                console.log("error", error);
               }
             }
           }
