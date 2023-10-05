@@ -20,7 +20,7 @@ export default authMiddleware({
     "/api/payments/info",
     "/api/text/register",
     "/login",
-    "/join",
+    "/join-us",
     "/bible-study"
 ],
 });
