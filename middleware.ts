@@ -12,7 +12,6 @@ export default authMiddleware({
     "/sign-in",
     "/sign-out",
     "/resources/blog",
-    "/contact-us",
     "/about",
     "/api/store-email",
     "/api/text/receive",
