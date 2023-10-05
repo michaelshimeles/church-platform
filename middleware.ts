@@ -20,6 +20,7 @@ export default authMiddleware({
     "/api/text/notification",
     "/api/payments/webhook",
     "/api/payments/info",
+    "api/text/register"
 ],
 });
 
