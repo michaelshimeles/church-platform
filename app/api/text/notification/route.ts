@@ -33,6 +33,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const info = await req.json();
   const headersList = headers();
 
+  const currentDate = new Date();
+
   // Check if authorized
   if (headersList?.get("pass") === "work") {
     try {
@@ -47,7 +49,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
           // Loop through all the scheduled events
           for (let i = 0; i < schedule.length; i++) {
             // Checks specific event and sends text for that event
-            if (schedule?.[i]?.event === "Virtual Bible Study") {
+            if (
+              schedule?.[i]?.event === "Virtual Bible Study" &&
+              currentDate.getDay() === 2
+            ) {
               const message = await client.messages.create({
                 body: "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!",
                 messagingServiceSid: messagingServiceSid,
@@ -64,7 +69,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
               }
             }
 
-            if (schedule?.[i]?.event === "In-Person Bible Study & Prayer") {
+            if (
+              schedule?.[i]?.event === "In-Person Bible Study & Prayer" &&
+              currentDate.getDay() === 4
+            ) {
               const message = await client.messages.create({
                 body: "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
                 messagingServiceSid: messagingServiceSid,
@@ -81,7 +89,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
               }
             }
 
-            if (schedule?.[i]?.event === "Church Service") {
+            if (
+              schedule?.[i]?.event === "Church Service" &&
+              currentDate.getDay() === 6
+            ) {
               const message = await client.messages.create({
                 body: "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST",
                 messagingServiceSid: messagingServiceSid,
@@ -105,7 +116,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
         // Reminder 30 minutes before event
         if (info?.time === "2") {
           for (let i = 0; i < schedule.length; i++) {
-            if (schedule?.[i]?.event === "Virtual Bible Study") {
+            if (
+              schedule?.[i]?.event === "Virtual Bible Study" &&
+              currentDate.getDay() === 3
+            ) {
               const message = await client.messages.create({
                 body: "Just a friendly reminder that our virtual bible study is in 30 minutes. Excited to see you there!",
                 messagingServiceSid: messagingServiceSid,
@@ -122,7 +136,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
               }
             }
 
-            if (schedule?.[i]?.event === "In-Person Bible Study & Prayer") {
+            if (
+              schedule?.[i]?.event === "In-Person Bible Study & Prayer" &&
+              currentDate.getDay() === 5
+            ) {
               const message = await client.messages.create({
                 body: "Just a friendly reminder that the In-Person Bible Study & Prayer is in 30 minutes! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
                 messagingServiceSid: messagingServiceSid,
@@ -139,7 +156,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
               }
             }
 
-            if (schedule?.[i]?.event === "Church Service") {
+            if (
+              schedule?.[i]?.event === "Church Service" &&
+              currentDate.getDay() === 7
+            ) {
               const message = await client.messages.create({
                 body: "Just a friendly reminder that our Sunday Church Service doors open in 30 mins!",
                 messagingServiceSid: messagingServiceSid,
@@ -163,7 +183,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
         // Reminder when event start
         if (info?.time === "3") {
           for (let i = 0; i < schedule.length; i++) {
-            if (schedule?.[i]?.event === "Virtual Bible Study") {
+            if (
+              schedule?.[i]?.event === "Virtual Bible Study" &&
+              currentDate.getDay() === 3
+            ) {
               const message = await client.messages.create({
                 body: "Virtual Bible Study has started. See you there!",
                 messagingServiceSid: messagingServiceSid,
@@ -180,7 +203,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
               }
             }
 
-            if (schedule?.[i]?.event === "In-Person Bible Study & Prayer") {
+            if (
+              schedule?.[i]?.event === "In-Person Bible Study & Prayer" &&
+              currentDate.getDay() === 5
+            ) {
               const message = await client.messages.create({
                 body: "Our In-Person Bible Study & Prayer has started. If you're on the way, don't worry, you can still make it! See you there!",
                 messagingServiceSid: messagingServiceSid,
@@ -197,7 +223,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
               }
             }
 
-            if (schedule?.[i]?.event === "Church Service") {
+            if (
+              schedule?.[i]?.event === "Church Service" &&
+              currentDate.getDay() === 7
+            ) {
               const message = await client.messages.create({
                 body: "Our Church Service doors have opened. If you're on the way, don't worry, you can still make it! See you there!",
                 messagingServiceSid: messagingServiceSid,
