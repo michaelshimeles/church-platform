@@ -57,7 +57,7 @@ const AmharicMinistryPage: React.FC = () => {
         },
         {
             title: "Cell Groups",
-            description: `The large, corporate gathering of our church community every Sunday.`,
+            description: `Join our close-knit cell groups for meaningful fellowship, spiritual growth, and support on your faith journey.`,
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/family.jpeg`
 
         }
@@ -67,7 +67,7 @@ const AmharicMinistryPage: React.FC = () => {
         <section>
             <AmharicMinistryHero />
             <div className='container mx-auto px-6 py-10'>
-                <div className='mt-[3rem]'>
+                <div className='mt-[3rem]' id="weekly-page">
                     <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                         ሳምንታዊ መርሐግብር
                     </h2>
@@ -87,7 +87,7 @@ const AmharicMinistryPage: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <CTA />
+                <CTA ministry="amharic"/>
             </div>
         </section>
     );

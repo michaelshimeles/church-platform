@@ -34,6 +34,7 @@ const EnglishMinistryPage = ({ }) => {
         },
         // Add more schedule items as needed
     ];
+
     const servingInfo = [
         {
             title: "Sunday Service",
@@ -80,7 +81,7 @@ const EnglishMinistryPage = ({ }) => {
         <section>
             <EnglishMinistryHero />
             <div className='container mx-auto px-6 py-10'>
-                <div className='mt-[3rem]'>
+                <div className='mt-[3rem]' id='weekly'>
                     <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                         Weekly Schedule
                     </h2>
@@ -102,7 +103,7 @@ const EnglishMinistryPage = ({ }) => {
 
                     </div>
                 </div>
-                <CTA />
+                <CTA ministry='english'/>
             </div>
         </section>
     );

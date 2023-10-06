@@ -23,7 +23,7 @@ export default function EnglishMinistryHero() {
                     </div>
                     <div className="space-x-4">
                         <Link 
-                        href="#"
+                        href="#weekly"
                         >
                             <Button variant="outline">Learn More</Button>
                         </Link>

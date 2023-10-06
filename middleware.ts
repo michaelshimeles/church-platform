@@ -21,7 +21,8 @@ export default authMiddleware({
     "/api/text/register",
     "/login",
     "/join-us",
-    "/bible-study"
+    "/bible-study",
+    "/api/text/cta"
 ],
 });
 

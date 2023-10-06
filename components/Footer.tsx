@@ -123,7 +123,7 @@ const Footer = ({ }) => {
                                     Join Our Church
                                 </a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a href="#" className=" transition hover:opacity-75">
                                     Cell Groups
                                 </a>
@@ -132,7 +132,7 @@ const Footer = ({ }) => {
                                 <a href="#" className=" transition hover:opacity-75">
                                     Baptism
                                 </a>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

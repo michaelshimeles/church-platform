@@ -17,13 +17,13 @@ export default function AmharicMinistryHero() {
                     <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl drop-shadow-lg text-white">ጸጋ Bible Fellowship Church</h2>
                         <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed drop-shadow-lg text-white">
-                            ስለ ጌታችንና መድኃኒታችን ኢየሱስ ክርስቶስ ተማር፣ አምልኮ፣ አምልኮ፣ ክብር እና ክብር ወደ ቤተ ክርስቲያናችን ተቀላቀል። ሁሉም ዕድሜዎች እንኳን ደህና መጡ!
+                            እኛ በጌታ እና በንጉሥ ኢየሱስ ክርስቶስ የምናምን ማህበረሰብ ነን።
                         </p>
                     </div>
                     <div className="space-x-4">
                         <Link
                             className="inline-flex h-10 items-center justify-center rounded-md border border-zinc-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-300"
-                            href="#"
+                            href="#weekly-page"
                         >
                             ተጨማሪ እወቅ
                         </Link>
