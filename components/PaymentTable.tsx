@@ -1,8 +1,4 @@
 "use client"
-import { TableCaption, TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import { useUser } from "@clerk/nextjs";
-import { useState, useEffect } from "react"
-import { Info, Receipt } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -11,18 +7,19 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Loader2 } from 'lucide-react';
+} from "@/components/ui/dialog";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useUser } from "@clerk/nextjs";
+import { Info, Loader2, Receipt } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Icon = {
     spinner: Loader2,
 };
 
+import { DialogClose } from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { DialogClose } from "@radix-ui/react-dialog";
 export default function PaymentTable() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [finance, setFinance] = useState<any>(null)
