@@ -23,7 +23,8 @@ export default authMiddleware({
     "/join-us",
     "/bible-study",
     "/api/text/cta",
-    "/coming-soon"
+    "/coming-soon",
+    "/contact-us"
 ],
 });
 
