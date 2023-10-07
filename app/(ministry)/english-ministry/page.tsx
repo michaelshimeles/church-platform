@@ -4,7 +4,7 @@ import EnglishMinistryHero from '@/components/hero/EnglishMinistryHero';
 import HowWeServeCard from '@/components/card/HowWeServeCard';
 import ScheduleCard from '@/components/card/ScheduleCard';
 import React from 'react'
-
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 const EnglishMinistryPage = ({ }) => {
     const scheduleItems = [
@@ -87,7 +87,7 @@ const EnglishMinistryPage = ({ }) => {
                     </h2>
                     <div className='flex flex-wrap justify-center mt-[2rem] gap-4'>
                         {scheduleItems?.map((info, index) => (
-                            <ScheduleCard key={index} {...info} />
+                            <ScheduleCard key={index} {...info} ministry='english' />
                         ))}
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const EnglishMinistryPage = ({ }) => {
 
                     </div>
                 </div>
-                <CTA ministry='english'/>
+                <CTA ministry='english' />
             </div>
         </section>
     );

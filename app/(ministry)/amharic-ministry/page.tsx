@@ -6,29 +6,29 @@ import CTA from '@/components/CTA';
 
 const AmharicMinistryPage: React.FC = () => {
     const scheduleItems = [
+        // {
+        //     eventName: 'Virtual Bible Study',
+        //     eventLead: 'Michael Shimeles',
+        //     eventTime: '7:30pm',
+        //     eventDate: 'Wednesday',
+        //     eventAddress: 'Online',
+        //     eventDescription: `Embark on a spiritual journey from the comfort of your home with our Virtual Bible Study sessions. Dive deep into the Word and connect with like-minded seekers online`,
+        // },
+        // {
+        //     eventName: 'In-Person Bible Study & Prayer',
+        //     eventLead: 'Michael Shimeles',
+        //     eventTime: '9:00pm',
+        //     eventDate: 'Friday',
+        //     eventAddress: '100 Halsey Ave',
+        //     eventDescription: `Join us for enriching in-person Bible study and heartfelt prayer gatherings where Jesus is glorified, and we are edified, fostering a sense of community and spiritual growth`,
+        // },
         {
-            eventName: 'Virtual Bible Study',
-            eventLead: 'Michael Shimeles',
-            eventTime: '7:30pm',
-            eventDate: 'Wednesday',
-            eventAddress: 'Online',
-            eventDescription: `Embark on a spiritual journey from the comfort of your home with our Virtual Bible Study sessions. Dive deep into the Word and connect with like-minded seekers online`,
-        },
-        {
-            eventName: 'In-Person Bible Study & Prayer',
-            eventLead: 'Michael Shimeles',
-            eventTime: '9:00pm',
-            eventDate: 'Friday',
-            eventAddress: '100 Halsey Ave',
-            eventDescription: `Join us for enriching in-person Bible study and heartfelt prayer gatherings where Jesus is glorified, and we are edified, fostering a sense of community and spiritual growth`,
-        },
-        {
-            eventName: 'Church Service',
+            eventName: 'የቤተክርስቲያን አገልግሎት',
             eventLead: 'Michael Shimeles',
             eventTime: '4:00pm',
             eventDate: 'Sunday',
             eventAddress: '65 Sunrise Ave',
-            eventDescription: `Come as you are and be part of our welcoming faith community, where we worship, pray, and learn about Jesus, deepening our spiritual journey and forging lasting connections in the process.`,
+            eventDescription: `እርስዎ እንዳሉ ይምጡ እና የአቀባበል የእምነት ማህበረሰባችን አካል ይሁኑ፣ የምንሰግድበት፣ የምንጸልይበት እና ስለ ኢየሱስ የምንማርበት፣ መንፈሳዊ ጉዟችንን በማጠናከር እና በሂደቱ ውስጥ ዘላቂ ግንኙነቶችን እንፈጥራለን።`,
         },
         // Add more schedule items as needed
     ];
@@ -41,24 +41,24 @@ const AmharicMinistryPage: React.FC = () => {
         },
         {
             title: 'የመጽሐፍ ቅዱስ ጥናት',
-            description: 'The large, corporate gathering of our church community every Sunday.',
+            description: 'የመጽሐፍ ቅዱስ ጥናት ለክርስቲያኖች አስፈላጊ ነው ምክንያቱም እምነታቸውን ያጠናክራል፣ ከአምላክ ጋር ያላቸውን ዝምድና ያጠናክራል እንዲሁም የጽድቅ ሕይወት እንዲመሩ መመሪያ ይሰጣል።',
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/biblestudy.jpg`,
         },
         {
             title: 'ጸሎት',
             description: `በየሳምንቱ፣ በየሳምንቱ፣ የልባችንን ፍላጎት እና ጭንቀቶችን በኢየሱስ እግር ስር ለማስቀመጥ በእምነት እና በአንድነት መንፈስ እንሰበሰባለን፣ በትሑት ልቦች እና ጽኑ እምነት፣ ለፈውስ፣ ሰላም፣ ደስታ እና የመንፈስ ፍሬዎች ሁሉ በህይወታችን እና በዙሪያችን ባለው ዓለም ውስጥ ይገለጣል.`,
-            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/prayer.png`,
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethprayer.jpg`,
         },
         {
             title: "ጥምቀት",
-            description: `The large, corporate gathering of our church community every Sunday`,
-            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/bapt.png`
+            description: `ጥምቀት አንድ ሰው በኢየሱስ ክርስቶስ ላይ ያለውን እምነት በአደባባይ ማወጁን፣ የኃጢያት ንስሃ መግባቱን እና እሱን ለመከተል መሰጠትን የሚያመለክት ጉልህ መንፈሳዊ ተግባር ነው፣ ይህም በውሃ ውስጥ በመጥለቅ ነው።`,
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethbaptism.jpg`
 
         },
         {
-            title: "Cell Groups",
-            description: `Join our close-knit cell groups for meaningful fellowship, spiritual growth, and support on your faith journey.`,
-            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/family.jpeg`
+            title: "የጥናት ቡድኖች",
+            description: `ትርጉም ላለው ህብረት፣ መንፈሳዊ እድገት እና በእምነት ጉዞዎ ላይ ድጋፍ ለማግኘት የቅርብ የተሳሰረ የሕዋስ ቡድኖቻችንን ይቀላቀሉ።`,
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethfamily.png`
 
         }
     ];
@@ -71,9 +71,9 @@ const AmharicMinistryPage: React.FC = () => {
                     <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                         ሳምንታዊ መርሐግብር
                     </h2>
-                    <div className='flex flex-wrap justify-center mt-[2rem] gap-4'>
+                    <div className='flex flex-wrap justify-start mt-[2rem] gap-4'>
                         {scheduleItems.map((item, index) => (
-                            <ScheduleCard key={index} {...item} />
+                            <ScheduleCard key={index} {...item} ministry="amharic" />
                         ))}
                     </div>
                 </div>
@@ -87,7 +87,7 @@ const AmharicMinistryPage: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <CTA ministry="amharic"/>
+                <CTA ministry="amharic" />
             </div>
         </section>
     );

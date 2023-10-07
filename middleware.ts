@@ -22,7 +22,8 @@ export default authMiddleware({
     "/login",
     "/join-us",
     "/bible-study",
-    "/api/text/cta"
+    "/api/text/cta",
+    "/coming-soon"
 ],
 });
 

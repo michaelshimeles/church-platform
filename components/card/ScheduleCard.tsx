@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form"
 import { DialogClose } from '@radix-ui/react-dialog';
 import { useToast } from "@/components/ui/use-toast"
 import { ToastAction } from '../ui/toast';
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 interface ScheduleCardProps {
     eventName: string,
@@ -23,10 +24,11 @@ interface ScheduleCardProps {
     eventDate: string,
     eventTime: string,
     eventAddress: string,
-    eventDescription: string
+    eventDescription: string,
+    ministry: "english" | "amharic"
 }
 
-const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, eventDate, eventTime, eventAddress, eventDescription }) => {
+const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventLead, eventDate, eventTime, eventAddress, eventDescription }) => {
     const {
         register,
         handleSubmit,
@@ -97,7 +99,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, event
                 </div>
             </dl>
             <div className='mt-[1rem]'>
-                <Dialog>
+                {/* {ministry === "english" && <Dialog>
                     <DialogTrigger asChild>
                         <Button>Join</Button>
                     </DialogTrigger>
@@ -130,7 +132,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ eventName, eventLead, event
                             </DialogFooter>
                         </form>
                     </DialogContent>
-                </Dialog>
+                </Dialog>} */}
             </div >
         </div>
     );
