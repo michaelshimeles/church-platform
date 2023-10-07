@@ -15,7 +15,6 @@ export const registerPayment = async (
   currency: string
 ) => {
   const supabase = createServerComponentClient({ cookies });
-
   try {
     const { data, error } = await supabase
       .from("payments")
