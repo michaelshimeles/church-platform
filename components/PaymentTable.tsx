@@ -43,7 +43,6 @@ export default function PaymentTable() {
                 })
 
                 console.log("process.env.NEXT_PUBLIC_FRONTEND_URL", process.env.NEXT_PUBLIC_FRONTEND_URL)
-                console.log("response", response)
 
                 const result = await response.json()
 
