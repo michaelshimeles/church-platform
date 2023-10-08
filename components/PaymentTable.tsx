@@ -32,7 +32,7 @@ export default function PaymentTable() {
             setLoading(true)
             try {
 
-                const response = await fetch(`https://www.tsegabiblechurch.com/api/payments/info`, {
+                const response = await fetch(`/api/payments/info`, {
                     method: "POST",
                     body: JSON.stringify({
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
