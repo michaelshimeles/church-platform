@@ -32,7 +32,7 @@ export default function PaymentTable() {
             setLoading(true)
             try {
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
+                const response = await fetch(`https://www.tsegabiblechurch.com/api/payments/info`, {
                     method: "POST",
                     body: JSON.stringify({
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
@@ -47,7 +47,6 @@ export default function PaymentTable() {
 
                 setLoading(false)
 
-                console.log("Result", result)
                 return result
 
             } catch (error) {
@@ -60,8 +59,8 @@ export default function PaymentTable() {
     }, [user])
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
-    const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
-    console.log("paymentObject", paymentObject)
+    // const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
+    // console.log("paymentObject", paymentObject)
 
 
     return (
@@ -92,7 +91,6 @@ export default function PaymentTable() {
                     <TableBody>
                         {finance?.financials?.payments?.map((info: any, index: number) => (
                             <TableRow key={index} onClick={() => {
-                                console.log("Clicked", info)
                                 setBillingInfo(info)
                                 setPaymentInfo(info)
                             }}>

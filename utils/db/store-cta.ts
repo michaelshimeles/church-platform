@@ -16,7 +16,6 @@ export const storeCta = async (
       .select();
 
     if (data) {
-      console.log("Data", data);
       return {
         message: "success",
         data,

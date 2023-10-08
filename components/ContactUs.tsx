@@ -73,7 +73,6 @@ export default function ContactUs() {
 
             const result = await response.json()
 
-            console.log("Response On Submit", result)
             return result
         } catch (error) {
             console.log("Error", error)

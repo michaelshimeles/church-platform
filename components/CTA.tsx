@@ -61,8 +61,6 @@ export default function CTA({ ministry }: {
             })
             const result = await response.json()
 
-            console.log("Response On Submit", result)
-
             if (ministry === "amharic") {
                 toast({
                     title: `We will contact you`,
