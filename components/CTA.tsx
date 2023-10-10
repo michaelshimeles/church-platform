@@ -58,7 +58,7 @@ export default function CTA({ ministry }: {
         });
 
         try {
-            const response = await fetch(`http://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phone}&country_code=CA&format=1`)
+            const response = await fetch(`https://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phone}&country_code=CA&format=1`)
 
             const result = await response?.json()
 
