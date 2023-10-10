@@ -1,8 +1,6 @@
 import { financialData } from "@/utils/db/financial-data";
 import { NextRequest, NextResponse } from "next/server";
 
-export const runtime = 'edge';
-
 export async function POST(req: NextRequest) {
   const info = await req.json();
 
