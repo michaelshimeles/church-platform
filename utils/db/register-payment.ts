@@ -17,7 +17,7 @@ export const registerPayment = async (
   const supabase = createServerComponentClient({ cookies });
   try {
     const { data, error } = await supabase
-      .from("payments")
+      .from("paymens")
       .insert([
         {
           email,

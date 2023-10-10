@@ -1,8 +1,4 @@
 "use client"
-import { TableCaption, TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import { useUser } from "@clerk/nextjs";
-import { useState, useEffect } from "react"
-import { Info, Receipt } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -11,18 +7,20 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Loader2 } from 'lucide-react';
+} from "@/components/ui/dialog";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useUser } from "@clerk/nextjs";
+import { Info, Loader2, Receipt } from "lucide-react";
+import { useEffect, useState } from "react";
+import * as Sentry from "@sentry/nextjs";
 
 export const Icon = {
     spinner: Loader2,
 };
 
+import { DialogClose } from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { DialogClose } from "@radix-ui/react-dialog";
 export default function PaymentTable() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [finance, setFinance] = useState<any>(null)
@@ -32,31 +30,36 @@ export default function PaymentTable() {
 
     useEffect(() => {
         const getFinanceInfo = async () => {
+            const transaction = Sentry.startTransaction({
+                name: "Getting Financial Donations Info",
+            });
+
+            Sentry.configureScope((scope) => {
+                scope.setSpan(transaction);
+            });
+
             setLoading(true)
             try {
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
+                const response = await fetch(`/api/payments/info`, {
                     method: "POST",
                     body: JSON.stringify({
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
                     })
                 })
-
-                console.log("process.env.NEXT_PUBLIC_FRONTEND_URL", process.env.NEXT_PUBLIC_FRONTEND_URL)
-                console.log("response", response)
-
                 const result = await response.json()
 
                 setFinance(result)
 
                 setLoading(false)
 
-                console.log("Result", result)
                 return result
 
             } catch (error) {
-                console.log("Error", error)
+                throw new Error(error as any);
                 return error
+            } finally {
+                transaction.finish();
             }
         }
 
@@ -65,7 +68,6 @@ export default function PaymentTable() {
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
     const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
-    console.log("paymentObject", paymentObject)
 
 
     return (
@@ -96,7 +98,6 @@ export default function PaymentTable() {
                     <TableBody>
                         {finance?.financials?.payments?.map((info: any, index: number) => (
                             <TableRow key={index} onClick={() => {
-                                console.log("Clicked", info)
                                 setBillingInfo(info)
                                 setPaymentInfo(info)
                             }}>

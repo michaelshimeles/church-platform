@@ -69,7 +69,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
 
@@ -93,7 +93,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
 
@@ -116,7 +116,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
                     "Just a friendly reminder that our Sunday Church Service is tomorrow! Make sure you make time and don't miss it! The address is 65 Sunrise Ave and it starts at 4:00pm EST"
                   );
                 }
-              } catch (error) {}
+              } catch (error) {
+                throw new Error(error as any);
+              }
             }
           }
 
@@ -146,7 +148,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
 
@@ -170,7 +172,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
 
@@ -194,7 +196,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
           }
@@ -225,7 +227,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
 
@@ -249,7 +251,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
 
@@ -273,7 +275,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   );
                 }
               } catch (error) {
-                console.log("error", error);
+                throw new Error(error as any);
               }
             }
           }
@@ -284,9 +286,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
         return NextResponse.json({ status: "No Schedule" });
       } else {
         // Handle the case when reading schedule data fails
+        throw new Error(result.error);
         return NextResponse.json({ status: "Failed", error: result.error });
       }
     } catch (error) {
+      throw new Error(error as any);
       return NextResponse.json({ status: "Failed", error });
     }
   } else {

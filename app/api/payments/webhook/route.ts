@@ -1,9 +1,12 @@
 import { registerPayment } from "@/utils/db/register-payment";
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = 'edge';
+
 export async function POST(req: NextRequest) {
   const res = await req.json();
 
+  console.log("Res", res);
   const dateTime = new Date(res?.created * 1000).toLocaleDateString();
   const timeString = new Date(res?.created * 1000).toLocaleTimeString();
 
@@ -27,6 +30,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (response?.message === "error") {
+      throw new Error("Sentry Example API Route Error", response?.error as any);
       return NextResponse.json({ status: "Error", response });
     }
 
@@ -35,6 +39,7 @@ export async function POST(req: NextRequest) {
       response,
     });
   } catch (error) {
+    throw new Error("Endpoint /api/payments/webhooks failed", error as any);
     return NextResponse.json({ status: "Failed", error });
   }
 }

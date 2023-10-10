@@ -10,7 +10,13 @@ export const financialData = async (email: string) => {
       .select("*")
       .eq("email", email);
 
-    if (!error) {
+    if ((payments?.length as number) === 0) {
+      return {
+        message: "No payments made",
+      };
+    }
+
+    if ((payments?.length as number) > 0) {
       return {
         message: "success",
         payments,
@@ -21,6 +27,7 @@ export const financialData = async (email: string) => {
       message: "error",
       error,
     };
+
   } catch (error) {
     return error;
   }
