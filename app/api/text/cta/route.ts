@@ -47,7 +47,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
       throw new Error(error);
-      // Instead of returning a string, return a JSON response with an error message.
       return NextResponse.json({ status: "Error", error });
     }
   }
