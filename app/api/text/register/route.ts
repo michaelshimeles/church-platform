@@ -1,16 +1,6 @@
 import { scheduleText } from "@/utils/db/schedule-text";
 import { NextRequest, NextResponse } from "next/server";
 
-interface ScheduleTextType {
-  message: string;
-  data: {
-    id: string;
-    created_at: string;
-    name: string;
-    phoneNumber: string;
-    event: string;
-  };
-}
 export async function POST(req: NextRequest, res: NextResponse) {
   const info = await req.json();
 
@@ -19,16 +9,21 @@ export async function POST(req: NextRequest, res: NextResponse) {
       info?.fullName,
       info.phoneNumber,
       info.event
-    )) as ScheduleTextType;
+    )) as any;
 
     if (response?.message === "success") {
       return NextResponse.json({ status: "Scheduled", response });
     }
 
     if (response?.message === "error") {
+      throw new Error(
+        "Error with Supabase in /api/text/register",
+        response?.error
+      );
       return NextResponse.json({ status: "Schedule Error", response });
     }
   } catch (error) {
+    throw new Error("Error in /api/text/register", error as any);
     return NextResponse.json({ status: "error", error });
   }
 

@@ -50,7 +50,6 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
             })
 
             const result = await response.json()
-            console.log("Result", result)
             toast({
                 title: `You've been registered`,
                 description: `As the ${eventName} get closer, we'll shoot you a text as a reminder!`,

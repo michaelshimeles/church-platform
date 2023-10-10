@@ -16,7 +16,6 @@ export const storeCta = async (
       .select();
 
     if (data) {
-      console.log("Data", data);
       return {
         message: "success",
         data,
@@ -30,6 +29,7 @@ export const storeCta = async (
       };
     }
   } catch (error) {
+    throw Error(error as any)
     return error;
   }
 };

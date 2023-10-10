@@ -1,5 +1,4 @@
 import { storeCta } from "@/utils/db/store-cta";
-import { textLog } from "@/utils/db/text-log";
 import { NextRequest, NextResponse } from "next/server";
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -19,8 +18,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   };
 
   // Store CTA record in db
-  await storeCta(info?.firstName, info?.lastName, info?.phone, info?.ministry)
-
+  await storeCta(info?.firstName, info?.lastName, info?.phone, info?.ministry);
 
   if (info?.ministry === "english") {
     try {
@@ -31,13 +29,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
         to: info?.phone,
       });
 
-      console.log("Message", message);
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
+      throw new Error(error);
       // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      return NextResponse.json({ status: "Error", error });
     }
   } else {
     try {
@@ -48,13 +44,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
         to: "2899461487",
       });
 
-      console.log("Message", message);
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
+      throw new Error(error);
       // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      return NextResponse.json({ status: "Error", error });
     }
   }
 }

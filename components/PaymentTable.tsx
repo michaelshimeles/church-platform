@@ -12,8 +12,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import * as Sentry from "@sentry/nextjs";
 import { Loader2 } from 'lucide-react';
 
 export const Icon = {
@@ -32,6 +31,14 @@ export default function PaymentTable() {
 
     useEffect(() => {
         const getFinanceInfo = async () => {
+            const transaction = Sentry.startTransaction({
+                name: "Getting Financial Donations Info",
+            });
+
+            Sentry.configureScope((scope) => {
+                scope.setSpan(transaction);
+            });
+
             setLoading(true)
             try {
 
@@ -41,22 +48,19 @@ export default function PaymentTable() {
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
                     })
                 })
-
-                console.log("process.env.NEXT_PUBLIC_FRONTEND_URL", process.env.NEXT_PUBLIC_FRONTEND_URL)
-                console.log("response", response)
-
                 const result = await response.json()
 
                 setFinance(result)
 
                 setLoading(false)
 
-                console.log("Result", result)
                 return result
 
             } catch (error) {
-                console.log("Error", error)
+                throw new Error(error as any);
                 return error
+            } finally {
+                transaction.finish();
             }
         }
 
@@ -65,7 +69,6 @@ export default function PaymentTable() {
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
     const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
-    console.log("paymentObject", paymentObject)
 
 
     return (
@@ -96,7 +99,6 @@ export default function PaymentTable() {
                     <TableBody>
                         {finance?.financials?.payments?.map((info: any, index: number) => (
                             <TableRow key={index} onClick={() => {
-                                console.log("Clicked", info)
                                 setBillingInfo(info)
                                 setPaymentInfo(info)
                             }}>
