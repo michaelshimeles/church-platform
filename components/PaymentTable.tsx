@@ -12,6 +12,7 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { useUser } from "@clerk/nextjs";
 import { Info, Loader2, Receipt } from "lucide-react";
 import { useEffect, useState } from "react";
+import * as Sentry from "@sentry/nextjs";
 
 export const Icon = {
     spinner: Loader2,
@@ -29,6 +30,14 @@ export default function PaymentTable() {
 
     useEffect(() => {
         const getFinanceInfo = async () => {
+            const transaction = Sentry.startTransaction({
+                name: "Getting Financial Donations Info",
+            });
+
+            Sentry.configureScope((scope) => {
+                scope.setSpan(transaction);
+            });
+
             setLoading(true)
             try {
 
@@ -38,9 +47,6 @@ export default function PaymentTable() {
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
                     })
                 })
-
-                console.log("process.env.NEXT_PUBLIC_FRONTEND_URL", process.env.NEXT_PUBLIC_FRONTEND_URL)
-
                 const result = await response.json()
 
                 setFinance(result)
@@ -50,8 +56,10 @@ export default function PaymentTable() {
                 return result
 
             } catch (error) {
-                console.log("Error", error)
+                throw new Error(error as any);
                 return error
+            } finally {
+                transaction.finish();
             }
         }
 
@@ -59,8 +67,7 @@ export default function PaymentTable() {
     }, [user])
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
-    // const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
-    // console.log("paymentObject", paymentObject)
+    const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
 
 
     return (

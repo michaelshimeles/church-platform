@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 
-interface HeroProps {}
+interface HeroProps { }
 
-const Hero: React.FC<HeroProps> = ({}) => {
+const Hero: React.FC<HeroProps> = ({ }) => {
     return (
         <main
             className="flex flex-col items-center border-b w-full bg-cover bg-center bg-no-repeat lg:py-[15rem] py-[11rem]"

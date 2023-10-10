@@ -18,8 +18,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   };
 
   // Store CTA record in db
-  await storeCta(info?.firstName, info?.lastName, info?.phone, info?.ministry)
-
+  await storeCta(info?.firstName, info?.lastName, info?.phone, info?.ministry);
 
   if (info?.ministry === "english") {
     try {
@@ -32,10 +31,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
+      throw new Error(error);
       // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      return NextResponse.json({ status: "Error", error });
     }
   } else {
     try {
@@ -48,10 +46,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
-      console.log("Error", error);
-
-      // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      throw new Error(error);
+      return NextResponse.json({ status: "Error", error });
     }
   }
 }

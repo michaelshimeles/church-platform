@@ -13,15 +13,8 @@ export const storeEmail = async (
   try {
     const { data, error } = await supabase
       .from("emails")
-      .insert([{ firstName, lastName, email, source, message }])
+      .insert({ firstName, lastName, email, source, message })
       .select();
-
-    if (data) {
-      return {
-        message: "success",
-        data,
-      };
-    }
 
     if (error) {
       return {
@@ -29,7 +22,15 @@ export const storeEmail = async (
         error,
       };
     }
+
+    if (data) {
+      return {
+        message: "success",
+        data,
+      };
+    }
   } catch (error) {
+    throw Error(error as any)
     return error;
   }
 };

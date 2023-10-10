@@ -29,6 +29,7 @@ export const storeCta = async (
       };
     }
   } catch (error) {
+    throw Error(error as any)
     return error;
   }
 };

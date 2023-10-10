@@ -11,6 +11,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import * as Sentry from '@sentry/nextjs';
 
 const ContactUsForm = z.object({
     firstName: z.string().min(3, {
@@ -43,6 +44,14 @@ export default function ContactUs() {
     const { toast } = useToast()
 
     const onSubmit = async (data: z.infer<typeof ContactUsForm>) => {
+        const transaction = Sentry.startTransaction({
+            name: "Contact Us From Submission",
+        });
+
+        Sentry.configureScope((scope) => {
+            scope.setSpan(transaction);
+        });
+
         emailjs.sendForm('service_p9gb36g', 'template_uqbopbj', form.current as any, 'fbXgpdLqo_SRGMh72')
             .then((result) => {
                 toast({
@@ -51,15 +60,15 @@ export default function ContactUs() {
                 })
                 reset()
             }, (error) => {
+
                 toast({
                     title: "Message Failed.",
                     description: error.text,
                 })
-                console.log(error.text);
+                throw new Error(error.text);
             });
 
         try {
-
             const response = await fetch(`/api/store-email`, {
                 method: "POST",
                 body: JSON.stringify({
@@ -75,8 +84,9 @@ export default function ContactUs() {
 
             return result
         } catch (error) {
-            console.log("Error", error)
-            return error
+            throw new Error("Storing Emails in db Frontend Error", error as any);
+        } finally {
+            transaction.finish();
         }
 
     }

@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { DialogClose } from "@radix-ui/react-dialog"
+import * as Sentry from "@sentry/nextjs";
 import { useRef, useState } from 'react'
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -49,6 +49,14 @@ export default function CTA({ ministry }: {
     });
 
     const onSubmit = async (data: z.infer<typeof CTAForm>) => {
+        const transaction = Sentry.startTransaction({
+            name: "Join Church CTA",
+        });
+
+        Sentry.configureScope((scope) => {
+            scope.setSpan(transaction);
+        });
+
         try {
             const response = await fetch(`/api/text/cta`, {
                 method: "POST",
@@ -76,8 +84,9 @@ export default function CTA({ ministry }: {
             reset()
             return result
         } catch (error) {
-            console.log("Error", error)
-            return error
+            throw new Error(error as any);
+        } finally {
+            transaction.finish();
         }
     }
 
