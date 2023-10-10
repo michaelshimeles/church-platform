@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 
-interface HeroProps {}
+interface HeroProps { }
 
-const Hero: React.FC<HeroProps> = ({}) => {
+const Hero: React.FC<HeroProps> = ({ }) => {
     return (
         <main
             className="flex flex-col items-center border-b w-full bg-cover bg-center bg-no-repeat lg:py-[15rem] py-[11rem]"
@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
             }}
         >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl text-center drop-shadow-lg text-white">
-                Grace (ጸጋ) Bible Church
+                Grace (ጸጋ) Bible Fellowship Church
             </h1>
             <h4 className="scroll-m-20 text-xl tracking-tight pt-2 drop-shadow-lg text-white">
                 Grow In Grace. Grow In Knowledge.

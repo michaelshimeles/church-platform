@@ -29,7 +29,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
       // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      return NextResponse.json({ status: "Error", error: error });
     }
   }
 
@@ -42,9 +42,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
         to: result?.From,
       });
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
-    } catch (error: any) {
+    } catch (error) {
+      throw new Error(error as any);
       // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      return NextResponse.json({ status: "Error", error });
     }
   }
 
@@ -57,9 +58,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
         to: result?.From,
       });
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
-    } catch (error: any) {
+    } catch (error) {
+      throw new Error(error as any);
       // Instead of returning a string, return a JSON response with an error message.
-      return NextResponse.json({ status: "Error", error: error.message });
+      return NextResponse.json({ status: "Error", error });
     }
   }
 
