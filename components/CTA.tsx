@@ -58,58 +58,60 @@ export default function CTA({ ministry }: {
         });
 
         try {
-            const response = await fetch(`https://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phone}&country_code=CA&format=1`)
-
-            const result = await response?.json()
-
-            if (!result?.valid) {
-                toast({
-                    title: `Number is not valid`,
-                    variant: "destructive"
+            const response = await fetch(`/api/text/cta`, {
+                method: "POST",
+                body: JSON.stringify({
+                    firstName: data?.firstName,
+                    lastName: data?.lastName,
+                    phone: data?.phone,
+                    ministry
                 })
-                reset()
-                throw Error("Number is not valid")
-            } else {
-                try {
-                    const response = await fetch(`/api/text/cta`, {
-                        method: "POST",
-                        body: JSON.stringify({
-                            firstName: data?.firstName,
-                            lastName: data?.lastName,
-                            phone: data?.phone,
-                            ministry
-                        })
-                    })
-                    const result = await response.json()
+            })
+            const result = await response.json()
 
-                    if (ministry === "amharic") {
-                        toast({
-                            title: `We will contact you`,
-                            description: `Our Pastor will reach out to you shortly`,
-                        })
-                    }
-
-                    toast({
-                        title: `Check your messages`,
-                        description: `We've sent you a text with the information to join`,
-                    })
-
-                    reset()
-                    return result
-                } catch (error) {
-                    reset()
-                    throw new Error(error as any);
-                } finally {
-                    reset()
-                    transaction.finish();
-                }
-
+            if (ministry === "amharic") {
+                toast({
+                    title: `We will contact you`,
+                    description: `Our Pastor will reach out to you shortly`,
+                })
             }
 
+            toast({
+                title: `Check your messages`,
+                description: `We've sent you a text with the information to join`,
+            })
+
+            reset()
+            return result
         } catch (error) {
             reset()
-            throw Error(error as any)
+            throw new Error(error as any);
+        } finally {
+            reset()
+            transaction.finish();
         }
+
+        // try {
+        //     const response = await fetch(`https://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phone}&country_code=CA&format=1`)
+
+        //     const result = await response?.json()
+
+        //     if (!result?.valid) {
+        //         toast({
+        //             title: `Number is not valid`,
+        //             variant: "destructive"
+        //         })
+        //         reset()
+        //         throw Error("Number is not valid")
+        //     } else {
+
+
+        //     }
+
+        // } catch (error) {
+        //     reset()
+        //     throw Error(error as any)
+        // }
     }
 
     return (

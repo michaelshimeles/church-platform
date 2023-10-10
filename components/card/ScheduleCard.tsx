@@ -17,7 +17,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from '../ui/button';
-import { SeparatorHorizontal } from "lucide-react";
+
 interface ScheduleCardProps {
     eventName: string,
     eventLead: string
@@ -61,46 +61,48 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
         });
 
         try {
-            const response = await fetch(`https://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phoneNumber}&country_code=CA&format=1`)
-
-            const result = await response?.json()
-
-            if (!result?.valid) {
-                toast({
-                    title: `Number is not valid`,
-                    variant: "destructive"
+            const response = await fetch(`/api/text/register`, {
+                method: "POST",
+                body: JSON.stringify({
+                    "fullName": data?.fullName,
+                    "phoneNumber": data?.phoneNumber,
+                    "event": eventName
                 })
-                throw Error("Number is not valid")
-            } else {
-                try {
-                    const response = await fetch(`/api/text/register`, {
-                        method: "POST",
-                        body: JSON.stringify({
-                            "fullName": data?.fullName,
-                            "phoneNumber": data?.phoneNumber,
-                            "event": eventName
-                        })
-                    })
+            })
 
-                    const result = await response.json()
-                    toast({
-                        title: `You've been registered`,
-                        description: `As the ${eventName} get closer, we'll shoot you a text as a reminder!`,
-                    })
-                    reset()
-                    return result
-                } catch (error) {
-                    throw Error(error as any)
-                    return error
-                } finally {
-                    transaction.finish();
-                }
-            }
-
+            const result = await response.json()
+            toast({
+                title: `You've been registered`,
+                description: `As the ${eventName} get closer, we'll shoot you a text as a reminder!`,
+            })
+            reset()
+            return result
         } catch (error) {
             throw Error(error as any)
-
+            return error
+        } finally {
+            transaction.finish();
         }
+        
+        // try {
+        //     const response = await fetch(`https://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phoneNumber}&country_code=CA&format=1`)
+
+        //     const result = await response?.json()
+
+        //     if (!result?.valid) {
+        //         toast({
+        //             title: `Number is not valid`,
+        //             variant: "destructive"
+        //         })
+        //         throw Error("Number is not valid")
+        //     } else {
+        //         //
+        //     }
+
+        // } catch (error) {
+        //     throw Error(error as any)
+
+        // }
 
     }
     return (
