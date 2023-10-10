@@ -42,7 +42,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const currentDate = new Date();
 
   // Check if authorized
-  if (headersList?.get("pass") === "work") {
+  // if (headersList?.get("pass") === "work") {
     try {
       const result: any = await readSchedule();
 
@@ -300,7 +300,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       throw new Error(error as any);
       return NextResponse.json({ status: "Failed", error });
     }
-  } else {
-    return NextResponse.json({ status: "Not Authorized" });
-  }
+  // } else {
+  //   return NextResponse.json({ status: "Not Authorized" });
+  // }
 }

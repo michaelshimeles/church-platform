@@ -1,6 +1,15 @@
 import ServiceSchedule from '@/components/ServiceSchedule'
 import ChurchCard from '@/components/card/ChurchCard'
 import Hero from '@/components/hero/Hero'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Grace Bible Fellowship Church',
+  description: 'Grow In Grace. Grow In Knowledge.',
+  openGraph: {
+    images: ['https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/sermon.jpg']
+  }
+}
 
 export default function Home() {
   return (
