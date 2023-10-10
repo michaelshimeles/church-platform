@@ -6,6 +6,7 @@ export const runtime = 'edge';
 export async function POST(req: NextRequest) {
   const res = await req.json();
 
+  console.log("Res", res);
   const dateTime = new Date(res?.created * 1000).toLocaleDateString();
   const timeString = new Date(res?.created * 1000).toLocaleTimeString();
 

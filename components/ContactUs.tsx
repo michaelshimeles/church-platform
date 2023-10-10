@@ -69,7 +69,7 @@ export default function ContactUs() {
             });
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/store-emal`, {
+            const response = await fetch(`/api/store-email`, {
                 method: "POST",
                 body: JSON.stringify({
                     firstName: data?.firstName,

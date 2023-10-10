@@ -40,7 +40,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
 
     const onSubmit = async (data: any) => {
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/text/register`, {
+            const response = await fetch(`/api/text/register`, {
                 method: "POST",
                 body: JSON.stringify({
                     "fullName": data?.fullName,

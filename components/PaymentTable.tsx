@@ -1,8 +1,4 @@
 "use client"
-import { TableCaption, TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import { useUser } from "@clerk/nextjs";
-import { useState, useEffect } from "react"
-import { Info, Receipt } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -11,17 +7,20 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useUser } from "@clerk/nextjs";
+import { Info, Loader2, Receipt } from "lucide-react";
+import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/nextjs";
-import { Loader2 } from 'lucide-react';
 
 export const Icon = {
     spinner: Loader2,
 };
 
+import { DialogClose } from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { DialogClose } from "@radix-ui/react-dialog";
 export default function PaymentTable() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [finance, setFinance] = useState<any>(null)
@@ -42,7 +41,7 @@ export default function PaymentTable() {
             setLoading(true)
             try {
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
+                const response = await fetch(`/api/payments/info`, {
                     method: "POST",
                     body: JSON.stringify({
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string

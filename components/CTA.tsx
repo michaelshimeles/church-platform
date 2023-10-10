@@ -58,7 +58,7 @@ export default function CTA({ ministry }: {
         });
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/text/cta`, {
+            const response = await fetch(`/api/text/cta`, {
                 method: "POST",
                 body: JSON.stringify({
                     firstName: data?.firstName,
