@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: ['/give', '/donations', "/profile", '/thank-you', '/user-profile'],
     },
     sitemap: 'https://tsegabiblechurch.com/sitemap.xml',
   }
