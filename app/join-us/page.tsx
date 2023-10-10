@@ -1,11 +1,7 @@
 import ChurchCard from '@/components/card/ChurchCard';
 import React from 'react'
 
-interface JoinUsProps {
-
-}
-
-const JoinUs: React.FC<JoinUsProps> = ({ }) => {
+const JoinUs = () => {
     return (
         <main className="flex min-w-screen flex-col items-center justify-between mb-[5rem]">
             <div className='flex flex-col mt-[4rem] text-center mb-12 p-3 sm:md:w-[100%] md:w-[60%]'>

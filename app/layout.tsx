@@ -10,8 +10,12 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Grace Bible Fellowship Church',
-  description: 'Grow In Grace. Grow In Knowledge.',
+  keywords: ['Tsega Bible', 'Tsega Bible Church', 'Tsega Bible Fellowship Church', 'Tsega Bible Church Toronto', 'Tsega Toronto', 'Ethiopian Toronto Church', 'Grace Bible Fellowship Church', 'Grace Bible Church'],
+  openGraph: {
+    title: 'Grace Bible Fellowship Church',
+    description: 'Grow In Grace. Grow In Knowledge.',
+    images: ['https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/sermon.jpg']
+  }
 }
 
 export default function RootLayout({
