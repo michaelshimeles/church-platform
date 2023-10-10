@@ -28,7 +28,9 @@ export default authMiddleware({
     "/api/text/cta",
     "/coming-soon",
     "/contact-us",
-    "/resources/blog/(.*)"
+    "/resources/blog/(.*)",
+    "/sitemap.xml",
+    "/robot"
 ],
 });
 
