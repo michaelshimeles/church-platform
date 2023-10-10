@@ -1,15 +1,18 @@
 import { scheduleText } from "@/utils/db/schedule-text";
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  const info = await req.json();
+  const schema = z.object({
+    fullName: z.string(),
+    phoneNumber: z.string(),
+    event: z.string(),
+  });
+
+  const { fullName, phoneNumber, event } = schema.parse(await req.json());
 
   try {
-    const response = (await scheduleText(
-      info?.fullName,
-      info.phoneNumber,
-      info.event
-    )) as any;
+    const response = (await scheduleText(fullName, phoneNumber, event)) as any;
 
     if (response?.message === "success") {
       return NextResponse.json({ status: "Scheduled", response });

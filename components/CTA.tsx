@@ -58,35 +58,57 @@ export default function CTA({ ministry }: {
         });
 
         try {
-            const response = await fetch(`/api/text/cta`, {
-                method: "POST",
-                body: JSON.stringify({
-                    firstName: data?.firstName,
-                    lastName: data?.lastName,
-                    phone: data?.phone,
-                    ministry
-                })
-            })
-            const result = await response.json()
+            const response = await fetch(`http://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phone}&country_code=CA&format=1`)
 
-            if (ministry === "amharic") {
+            const result = await response?.json()
+
+            if (!result?.valid) {
                 toast({
-                    title: `We will contact you`,
-                    description: `Our Pastor will reach out to you shortly`,
+                    title: `Number is not valid`,
+                    variant: "destructive"
                 })
+                reset()
+                throw Error("Number is not valid")
+            } else {
+                try {
+                    const response = await fetch(`/api/text/cta`, {
+                        method: "POST",
+                        body: JSON.stringify({
+                            firstName: data?.firstName,
+                            lastName: data?.lastName,
+                            phone: data?.phone,
+                            ministry
+                        })
+                    })
+                    const result = await response.json()
+
+                    if (ministry === "amharic") {
+                        toast({
+                            title: `We will contact you`,
+                            description: `Our Pastor will reach out to you shortly`,
+                        })
+                    }
+
+                    toast({
+                        title: `Check your messages`,
+                        description: `We've sent you a text with the information to join`,
+                    })
+
+                    reset()
+                    return result
+                } catch (error) {
+                    reset()
+                    throw new Error(error as any);
+                } finally {
+                    reset()
+                    transaction.finish();
+                }
+
             }
 
-            toast({
-                title: `Check your messages`,
-                description: `We've sent you a text with the information to join`,
-            })
-
-            reset()
-            return result
         } catch (error) {
-            throw new Error(error as any);
-        } finally {
-            transaction.finish();
+            reset()
+            throw Error(error as any)
         }
     }
 
@@ -129,6 +151,7 @@ export default function CTA({ ministry }: {
                                         <DialogTitle>Join Our Church</DialogTitle>
                                         <DialogDescription>
                                             We&apos;ll text you link to our church whatsapp group and to stay up to date
+                                            <p>(Only Canadian Numbers for the time being)</p>
                                         </DialogDescription>
                                     </DialogHeader> :
                                         <DialogHeader>

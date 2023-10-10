@@ -6,6 +6,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_ID;
 import { headers } from "next/headers";
+import { z } from "zod";
 
 /*
 - Someone requests to be notified (need to confirm they own the number)
@@ -20,17 +21,22 @@ import { headers } from "next/headers";
   time = 3 (Event has started)
 */
 
-interface ScheduledText {
-  id: string;
-  created_at: string;
-  name: string;
-  phoneNumber: string;
-  timeZone: string;
-  event: string;
-}
-
 export async function POST(req: NextRequest, res: NextResponse) {
-  const info = await req.json();
+  const scheduledSchema = z.object({
+    id: z.string(),
+    created_at: z.string(),
+    name: z.string(),
+    phoneNumber: z.string().min(10),
+    timeZone: z.string(),
+    event: z.string(),
+  });
+  const timeSchema = z.object({
+    time: z.string(),
+  });
+
+  type ScheduledText = z.infer<typeof scheduledSchema>;
+  const { time } = timeSchema.parse(await req.json());
+
   const headersList = headers();
 
   const currentDate = new Date();
@@ -45,7 +51,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         const schedule: ScheduledText[] = result.scheduled_text;
 
         // Reminder 1 day before event
-        if (info?.time === "1") {
+        if (time === "1") {
           // Loop through all the scheduled events
           for (let i = 0; i < schedule.length; i++) {
             // Checks specific event and sends text for that event
@@ -53,6 +59,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
               schedule?.[i]?.event === "Virtual Bible Study" &&
               currentDate.getDay() === 2
             ) {
+              // Check if number is valid
               try {
                 const message = await client.messages.create({
                   body: "Just a friendly reminder that the Virtual Bible Study will is tomorrow! Make sure you make time and don't miss it!",
@@ -126,7 +133,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         }
 
         // Reminder 30 minutes before event
-        if (info?.time === "2") {
+        if (time === "2") {
           for (let i = 0; i < schedule.length; i++) {
             if (
               schedule?.[i]?.event === "Virtual Bible Study" &&
@@ -205,7 +212,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         }
 
         // Reminder when event start
-        if (info?.time === "3") {
+        if (time === "3") {
           for (let i = 0; i < schedule.length; i++) {
             if (
               schedule?.[i]?.event === "Virtual Bible Study" &&

@@ -4,12 +4,13 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_ID;
+import { z } from "zod";
 
 /* 
   Abstract the word to trigger the text response
 */
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {  
   const info = await req.text();
   const result = parseSmsQueryString(info);
 

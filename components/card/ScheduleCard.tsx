@@ -1,6 +1,4 @@
 "use client"
-import React from 'react'
-import { Button } from '../ui/button';
 import {
     Dialog,
     DialogContent,
@@ -9,15 +7,17 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useForm } from "react-hook-form"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
 import { DialogClose } from '@radix-ui/react-dialog';
-import { useToast } from "@/components/ui/use-toast"
-import { ToastAction } from '../ui/toast';
-import { AddToCalendarButton } from 'add-to-calendar-button-react';
-
+import * as Sentry from "@sentry/nextjs";
+import React from 'react';
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from '../ui/button';
+import { SeparatorHorizontal } from "lucide-react";
 interface ScheduleCardProps {
     eventName: string,
     eventLead: string
@@ -28,6 +28,19 @@ interface ScheduleCardProps {
     ministry: "english" | "amharic"
 }
 
+const ScheduleSchema = z.object({
+    fullName: z.string().min(3, {
+        message: "Name is required"
+    }),
+    phoneNumber: z.string().min(10, {
+        message: "Number is required"
+    }),
+})
+
+
+type ScheduleSchemaType = z.infer<typeof ScheduleSchema>
+
+
 const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventLead, eventDate, eventTime, eventAddress, eventDescription }) => {
     const {
         register,
@@ -35,30 +48,60 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
         watch,
         formState: { errors },
         reset
-    } = useForm()
+    } = useForm<ScheduleSchemaType>()
     const { toast } = useToast()
 
-    const onSubmit = async (data: any) => {
-        try {
-            const response = await fetch(`/api/text/register`, {
-                method: "POST",
-                body: JSON.stringify({
-                    "fullName": data?.fullName,
-                    "phoneNumber": data?.phoneNumber,
-                    "event": eventName
-                })
-            })
+    const onSubmit = async (data: z.infer<typeof ScheduleSchema>) => {
+        const transaction = Sentry.startTransaction({
+            name: "Join Event CTA",
+        });
 
-            const result = await response.json()
-            toast({
-                title: `You've been registered`,
-                description: `As the ${eventName} get closer, we'll shoot you a text as a reminder!`,
-            })
-            reset()
-            return result
+        Sentry.configureScope((scope) => {
+            scope.setSpan(transaction);
+        });
+
+        try {
+            const response = await fetch(`http://apilayer.net/api/validate?access_key=${process.env.NEXT_PUBLIC_NUM_VERIFY}&number=${data?.phoneNumber}&country_code=CA&format=1`)
+
+            const result = await response?.json()
+
+            if (!result?.valid) {
+                toast({
+                    title: `Number is not valid`,
+                    variant: "destructive"
+                })
+                throw Error("Number is not valid")
+            } else {
+                try {
+                    const response = await fetch(`/api/text/register`, {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "fullName": data?.fullName,
+                            "phoneNumber": data?.phoneNumber,
+                            "event": eventName
+                        })
+                    })
+
+                    const result = await response.json()
+                    toast({
+                        title: `You've been registered`,
+                        description: `As the ${eventName} get closer, we'll shoot you a text as a reminder!`,
+                    })
+                    reset()
+                    return result
+                } catch (error) {
+                    throw Error(error as any)
+                    return error
+                } finally {
+                    transaction.finish();
+                }
+            }
+
         } catch (error) {
-            return error
+            throw Error(error as any)
+
         }
+
     }
     return (
         <div
@@ -98,7 +141,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
                 </div>
             </dl>
             <div className='mt-[1rem]'>
-                {/* {ministry === "english" && <Dialog>
+                {ministry === "english" && <Dialog>
                     <DialogTrigger asChild>
                         <Button>Join</Button>
                     </DialogTrigger>
@@ -108,6 +151,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
                                 <DialogTitle>Register for our {eventName}</DialogTitle>
                                 <DialogDescription className='pb-[0.5rem] pt-[0.1rem]'>
                                     We&apos;ll text you link to our church whatsapp group and to stay up to date
+                                    <p>(Only Canadian Numbers for the time being)</p>
                                 </DialogDescription>
                             </DialogHeader>
                             <div className="grid gap-4 py-4">
@@ -131,7 +175,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
                             </DialogFooter>
                         </form>
                     </DialogContent>
-                </Dialog>} */}
+                </Dialog>}
             </div >
         </div>
     );
