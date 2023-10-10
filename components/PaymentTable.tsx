@@ -42,7 +42,7 @@ export default function PaymentTable() {
             setLoading(true)
             try {
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/payments/info`, {
+                const response = await fetch(`/api/payments/info`, {
                     method: "POST",
                     body: JSON.stringify({
                         emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
