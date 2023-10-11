@@ -3,6 +3,17 @@ import ChurchCard from '@/components/card/ChurchCard'
 import Hero from '@/components/hero/Hero'
 import { Metadata } from 'next'
 
+
+export const metadata: Metadata = {
+  keywords: ['Tsega Bible', 'Tsega Bible Church', 'Tsega Bible Fellowship Church', 'Tsega Bible Church Toronto', 'Tsega Toronto', 'Ethiopian Toronto Church', 'Grace Bible Fellowship Church', 'Grace Bible Church'],
+  openGraph: {
+    title: 'Grace Bible Fellowship Church',
+    description: 'Grow In Grace. Grow In Knowledge.',
+    images: ['https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/sermon.jpg']
+  }
+}
+
+
 export default function Home() {
   return (
     <main className="flex min-w-screen flex-col items-center justify-between">
