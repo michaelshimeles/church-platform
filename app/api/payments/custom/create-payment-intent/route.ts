@@ -14,7 +14,6 @@ export async function POST(req: NextRequest) {
       amount: Number(amount) * 100,
       currency: "CAD",
     });
-
     return new NextResponse(paymentIntent.client_secret, { status: 200 });
   } catch (error: any) {
     return new NextResponse(error, {
