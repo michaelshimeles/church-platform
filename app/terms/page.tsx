@@ -55,7 +55,7 @@ const ChurchTermsOfService = () => {
                     6. Governing Law
                 </h2>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    These terms and conditions are governed by and construed in accordance with the laws of [Your State/Country] and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
+                    These terms and conditions are governed by and construed in accordance with the laws of Ontario and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
                     Your use of this website signifies your acceptance of these terms of service. If you do not agree to these terms, please do not use our website.
