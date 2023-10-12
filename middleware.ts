@@ -20,6 +20,7 @@ export default authMiddleware({
     "/coming-soon",
     "/contact-us",
     "/resources/blog/(.*)",
+    "/privacy"
   ],
   apiRoutes: [
     "/api/text/cta",
