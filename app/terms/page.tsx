@@ -24,7 +24,7 @@ const ChurchTermsOfService = () => {
                     - use the materials for any commercial purpose or for any public display (commercial or non-commercial);
                     - attempt to decompile or reverse engineer any software contained on Tsega Bible Fellowship Church&apos;s website;
                     - remove any copyright or other proprietary notations from the materials; or
-                    - transfer the materials to another person or "mirror" the materials on any other server.
+                    - transfer the materials to another person or &quote;mirror&quote; the materials on any other server.
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
                     This license shall automatically terminate if you violate any of these restrictions and may be terminated by Tsega Bible Fellowship Church at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession, whether in electronic or printed format.
