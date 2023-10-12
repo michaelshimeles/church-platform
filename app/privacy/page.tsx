@@ -8,13 +8,13 @@ const ChurchPrivacyPolicy = () => {
                     Privacy Policy</h1>
 
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    Your privacy is important to us. It is Tsega Bible Fellowship Church's policy to respect your privacy regarding any information we may collect from you across our website, www.tsegabiblechurch.com, and other sites we own and operate.</p>
+                    Your privacy is important to us. It is Tsega Bible Fellowship Church&apos;s policy to respect your privacy regarding any information we may collect from you across our website, www.tsegabiblechurch.com, and other sites we own and operate.</p>
 
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     Information We Collect</h2>
 
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we're collecting it and how it will be used.</p>
+                    We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we&apos;re collecting it and how it will be used.</p>
 
                 <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                     Usage of Your Information</h2>
