@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const { withPlausibleProxy } = require('next-plausible')
+
 const nextConfig = {
-    images: {
-        domains: ["cdn.sanity.io", 'vngdsgitgimaumyqaatn.supabase.co']
-    }
+  images: {
+    domains: ["cdn.sanity.io", 'vngdsgitgimaumyqaatn.supabase.co']
+  }
 }
 
 module.exports = nextConfig
@@ -12,7 +14,7 @@ module.exports = nextConfig
 
 const { withSentryConfig } = require("@sentry/nextjs");
 
-module.exports = withSentryConfig(
+module.exports = withPlausibleProxy()(withSentryConfig(
   module.exports,
   {
     // For all available options, see:
@@ -42,4 +44,4 @@ module.exports = withSentryConfig(
     // Automatically tree-shake Sentry logger statements to reduce bundle size
     disableLogger: true,
   }
-);
+));
