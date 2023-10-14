@@ -6,6 +6,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import PlausibleProvider from 'next-plausible'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
+        <head>
+          <PlausibleProvider domain="tsegabiblefellowship.com" trackOutboundLinks={true}/>
+        </head>
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"
