@@ -87,7 +87,7 @@ export default function RegisterPage() {
                 <Card key="1" className="mx-auto max-w-sm">
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold">Confirmation Code</CardTitle>
-                        <CardDescription>We've sent you a confirmation code to your email</CardDescription>
+                        <CardDescription>We&apos;ve sent you a confirmation code to your email</CardDescription>
                     </CardHeader>
                     <form onSubmit={handleVerification}>
                         <CardContent>
