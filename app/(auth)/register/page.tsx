@@ -27,6 +27,7 @@ export default function RegisterPage() {
     const [verifying, setVerifying] = useState<any>(false)
     const [verifyLoading, setVerifyingLoading] = useState<boolean>(false)
     const [signUpLoading, setSignUpLoading] = useState<boolean>(false)
+
     const [code, setCode] = useState<any>("")
     const router = useRouter()
     const { toast } = useToast()
@@ -111,7 +112,7 @@ export default function RegisterPage() {
                 <Card key="1" className="mx-auto max-w-sm">
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold">Confirmation Code</CardTitle>
-                        <CardDescription>We've sent you a confirmation code to your email</CardDescription>
+                        <CardDescription>We&apos;ve sent you a confirmation code to your email</CardDescription>
                     </CardHeader>
                     <form onSubmit={handleVerification}>
                         <CardContent>
