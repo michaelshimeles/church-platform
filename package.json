@@ -40,6 +40,7 @@
     "get-youtube-id": "^1.0.1",
     "lucide-react": "^0.279.0",
     "next": "latest",
+    "next-plausible": "^3.11.1",
     "next-sanity": "^5.5.4",
     "next-themes": "^0.2.1",
     "react": "latest",

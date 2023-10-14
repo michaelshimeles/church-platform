@@ -14,6 +14,7 @@ export default authMiddleware({
     "/sign-out",
     "/resources/blog",
     "/about",
+    "/register",
     "/login",
     "/join-us",
     "/bible-study",
