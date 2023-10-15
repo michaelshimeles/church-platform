@@ -136,7 +136,7 @@ export default function SignInPage() {
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[0.7rem]">
-                        <div className="space-y-4">
+                        {/* <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label>Email</Label>
                                 <Input {...register("email", { required: true })} placeholder="simon@gmail.com" required type="email" />
@@ -162,7 +162,7 @@ export default function SignInPage() {
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Please wait
                             </Button>}
-                        </div>
+                        </div> */}
                         <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
                             <svg
                                 className=" mr-2 h-4 w-4"

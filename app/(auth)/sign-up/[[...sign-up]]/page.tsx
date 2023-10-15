@@ -157,11 +157,11 @@ export default function SignUpPage() {
             <Card key="1" className="mx-auto max-w-sm">
                 <CardHeader className="space-y-1">
                     <CardTitle className="text-2xl font-bold">Sign Up</CardTitle>
-                    <CardDescription>Enter your email below to register your account</CardDescription>
+                    {/* <CardDescription>Enter your email below to register your account</CardDescription> */}
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[0.7rem]">
-                        <div className="space-y-4">
+                        {/* <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label>First Name</Label>
                                 <Input {...register("firstName", { required: true })} placeholder="Simon" required type="text" />
@@ -195,7 +195,7 @@ export default function SignUpPage() {
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Please wait
                             </Button>}
-                        </div>
+                        </div> */}
                         <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
                             <svg
                                 className=" mr-2 h-4 w-4"
