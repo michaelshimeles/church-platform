@@ -134,8 +134,8 @@ export default function RegisterPage() {
                     <CardTitle className="text-2xl font-bold">Login</CardTitle>
                     <CardDescription>Enter your email below to login your account</CardDescription>
                 </CardHeader>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <CardContent>
+                <CardContent>
+                    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[0.7rem]">
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label>Email</Label>
@@ -163,31 +163,32 @@ export default function RegisterPage() {
                                 Please wait
                             </Button>}
                         </div>
-                    </CardContent>
-                </form>
-                <CardFooter>
-                    <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
-                        <svg
-                            className=" mr-2 h-4 w-4"
-                            fill="none"
-                            height="24"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                            width="24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <circle cx="12" cy="12" r="10" />
-                            <circle cx="12" cy="12" r="4" />
-                            <line x1="21.17" x2="12" y1="8" y2="8" />
-                            <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
-                            <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
-                        </svg>
-                        Login with Google
-                    </Button>
-                </CardFooter>
+                        <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
+                            <svg
+                                className=" mr-2 h-4 w-4"
+                                fill="none"
+                                height="24"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="4" />
+                                <line x1="21.17" x2="12" y1="8" y2="8" />
+                                <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
+                                <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
+                            </svg>
+                            Login with Google
+                        </Button>
+                    </form>
+                </CardContent>
+                {/* <CardFooter> */}
+
+                {/* </CardFooter> */}
             </Card>
         </div>
     );
