@@ -36,9 +36,8 @@ export default function SignUpPage() {
     const onSubmit = async (data: any) => {
         setSignUpLoading(true)
         if (!isLoaded && !signUp) {
-            console.log("Null")
+            setSignUpLoading(false)
             return null
-
         }
         try {
             // Start the Sign Up process using the phone number method
@@ -48,8 +47,6 @@ export default function SignUpPage() {
                 emailAddress: data?.email,
             });
 
-            // Start the verification - a SMS message will be sent to the 
-            // number with a one-time code
             await signUp.prepareEmailAddressVerification();
 
             // Set 'verifying' true to display second form and capture the OTP code
@@ -154,14 +151,14 @@ export default function SignUpPage() {
     return (
         <div className="flex min-w-screen justify-center my-[5rem]">
             {/* <SignIn /> */}
-            <Card key="1" className="mx-auto max-w-sm">
+            <Card key="1" className="mx-auto sm:w-[375px] w-[275px] p-2">
                 <CardHeader className="space-y-1">
                     <CardTitle className="text-2xl font-bold">Sign Up</CardTitle>
-                    {/* <CardDescription>Enter your email below to register your account</CardDescription> */}
+                    <CardDescription>Sign up with your Google account</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col gap-2">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[0.7rem]">
-                        {/* <div className="space-y-4">
+                        <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label>First Name</Label>
                                 <Input {...register("firstName", { required: true })} placeholder="Simon" required type="text" />
@@ -195,29 +192,29 @@ export default function SignUpPage() {
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Please wait
                             </Button>}
-                        </div> */}
-                        <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
-                            <svg
-                                className=" mr-2 h-4 w-4"
-                                fill="none"
-                                height="24"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                width="24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <circle cx="12" cy="12" r="10" />
-                                <circle cx="12" cy="12" r="4" />
-                                <line x1="21.17" x2="12" y1="8" y2="8" />
-                                <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
-                                <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
-                            </svg>
-                            Sign up with Google
-                        </Button>
+                        </div>
                     </form>
+                    <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
+                        <svg
+                            className=" mr-2 h-4 w-4"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="4" />
+                            <line x1="21.17" x2="12" y1="8" y2="8" />
+                            <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
+                            <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
+                        </svg>
+                        Sign up with Google
+                    </Button>
                 </CardContent>
                 <CardFooter>
 
