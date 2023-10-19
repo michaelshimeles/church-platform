@@ -9,10 +9,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2 } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
-import { OAuthStrategy } from "@clerk/types";
+import { OAuthStrategy, SignInFirstFactor, EmailCodeFactor } from "@clerk/types";
+import { ToastAction } from "@/components/ui/toast";
 
 export default function SignInPage() {
-    const { signIn } = useSignIn();
+    const { signIn, isLoaded, setActive } = useSignIn();
 
     const signInWith = (strategy: OAuthStrategy) => {
         return signIn?.authenticateWithRedirect({
@@ -23,23 +24,59 @@ export default function SignInPage() {
     };
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    const { isLoaded, signUp, setActive } = useSignUp();
     const [verifying, setVerifying] = useState<any>(false)
     const [verifyLoading, setVerifyingLoading] = useState<boolean>(false)
-    const [signUpLoading, setSignUpLoading] = useState<boolean>(false)
+    const [signInLoading, setSignInLoading] = useState<boolean>(false)
     const [code, setCode] = useState<any>("")
     const router = useRouter()
     const { toast } = useToast()
 
 
     const onSubmit = async (data: any) => {
-        if (!isLoaded && !signIn) return null
-        try {
-
+        setSignInLoading(true)
+        if (!isLoaded && !signIn) {
+            setSignInLoading(false)
+            return null
         }
-        catch (err) {
+        try {
+            const { supportedFirstFactors }: any = await signIn?.create({
+                strategy: "email_code",
+                identifier: `${data?.email}`,
+            });
+
+
+            // // Filter the returned array to find the 'email_code' entry
+            const isEmailCodeFactor = (
+                factor: SignInFirstFactor
+            ): factor is EmailCodeFactor => {
+                return factor.strategy === "email_code";
+            };
+            const emailCodeFactor = supportedFirstFactors?.find(isEmailCodeFactor);
+
+            if (emailCodeFactor) {
+                // Grab the emailAddressId
+                const { emailAddressId } = emailCodeFactor
+
+                // Send the OTP code to the user
+                await signIn?.prepareFirstFactor({
+                    strategy: 'email_code',
+                    emailAddressId
+                })
+
+                // Set 'verifying' true to display second form and capture the OTP code
+                setVerifying(true)
+                setSignInLoading(false)
+            }
+        }
+        catch (err: any) {
             // See https://clerk.com/docs/custom-flows/error-handling for more on error handling
             console.error('Error:', JSON.stringify(err, null, 2))
+            setSignInLoading(false)
+            toast({
+                title: "Error Signing In",
+                description: err?.errors?.[0]?.longMessage,
+                variant: "destructive"
+            })
         }
 
 
@@ -48,35 +85,41 @@ export default function SignInPage() {
     async function handleVerification(e: React.FormEvent) {
         e.preventDefault()
 
-        if (!isLoaded && !signUp) return null
+        if (!isLoaded && !signIn) return null
 
         setVerifyingLoading(true)
-
         try {
             // Use the code provided by the user and attempt verification
-            const completeSignUp = await signUp.attemptEmailAddressVerification({
+            const completeSignIn = await signIn?.attemptFirstFactor({
+                strategy: 'email_code',
                 code,
             });
 
             // This mainly for debuggin while developing.
             // Once your Instance is setup this should not be required.
-            if (completeSignUp.status !== 'complete') {
-                console.error(JSON.stringify(completeSignUp, null, 2))
+            if (completeSignIn?.status !== 'complete') {
+                console.error(JSON.stringify(completeSignIn, null, 2))
                 setVerifyingLoading(false)
             }
 
             // If verification was completed, create a session for the user
-            if (completeSignUp.status === 'complete') {
-                await setActive({ session: completeSignUp.createdSessionId });
+            if (completeSignIn?.status === 'complete') {
+                await setActive({ session: completeSignIn?.createdSessionId });
+
                 setVerifyingLoading(false)
                 // redirect user 
                 router.push("/")
             }
         }
-        catch (err) {
+        catch (err: any) {
             // See https://clerk.com/docs/custom-flows/error-handling for more on error handling
             console.error('Error:', JSON.stringify(err, null, 2))
             setVerifyingLoading(false)
+            toast({
+                title: "Error Signing In",
+                description: err?.errors?.[0]?.longMessage,
+                variant: "destructive"
+            })
         }
     }
 
@@ -94,7 +137,9 @@ export default function SignInPage() {
                             <div className="space-y-4">
                                 <div className="space-y-2">
                                     <Label>Enter Code</Label>
-                                    <Input value={code} id="code" name="code" onChange={(e) => setCode(e.target.value)} />
+                                    <Input value={code} id="code" name="code" onChange={(e) => {
+                                        setCode(e.target.value)
+                                    }} />
                                 </div>
                                 {!verifyLoading ? <Button className="w-full flex items-center" type="submit">
                                     <svg
@@ -132,16 +177,16 @@ export default function SignInPage() {
             <Card key="1" className="mx-auto max-w-sm">
                 <CardHeader className="space-y-1">
                     <CardTitle className="text-2xl font-bold">Login</CardTitle>
-                    <CardDescription>Enter your email below to login your account</CardDescription>
+                    <CardDescription>Enter your email below to login with your account</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col gap-2">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[0.7rem]">
-                        {/* <div className="space-y-4">
+                        <div className="space-y-4">
                             <div className="space-y-2">
                                 <Label>Email</Label>
                                 <Input {...register("email", { required: true })} placeholder="simon@gmail.com" required type="email" />
                             </div>
-                            {!signUpLoading ? <Button className="w-full flex items-center" type="submit">
+                            {!signInLoading ? <Button className="w-full flex items-center" type="submit">
                                 <svg
                                     className=" mr-2 h-4 w-4"
                                     fill="none"
@@ -162,29 +207,29 @@ export default function SignInPage() {
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Please wait
                             </Button>}
-                        </div> */}
-                        <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
-                            <svg
-                                className=" mr-2 h-4 w-4"
-                                fill="none"
-                                height="24"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                                width="24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <circle cx="12" cy="12" r="10" />
-                                <circle cx="12" cy="12" r="4" />
-                                <line x1="21.17" x2="12" y1="8" y2="8" />
-                                <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
-                                <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
-                            </svg>
-                            Login with Google
-                        </Button>
+                        </div>
                     </form>
+                    <Button className="w-full flex items-center hover:animate-shake" variant="outline" onClick={() => signInWith("oauth_google")}>
+                        <svg
+                            className=" mr-2 h-4 w-4"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="4" />
+                            <line x1="21.17" x2="12" y1="8" y2="8" />
+                            <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
+                            <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
+                        </svg>
+                        Login with Google
+                    </Button>
                 </CardContent>
                 {/* <CardFooter> */}
 
