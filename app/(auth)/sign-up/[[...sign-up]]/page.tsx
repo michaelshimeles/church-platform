@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Loader2 } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 import { OAuthStrategy } from "@clerk/types";
+import Link from "next/link";
 
 export default function SignUpPage() {
     const { signIn } = useSignIn();
@@ -215,10 +216,20 @@ export default function SignUpPage() {
                         </svg>
                         Sign up with Google
                     </Button>
+                    <div className="flex pt-3 gap-[0.2rem]">
+                        <p className="text-xs dark:text-gray-400">
+                            Have an account?
+                        </p>
+                        <Link href="/sign-in">
+                            <p className="text-xs hover:underline hover:cursor-pointer">
+                                Sign In
+                            </p>
+                        </Link>
+                    </div>
                 </CardContent>
-                <CardFooter>
+                {/* <CardFooter>
 
-                </CardFooter>
+                </CardFooter> */}
             </Card>
         </div>
     );
