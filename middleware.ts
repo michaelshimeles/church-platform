@@ -22,7 +22,8 @@ export default authMiddleware({
     "/contact-us",
     "/resources/blog/(.*)",
     "/privacy",
-    "/terms"
+    "/terms",
+    "/api/text/register",
   ],
   apiRoutes: [
     "/api/text/cta",
