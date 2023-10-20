@@ -79,7 +79,6 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
             return result
         } catch (error) {
             throw Error(error as any)
-            return error
         } finally {
             transaction.finish();
         }

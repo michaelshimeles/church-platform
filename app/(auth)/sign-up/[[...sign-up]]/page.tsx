@@ -227,9 +227,6 @@ export default function SignUpPage() {
                         </Link>
                     </div>
                 </CardContent>
-                {/* <CardFooter>
-
-                </CardFooter> */}
             </Card>
         </div>
     );
