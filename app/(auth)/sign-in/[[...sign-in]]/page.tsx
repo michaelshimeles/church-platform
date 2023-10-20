@@ -4,13 +4,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
-import { useSignIn, useSignUp } from "@clerk/nextjs";
+import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader2 } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 import { OAuthStrategy, SignInFirstFactor, EmailCodeFactor } from "@clerk/types";
-import { ToastAction } from "@/components/ui/toast";
+import Link from "next/link";
 
 export default function SignInPage() {
     const { signIn, isLoaded, setActive } = useSignIn();
@@ -34,8 +34,10 @@ export default function SignInPage() {
 
     const onSubmit = async (data: any) => {
         setSignInLoading(true)
+        console.log("In", "1")
         if (!isLoaded && !signIn) {
             setSignInLoading(false)
+            console.log("In", "break")
             return null
         }
         try {
@@ -44,6 +46,7 @@ export default function SignInPage() {
                 identifier: `${data?.email}`,
             });
 
+            console.log("In", "2")
 
             // // Filter the returned array to find the 'email_code' entry
             const isEmailCodeFactor = (
@@ -62,6 +65,8 @@ export default function SignInPage() {
                     strategy: 'email_code',
                     emailAddressId
                 })
+
+                console.log("In", "3")
 
                 // Set 'verifying' true to display second form and capture the OTP code
                 setVerifying(true)
@@ -176,8 +181,8 @@ export default function SignInPage() {
             {/* <SignIn /> */}
             <Card key="1" className="mx-auto max-w-sm">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold">Login</CardTitle>
-                    <CardDescription>Enter your email below to login with your account</CardDescription>
+                    <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
+                    <CardDescription>Enter your email below to sign in with your account</CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[0.7rem]">
@@ -202,7 +207,7 @@ export default function SignInPage() {
                                     <rect height="16" rx="2" width="20" x="2" y="4" />
                                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                                 </svg>
-                                Login with Email
+                                Sign in with Email
                             </Button> : <Button disabled className="min-w-full">
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                 Please wait
@@ -228,12 +233,19 @@ export default function SignInPage() {
                             <line x1="3.95" x2="8.54" y1="6.06" y2="14" />
                             <line x1="10.88" x2="15.46" y1="21.94" y2="14" />
                         </svg>
-                        Login with Google
+                        Continue with Google
                     </Button>
+                    <div className="flex pt-3 gap-[0.2rem]">
+                        <p className="text-xs dark:text-gray-400">
+                            No Account?
+                        </p>
+                        <Link href="/sign-up">
+                            <p className="text-xs hover:underline hover:cursor-pointer">
+                                Sign Up
+                            </p>
+                        </Link>
+                    </div>
                 </CardContent>
-                {/* <CardFooter> */}
-
-                {/* </CardFooter> */}
             </Card>
         </div>
     );
