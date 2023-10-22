@@ -23,6 +23,7 @@ export default authMiddleware({
     "/resources/blog/(.*)",
     "/privacy",
     "/terms",
+    "/api/payments/webhook",
     "/api/text/register",
   ],
   apiRoutes: [

@@ -17,7 +17,7 @@ export const registerPayment = async (
   const supabase = createServerComponentClient({ cookies });
   try {
     const { data, error } = await supabase
-      .from("paymens")
+      .from("payments")
       .insert([
         {
           email,
@@ -30,7 +30,7 @@ export const registerPayment = async (
           receipt_url,
           payment_details,
           billing_details,
-          currency
+          currency,
         },
       ])
       .select();
@@ -42,12 +42,14 @@ export const registerPayment = async (
       };
     }
 
-    if (error) {
+    if (Object.keys(error).length > 0) {
       return {
         message: "error",
         error,
       };
     }
+
+    return
   } catch (error) {
     return error;
   }

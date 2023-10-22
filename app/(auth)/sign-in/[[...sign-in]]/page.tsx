@@ -24,29 +24,33 @@ export default function SignInPage() {
     };
 
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    const [verifying, setVerifying] = useState<any>(false)
+    const {
+        register: registerVerify,
+        formState: { errors: errorsVerify },
+        handleSubmit: handleSubmitVerify,
+    } = useForm();
+
+    const [verifying, setVerifying] = useState<boolean>(false)
     const [verifyLoading, setVerifyingLoading] = useState<boolean>(false)
     const [signInLoading, setSignInLoading] = useState<boolean>(false)
-    const [code, setCode] = useState<any>("")
     const router = useRouter()
     const { toast } = useToast()
 
 
     const onSubmit = async (data: any) => {
         setSignInLoading(true)
-        console.log("In", "1")
         if (!isLoaded && !signIn) {
             setSignInLoading(false)
-            console.log("In", "break")
+            console.log("isLoaded", isLoaded)
+            console.log("signIn", signIn)
             return null
         }
         try {
+            console.log("Starting Email")
             const { supportedFirstFactors }: any = await signIn?.create({
                 strategy: "email_code",
                 identifier: `${data?.email}`,
             });
-
-            console.log("In", "2")
 
             // // Filter the returned array to find the 'email_code' entry
             const isEmailCodeFactor = (
@@ -54,9 +58,12 @@ export default function SignInPage() {
             ): factor is EmailCodeFactor => {
                 return factor.strategy === "email_code";
             };
+
             const emailCodeFactor = supportedFirstFactors?.find(isEmailCodeFactor);
 
             if (emailCodeFactor) {
+                console.log("Preparing to send email");  // Debugging line
+
                 // Grab the emailAddressId
                 const { emailAddressId } = emailCodeFactor
 
@@ -66,7 +73,7 @@ export default function SignInPage() {
                     emailAddressId
                 })
 
-                console.log("In", "3")
+                console.log("Sending Email")
 
                 // Set 'verifying' true to display second form and capture the OTP code
                 setVerifying(true)
@@ -83,13 +90,9 @@ export default function SignInPage() {
                 variant: "destructive"
             })
         }
-
-
     }
 
-    async function handleVerification(e: React.FormEvent) {
-        e.preventDefault()
-
+    const onSubmitVerify = async (data: any) => {
         if (!isLoaded && !signIn) return null
 
         setVerifyingLoading(true)
@@ -97,7 +100,7 @@ export default function SignInPage() {
             // Use the code provided by the user and attempt verification
             const completeSignIn = await signIn?.attemptFirstFactor({
                 strategy: 'email_code',
-                code,
+                code: data?.code,
             });
 
             // This mainly for debuggin while developing.
@@ -126,6 +129,7 @@ export default function SignInPage() {
                 variant: "destructive"
             })
         }
+
     }
 
     if (verifying) {
@@ -137,14 +141,12 @@ export default function SignInPage() {
                         <CardTitle className="text-2xl font-bold">Confirmation Code</CardTitle>
                         <CardDescription>We&apos;ve sent you a confirmation code to your email</CardDescription>
                     </CardHeader>
-                    <form onSubmit={handleVerification}>
+                    <form onSubmit={handleSubmitVerify(onSubmitVerify)}>
                         <CardContent>
                             <div className="space-y-4">
                                 <div className="space-y-2">
                                     <Label>Enter Code</Label>
-                                    <Input value={code} id="code" name="code" onChange={(e) => {
-                                        setCode(e.target.value)
-                                    }} />
+                                    <Input  {...registerVerify("code", { required: true })} />
                                 </div>
                                 {!verifyLoading ? <Button className="w-full flex items-center" type="submit">
                                     <svg
@@ -178,7 +180,6 @@ export default function SignInPage() {
 
     return (
         <div className="flex min-w-screen justify-center my-[5rem]">
-            {/* <SignIn /> */}
             <Card key="1" className="mx-auto max-w-sm">
                 <CardHeader className="space-y-1">
                     <CardTitle className="text-2xl font-bold">Sign In</CardTitle>

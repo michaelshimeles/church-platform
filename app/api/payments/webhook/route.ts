@@ -1,16 +1,31 @@
 import { registerPayment } from "@/utils/db/register-payment";
 import { NextRequest, NextResponse } from "next/server";
+import Stripe from "stripe";
 
-export const runtime = 'edge';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2023-08-16",
+});
 
 export async function POST(req: NextRequest) {
-  const res = await req.json();
+  const payload = await req.text();
+  const res = JSON.parse(payload);
+  const sig = req.headers.get("Stripe-Signature");
 
-  console.log("Res", res);
   const dateTime = new Date(res?.created * 1000).toLocaleDateString();
   const timeString = new Date(res?.created * 1000).toLocaleTimeString();
 
   try {
+    let event = stripe.webhooks.constructEvent(
+      payload,
+      sig!,
+      process.env.STRIPE_WEBHOOK_SECRET!
+    );
+
+    console.log("Event", event?.type);
+    // charge.succeeded
+    // payment_intent.succeeded
+    // payment_intent.created
+
     const response: any = await registerPayment(
       res?.data?.object?.billing_details?.email, // email
       res?.data?.object?.amount, // amount
@@ -26,10 +41,12 @@ export async function POST(req: NextRequest) {
     );
 
     if (response?.message === "success") {
+      // console.log("response", response);
       return NextResponse.json({ status: "Success", response });
     }
 
     if (response?.message === "error") {
+      // console.log("response", response);
       throw new Error("Sentry Example API Route Error", response?.error as any);
       return NextResponse.json({ status: "Error", response });
     }
@@ -38,8 +55,8 @@ export async function POST(req: NextRequest) {
       status: "DB registration didn't work",
       response,
     });
-  } catch (error) {
-    throw new Error("Endpoint /api/payments/webhooks failed", error as any);
+  } catch (error: any) {
+    throw new Error(error?.message);
     return NextResponse.json({ status: "Failed", error });
   }
 }
