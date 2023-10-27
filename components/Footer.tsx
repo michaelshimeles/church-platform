@@ -141,9 +141,9 @@ const Footer = ({ }) => {
                     <p className="text-xs text-gray-500">
                         &copy; 2023. Tsega Bible Fellowship Church. All rights reserved.
                     </p>
-                    <Link href="https://www.michaelshimeles.com" target='_blank'>
+                    <Link href="https://www.exoduslabs.xyz" target='_blank'>
                         <p className="text-xs text-gray-500">
-                            Built by <span className='font-bold hover:underline hover:underline-offset-1'>Michael Shimeles</span>.
+                            Built by <span className='font-bold hover:underline hover:underline-offset-1'>Exodus Labs</span>.
                         </p>
                     </Link>
                 </div>
