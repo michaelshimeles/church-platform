@@ -124,7 +124,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
                     <dd className="text-xs dark:text-gray-200 light:text-gray-600">Address</dd>
                 </div>
             </dl>
-            <div className='mt-[1rem]'>
+            {/* <div className='mt-[1rem]'>
                 {ministry === "english" && <Dialog>
                     <DialogTrigger asChild>
                         <Button>Join</Button>
@@ -160,7 +160,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({ ministry, eventName, eventL
                         </form>
                     </DialogContent>
                 </Dialog>}
-            </div >
+            </div > */}
         </div>
     );
 }
