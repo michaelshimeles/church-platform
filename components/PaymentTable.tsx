@@ -21,50 +21,14 @@ export const Icon = {
 import { DialogClose } from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useGetDonations } from "@/utils/hooks/useGetDonations";
 export default function PaymentTable() {
     const { isLoaded, isSignedIn, user } = useUser();
-    const [finance, setFinance] = useState<any>(null)
     const [billingInfo, setBillingInfo] = useState<any>(null)
     const [paymentInfo, setPaymentInfo] = useState<any>(null)
-    const [loading, setLoading] = useState<boolean>(false)
 
-    useEffect(() => {
-        const getFinanceInfo = async () => {
-            const transaction = Sentry.startTransaction({
-                name: "Getting Financial Donations Info",
-            });
 
-            Sentry.configureScope((scope) => {
-                scope.setSpan(transaction);
-            });
-
-            setLoading(true)
-            try {
-
-                const response = await fetch(`/api/payments/info`, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        emailAddress: user?.emailAddresses?.[0]?.emailAddress as string
-                    })
-                })
-                const result = await response.json()
-
-                setFinance(result)
-
-                setLoading(false)
-
-                return result
-
-            } catch (error) {
-                throw new Error(error as any);
-                return error
-            } finally {
-                transaction.finish();
-            }
-        }
-
-        getFinanceInfo()
-    }, [user])
+    const { data, error, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string)
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
     const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
@@ -80,7 +44,7 @@ export default function PaymentTable() {
                     Track all your donations to our church
                 </p>
             </div>
-            {!loading ?
+            {!isLoading ?
                 <Table>
                     <TableCaption>Financial Donations to the Church</TableCaption>
                     <TableHeader>
@@ -96,7 +60,7 @@ export default function PaymentTable() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {finance?.financials?.payments?.map((info: any, index: number) => (
+                        {data?.financials?.payments.map((info: any, index: number) => (
                             <TableRow key={index} onClick={() => {
                                 setBillingInfo(info)
                                 setPaymentInfo(info)

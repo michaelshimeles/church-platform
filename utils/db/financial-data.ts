@@ -8,26 +8,18 @@ export const financialData = async (email: string) => {
     const { data: payments, error } = await supabase
       .from("payments")
       .select("*")
-      .eq("email", email);
+      .eq("receipt_email", email);
 
-    if ((payments?.length as number) === 0) {
-      return {
-        message: "No payments made",
-      };
-    }
+    console.log("payments", payments);
 
-    if ((payments?.length as number) > 0) {
-      return {
-        message: "success",
-        payments,
-      };
+    if (error?.code) {
+      return error;
     }
 
     return {
-      message: "error",
-      error,
+      message: "success",
+      payments,
     };
-
   } catch (error) {
     return error;
   }

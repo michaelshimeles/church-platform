@@ -6,6 +6,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Provider from '@/utils/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,17 +28,19 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NavBar />
-            {children}
-            <Footer />
-            <Toaster />
-          </ThemeProvider>
+          <Provider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <NavBar />
+              {children}
+              <Footer />
+              <Toaster />
+            </ThemeProvider>
+          </Provider>
         </body>
       </html>
     </ClerkProvider>

@@ -25,6 +25,7 @@ export default authMiddleware({
     "/terms",
     "/api/payments/webhook",
     "/api/text/register",
+    "/monitoring"
   ],
   apiRoutes: [
     "/api/text/cta",

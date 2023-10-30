@@ -7,7 +7,9 @@ export async function POST(req: NextRequest) {
     emailAddress: z.string().email({ message: "Invalid email address" }),
   });
 
-  const { emailAddress } = schema.parse(await req.json());
+  const { emailAddress } = (await req.json());
+
+  console.log("emailAddress", emailAddress)
 
   try {
     const financials: any = await financialData(emailAddress);
