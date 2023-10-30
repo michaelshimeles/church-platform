@@ -28,7 +28,7 @@ export default function PaymentTable() {
     const [paymentInfo, setPaymentInfo] = useState<any>(null)
 
 
-    const { data, error, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string)
+    const { data, error, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
 
     const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
     const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
@@ -71,11 +71,11 @@ export default function PaymentTable() {
                                 <TableCell>{info?.payment_date}</TableCell>
                                 <TableCell>{info?.payment_time}</TableCell>
                                 <TableCell>{info?.receipt_email}</TableCell>
-                                <TableCell>
+                                {info?.receipt_url && <TableCell>
                                     <Link target="_blank" href={info?.receipt_url} className="flex justify-center cursor-pointer">
                                         <Receipt size={16} strokeWidth={2.5} />
                                     </Link>
-                                </TableCell>
+                                </TableCell>}
                                 <TableCell>
                                     <Dialog>
                                         <DialogTrigger asChild>

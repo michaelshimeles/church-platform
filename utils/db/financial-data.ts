@@ -10,8 +10,6 @@ export const financialData = async (email: string) => {
       .select("*")
       .eq("receipt_email", email);
 
-    console.log("payments", payments);
-
     if (error?.code) {
       return error;
     }

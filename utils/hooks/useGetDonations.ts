@@ -27,9 +27,9 @@ async function fetchDonations(emailAddress: string) {
   }
 }
 
-export const useGetDonations = (emailAddress: string) => {
+export const useGetDonations = (emailAddress: string, user: any) => {
   return useQuery({
-    queryKey: ["get-donations"],
+    queryKey: ["get-donations", user],
     queryFn: () => fetchDonations(emailAddress),
   });
 };
