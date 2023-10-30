@@ -48,7 +48,6 @@ export async function POST(req: NextRequest) {
     if (response?.message === "error") {
       // console.log("response", response);
       throw new Error("Sentry Example API Route Error", response?.error as any);
-      return NextResponse.json({ status: "Error", response });
     }
 
     return NextResponse.json({

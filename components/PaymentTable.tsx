@@ -30,9 +30,10 @@ export default function PaymentTable() {
 
     const { data, error, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
 
-    const billingObject = billingInfo?.billing_details ? JSON.parse(billingInfo.billing_details) : null;
-    const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
+    // const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
 
+    // console.log("Data", (billingInfo?.payment?.data))
+    // console.log("paymentObject", paymentObject)
 
     return (
         <div className="flex flex-col gap-5">
@@ -55,8 +56,8 @@ export default function PaymentTable() {
                             <TableHead>Date</TableHead>
                             <TableHead>Time</TableHead>
                             <TableHead>Receipt Email</TableHead>
-                            <TableHead className="text-center">Receipt Link</TableHead>
-                            <TableHead className="text-center">More Info</TableHead>
+                            {/* <TableHead className="text-center">Receipt Link</TableHead>
+                            <TableHead className="text-center">More Info</TableHead> */}
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -76,7 +77,7 @@ export default function PaymentTable() {
                                         <Receipt size={16} strokeWidth={2.5} />
                                     </Link>
                                 </TableCell>}
-                                <TableCell>
+                                {/* <TableCell>
                                     <Dialog>
                                         <DialogTrigger asChild>
                                             <div className="flex justify-center">
@@ -109,7 +110,7 @@ export default function PaymentTable() {
                                             </DialogFooter>
                                         </DialogContent>
                                     </Dialog>
-                                </TableCell>
+                                </TableCell> */}
                             </TableRow>
                         ))}
                     </TableBody>
