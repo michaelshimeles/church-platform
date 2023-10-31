@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Grace Bible Fellowship Church',
     description: 'At Grace / Tsega (ጸጋ) Bible Fellowship Church, we believe that the process of becoming a disciple of Jesus is a lifelong journey of growth and transformation. Our vision is to create a dynamic fellowship of believers who seek to connect with God, grow in their relationship with Jesus Christ, and serve others with love and compassion.',
-    images: ['https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/sermon.jpg']
+    images: ['https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/banner.png']
   }
 }
 
