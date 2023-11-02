@@ -55,7 +55,7 @@ export function NavBar() {
                 </SheetTrigger>
                 <SheetContent side="left">
                     <SheetHeader>
-                        <SheetTitle>Grace (ጸጋ) Bible Fellowship Church</SheetTitle>
+                        <SheetTitle>Grace (ፀጋ) Bible Fellowship Church</SheetTitle>
                         <SheetDescription>
                             Grow In Grace. Grow In Knowledge.
                         </SheetDescription>
@@ -137,7 +137,7 @@ export function NavBar() {
                                         >
                                             <Image src="https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/TBF.webp" width={50} height={50} alt="logo" />
                                             <div className="mb-2 mt-4 text-lg font-medium">
-                                                Grace (ጸጋ) Bible Fellowship Church
+                                                Grace (ፀጋ) Bible Fellowship Church
                                             </div>
                                             <p className="text-sm leading-tight text-muted-foreground">
                                                 Grow In Grace. Grow In Knowledge.

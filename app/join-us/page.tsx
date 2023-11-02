@@ -12,7 +12,7 @@ const JoinUs = () => {
             </div>
             <div className='flex flex-col lg:flex-row gap-9 px-3 mb-7'>
                 <ChurchCard image={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/family.jpeg`} language={'English'} church={'Grace Bible Fellowship Church'} description={`Our vision is to create a dynamic fellowship of believers who seek to connect with God, grow in their relationship with Jesus Christ, and serve others with love and compassion.`} />
-                <ChurchCard image={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/holyspirit.png`} language={'Amharic'} church={'ጸጋ Bible Fellowship Church'} description={`ራዕያችን ከእግዚአብሔር ጋር ለመገናኘት፣ ከኢየሱስ ክርስቶስ ጋር ባላቸው ግንኙነት የሚያድግ እና ሌሎችን በፍቅር እና በርህራሄ የሚያገለግሉ አማኞች ተለዋዋጭ ህብረት መፍጠር ነው።`} />
+                <ChurchCard image={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/holyspirit.png`} language={'Amharic'} church={'ፀጋ Bible Fellowship Church'} description={`ራዕያችን ከእግዚአብሔር ጋር ለመገናኘት፣ ከኢየሱስ ክርስቶስ ጋር ባላቸው ግንኙነት የሚያድግ እና ሌሎችን በፍቅር እና በርህራሄ የሚያገለግሉ አማኞች ተለዋዋጭ ህብረት መፍጠር ነው።`} />
             </div>
         </main>
     );

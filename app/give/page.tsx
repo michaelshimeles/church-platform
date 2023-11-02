@@ -24,7 +24,7 @@ const GivePage = () => {
           </div>
 
           <div className="lg:py-24">
-            <h2 className="text-3xl font-bold sm:text-4xl">Thank you for using the Grace (ጸጋ) Church Online Giving Option</h2>
+            <h2 className="text-3xl font-bold sm:text-4xl">Thank you for using the Grace (ፀጋ) Church Online Giving Option</h2>
 
             <p className="mt-4 light:text-gray-600 dark:text-gray-300">
               Support the mission and vision of Tsega Bible Fellowship Church with your generous donations through our online giving platform. Your offering is an investment in serving our community and spreading the love of Jesus. Giving is a spiritual discipline and act of worship, helping to provide for the congregation and fulfill our mission. Donate easily and securely by entering the amount you would like to give. Thank you for your support, an act of worship and vital to spreading hope through Jesus.

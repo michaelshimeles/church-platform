@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: ['Tsega Bible', 'Tsega Bible Church', 'Tsega Bible Fellowship Church', 'Tsega Bible Church Toronto', 'Tsega Toronto', 'Ethiopian Toronto Church', 'Grace Bible Fellowship Church', 'Grace Bible Church'],
   openGraph: {
     title: 'Grace Bible Fellowship Church',
-    description: 'At Grace / Tsega (ጸጋ) Bible Fellowship Church, we believe that the process of becoming a disciple of Jesus is a lifelong journey of growth and transformation. Our vision is to create a dynamic fellowship of believers who seek to connect with God, grow in their relationship with Jesus Christ, and serve others with love and compassion.',
+    description: 'At Grace / Tsega (ፀጋ) Bible Fellowship Church, we believe that the process of becoming a disciple of Jesus is a lifelong journey of growth and transformation. Our vision is to create a dynamic fellowship of believers who seek to connect with God, grow in their relationship with Jesus Christ, and serve others with love and compassion.',
     images: ['https://vngdsgitgimaumyqaatn.supabase.co/storage/v1/object/public/images/banner.png']
   }
 }

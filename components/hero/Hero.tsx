@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ }) => {
             }}
         >
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl text-center drop-shadow-lg text-white">
-                Grace (ጸጋ) Bible Fellowship Church
+                Grace (ፀጋ) Bible Fellowship Church
             </h1>
             <h4 className="scroll-m-20 text-xl tracking-tight pt-2 drop-shadow-lg text-white">
                 Grow In Grace. Grow In Knowledge.
