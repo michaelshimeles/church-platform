@@ -108,7 +108,12 @@ const Resources: React.FC<ResourceProps> = ({ }) => {
                 </h2>
                 <section className="mb-8" data-id="23">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-id="61">
-                        {post?.map((post: any, index: number) => {
+                        {post?.sort((a: any, b: any) => {
+                            const dateA: any = new Date(a?.image?._createdAt);
+                            const dateB: any = new Date(b?.image?._createdAt);
+                            return dateB - dateA;
+                        }).map((post: any, index: number) => {
+                            console.log('post', post)
                             return (
                                 <div key={index}>
                                     <Image
