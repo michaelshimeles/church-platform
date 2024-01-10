@@ -29,6 +29,7 @@ export default authMiddleware({
     '/give',
     '/thank-you',
     '/donations',
+    "/api/text/cta",
   ],
   apiRoutes: [
     "/api/text/cta",
