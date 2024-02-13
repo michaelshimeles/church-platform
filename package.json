@@ -53,6 +53,7 @@
     "sanity": "^3.16.7",
     "stripe": "^13.9.0",
     "styled-components": "5.2",
+    "svix": "^1.17.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "twilio": "^4.18.0",
