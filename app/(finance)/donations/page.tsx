@@ -8,15 +8,6 @@ interface DonationProps { }
 const Donations: React.FC<DonationProps> = ({ }) => {
     return (
         <section className="flex flex-col gap-3 min-w-full justify-center items-center min-h-[70vh] mt-[4rem]">
-            {/* <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                Donations page is getting a revamp
-            </h1>
-            <p className="leading-7 [&:not(:first-child)]:mt-1">
-                If you are looking for your donation receipts, please check your email
-            </p>
-            <Link href="/">
-                <Button>Go Home</Button>
-            </Link> */}
             <div className='flex flex-col w-[80%] mb-[8rem]'>
                 <PaymentTable />
             </div>

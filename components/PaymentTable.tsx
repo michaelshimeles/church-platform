@@ -43,9 +43,14 @@ export default function PaymentTable() {
     return (
         <div className="flex flex-col gap-5 w-full">
             <div>
-                <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                    Donations Tracking
-                </h1>
+                <div className="flex justify-between items-center w-full">
+                    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+                        Donations Tracking
+                    </h1>
+                    <Link href={`${process.env.NEXT_PUBLIC_STRIPE_LINK}`} target='_blank'>
+                        <Button className='w-full'>Donate</Button>
+                    </Link>
+                </div>
                 <p className="leading-7 [&:not(:first-child)]:mt-3">
                     Track all your donations to our church
                 </p>
