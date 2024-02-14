@@ -14,6 +14,7 @@ export async function POST(req: Request) {
     );
   }
 
+  console.log('WEBHOOK_SECRET', WEBHOOK_SECRET)
   // Get the headers
   const headerPayload = headers();
   const svix_id = headerPayload.get("svix-id");
@@ -82,5 +83,6 @@ export async function POST(req: Request) {
     throw new Error(error.message);
   }
   }
+
   return new Response("", { status: 201 });
 }

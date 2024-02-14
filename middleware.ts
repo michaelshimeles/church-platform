@@ -27,7 +27,7 @@ export default authMiddleware({
     "/api/text/register",
     "/monitoring",
     '/studio',
-    // '/thank-you',
+    "/api/auth/webhook",
     // '/donations',
     // "/api/text/cta",
   ],
@@ -39,6 +39,7 @@ export default authMiddleware({
     "/api/payments/webhook",
     "/api/payments/info",
     "/api/text/register",
+    "/api/auth/webhook",
   ],
 });
 
