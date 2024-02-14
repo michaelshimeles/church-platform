@@ -32,6 +32,10 @@ export default function PaymentTable() {
     const { data, error, isLoading, isFetched } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
 
     // const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
+    let CAD = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'CAD',
+    });
 
     let totalAmount = 0
     const result = data?.financials?.payments?.map((info: any) => totalAmount = (totalAmount + Number(info?.amount) / 100))
@@ -52,7 +56,7 @@ export default function PaymentTable() {
                         <CardTitle className="text-sm font-medium">Total Amount Donated</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">${totalAmount}</div>
+                        <div className="text-2xl font-bold">{CAD.format(totalAmount)}</div>
                         {/* <p className="text-xs text-gray-500 dark:text-gray-400">+10.1% from last month</p> */}
                     </CardContent>
                 </Card>
@@ -70,7 +74,7 @@ export default function PaymentTable() {
                         <CardTitle className="text-sm font-medium">Last Donation Amount</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <div className="text-2xl font-bold">{data?.financials?.payments ? "$" + Number(data?.financials?.payments[0]?.amount) / 100 : 0}</div>
+                        <div className="text-2xl font-bold">{data?.financials?.payments ? CAD.format(Number(data?.financials?.payments[0]?.amount) / 100) : 0}</div>
                         {/* <p className="text-xs text-gray-500 dark:text-gray-400">+10.1% from last month</p> */}
                     </CardContent>
                 </Card>
@@ -80,7 +84,7 @@ export default function PaymentTable() {
                     <TableCaption>Financial Donations to the Church</TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="w-[150px]">Email</TableHead>
+                            {/* <TableHead className="w-[150px]">Email</TableHead> */}
                             <TableHead>Amount</TableHead>
                             <TableHead>Currency</TableHead>
                             <TableHead>Date</TableHead>
