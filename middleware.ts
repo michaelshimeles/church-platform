@@ -28,7 +28,7 @@ export default authMiddleware({
     "/monitoring",
     '/studio',
     "/api/auth/webhook",
-    // '/donations',
+    "/api/payments/test",
     // "/api/text/cta",
   ],
   apiRoutes: [

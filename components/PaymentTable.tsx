@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useUser } from "@clerk/nextjs";
-import { Info, Loader2, Receipt } from "lucide-react";
+import { DollarSignIcon, Info, Loader2, Receipt, UsersIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import * as Sentry from "@sentry/nextjs";
 
@@ -22,21 +22,22 @@ import { DialogClose } from "@radix-ui/react-dialog";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { useGetDonations } from "@/utils/hooks/useGetDonations";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 export default function PaymentTable() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [billingInfo, setBillingInfo] = useState<any>(null)
     const [paymentInfo, setPaymentInfo] = useState<any>(null)
 
 
-    const { data, error, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
+    const { data, error, isLoading, isFetched } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
 
     // const paymentObject = paymentInfo?.payment_details ? JSON.parse(paymentInfo.payment_details) : null;
 
-    // console.log("Data", (billingInfo?.payment?.data))
-    // console.log("paymentObject", paymentObject)
+    let totalAmount = 0
+    const result = data?.financials?.payments?.map((info: any) => totalAmount = (totalAmount + Number(info?.amount) / 100))
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-full">
             <div>
                 <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                     Donations Tracking
@@ -44,6 +45,35 @@ export default function PaymentTable() {
                 <p className="leading-7 [&:not(:first-child)]:mt-3">
                     Track all your donations to our church
                 </p>
+            </div>
+            <div className="flex justify-center items-center w-full gap-4">
+                <Card className="flex flex-col w-full">
+                    <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+                        <CardTitle className="text-sm font-medium">Total Amount Donated</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">${totalAmount}</div>
+                        {/* <p className="text-xs text-gray-500 dark:text-gray-400">+10.1% from last month</p> */}
+                    </CardContent>
+                </Card>
+                <Card className="flex flex-col w-full">
+                    <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+                        <CardTitle className="text-sm font-medium">Total Number of Donations</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{data?.financials?.payments ? data?.financials?.payments?.length : 0}</div>
+                        {/* <p className="text-xs text-gray-500 dark:text-gray-400">+10.1% from last month</p> */}
+                    </CardContent>
+                </Card>
+                <Card className="flex flex-col w-full">
+                    <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+                        <CardTitle className="text-sm font-medium">Last Donation Amount</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{data?.financials?.payments ? "$" + Number(data?.financials?.payments[0]?.amount) / 100 : 0}</div>
+                        {/* <p className="text-xs text-gray-500 dark:text-gray-400">+10.1% from last month</p> */}
+                    </CardContent>
+                </Card>
             </div>
             {!isLoading ?
                 <Table>
@@ -61,12 +91,12 @@ export default function PaymentTable() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {data?.financials?.payments.map((info: any, index: number) => (
+                        {data?.financials?.payments?.map((info: any, index: number) => (
                             <TableRow key={index} onClick={() => {
                                 setBillingInfo(info)
                                 setPaymentInfo(info)
                             }}>
-                                <TableCell className="font-medium">{info?.email}</TableCell>
+                                {/* <TableCell className="font-medium">{info?.email}</TableCell> */}
                                 <TableCell>${Number(info?.amount) / 100}</TableCell>
                                 <TableCell>{info?.currency?.toUpperCase()}</TableCell>
                                 <TableCell>{info?.payment_date}</TableCell>
@@ -115,7 +145,7 @@ export default function PaymentTable() {
                         ))}
                     </TableBody>
 
-                </Table> : <div className="flex flex-col justify-center items-center min-w-screen">
+                </Table> : <div className="flex flex-col justify-center items-center min-w-screen my-[13rem]">
                     <Icon.spinner className="h-4 w-4 animate-spin" />
                 </div>
             }
