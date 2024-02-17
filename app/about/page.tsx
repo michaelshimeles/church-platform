@@ -2,17 +2,17 @@ import Image from "next/image";
 
 const AboutUs = () => {
     const senior_team = [{
-        name: "Pastor Berhanu",
+        name: "Berhanu Kumsa",
         position: "Senior Pastor",
         src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/pb.png`
     },
     {
-        name: "Pastor Almaz",
+        name: "Almaz Damene",
         position: "Executive Pastor",
         src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/hawie.png`
     },
     {
-        name: "Pastor Simon",
+        name: "Simon Demeke",
         position: "Pastor",
         src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/simon.png`
 
