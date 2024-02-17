@@ -12,7 +12,7 @@ const AboutUs = () => {
         src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/hawie.png`
     },
     {
-        name: "Simon Demeke",
+        name: "Simeon Demeke",
         position: "Pastor",
         src: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/simon.png`
 
