@@ -83,7 +83,7 @@ export function NavBar() {
                             </Link>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Link href="/amharic-ministry">
+                            <Link href="/coming-soon">
                                 <Button variant="outline" className="w-full">Amharic Ministry</Button>
                             </Link>
                         </DialogClose>
@@ -148,7 +148,7 @@ export function NavBar() {
                                 <ListItem href="/english-ministry" title="English Church">
                                     Visit and take part in our English speaking church.
                                 </ListItem>
-                                <ListItem href="/amharic-ministry" title="Amharic Church">
+                                <ListItem href="/coming-soon" title="Amharic Church">
                                     የአማርኛ ተናጋሪ ቤተክርስቲያናችንን ይጎብኙ እና ይሳተፉ
                                 </ListItem>
                             </ul>
