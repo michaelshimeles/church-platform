@@ -1,14 +1,9 @@
 import ServiceSchedule from '@/components/ServiceSchedule'
 import ChurchCard from '@/components/card/ChurchCard'
 import Hero from '@/components/hero/Hero'
-import { googleAuth } from '@/utils/actions/google'
 
 
 export default async function Home() {
-
-  const response = await googleAuth()
-
-  console.log('response', response)
   return (
     <main className="flex min-w-screen flex-col items-center justify-between">
       <Hero />
