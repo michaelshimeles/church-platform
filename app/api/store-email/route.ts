@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { storeEmail } from "@/utils/db/store-emails";
 import { z } from "zod";
+
 export async function POST(req: NextRequest) {
   const schema = z.object({
     firstName: z.string(),
@@ -28,11 +29,8 @@ export async function POST(req: NextRequest) {
 
     if (response?.message === "error") {
       throw Error(response?.error);
-      return NextResponse.json(response?.error);
     }
   } catch (error: any) {
     throw Error(error?.message);
-
-    return NextResponse.json("Response Object return failed", error);
   }
 }

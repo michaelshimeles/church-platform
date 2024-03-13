@@ -6,7 +6,7 @@ const client = require("twilio")(accountSid, authToken);
 const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_ID;
 import { z } from "zod";
 
-/* 
+/*
   Abstract the word to trigger the text response
 */
 
@@ -57,7 +57,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
       return NextResponse.json({ status: "Sent", messageSid: message.sid });
     } catch (error: any) {
       throw new Error(error);
-      return NextResponse.json({ status: "Error", error });
     }
   }
 }
