@@ -129,10 +129,10 @@ export default function CTA({ ministry }: {
                         </> :
                         <>
                             <h2 className="text-3xl font-bold tracking-tighter text-black md:text-4xl/tight dark:text-zinc-50">
-                                እንጋብዝሃለን
+                                ይምጡ እና የለውጥ ተሞክሮ አካል ይሁኑ።
                             </h2>
                             <p className="max-w-[600px] text-zinc-800 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-zinc-400">
-                                እኛ በጌታ እና በንጉሥ ኢየሱስ ክርስቶስ የምናምን ማህበረሰብ ነን
+                                ይህ ተሞክሮ የተቻለው ጌታችን ኢየሱስ ክርስቶስ ባመጣው ድህንነ ነው።
                             </p>
                         </>}
 

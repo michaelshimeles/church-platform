@@ -1,13 +1,4 @@
 "use client"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useUser } from "@clerk/nextjs";
 import { DollarSignIcon, Info, Loader2, Receipt, UsersIcon } from "lucide-react";
@@ -38,7 +29,6 @@ export default function PaymentTable() {
 
     let totalAmount = 0
     const result = data?.financials?.payments?.map((info: any) => totalAmount = (totalAmount + Number(info?.amount) / 100))
-
 
     return (
         <div className="flex flex-col gap-5 w-full">
@@ -94,7 +84,12 @@ export default function PaymentTable() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {data?.financials?.payments?.map((info: any, index: number) => (
+                        {data?.financials?.payments?.sort((a: any, b: any) => {
+                            const dateA = new Date(`${a.payment_date} ${a.payment_time}`).getTime();
+                            const dateB = new Date(`${b.payment_date} ${b.payment_time}`).getTime();
+                            return dateB - dateA;
+                        }
+                        )?.map((info: any, index: number) => (
                             <TableRow key={index}>
                                 <TableCell>${Number(info?.amount) / 100}</TableCell>
                                 <TableCell>{info?.currency?.toUpperCase()}</TableCell>

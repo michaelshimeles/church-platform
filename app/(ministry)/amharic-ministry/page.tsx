@@ -6,29 +6,31 @@ import CTA from '@/components/CTA';
 
 const AmharicMinistryPage: React.FC = () => {
     const scheduleItems = [
-        // {
-        //     eventName: 'Virtual Bible Study',
-        //     eventLead: 'Michael Shimeles',
-        //     eventTime: '7:30pm',
-        //     eventDate: 'Wednesday',
-        //     eventAddress: 'Online',
-        //     eventDescription: `Embark on a spiritual journey from the comfort of your home with our Virtual Bible Study sessions. Dive deep into the Word and connect with like-minded seekers online`,
-        // },
-        // {
-        //     eventName: 'In-Person Bible Study & Prayer',
-        //     eventLead: 'Michael Shimeles',
-        //     eventTime: '9:00pm',
-        //     eventDate: 'Friday',
-        //     eventAddress: '100 Halsey Ave',
-        //     eventDescription: `Join us for enriching in-person Bible study and heartfelt prayer gatherings where Jesus is glorified, and we are edified, fostering a sense of community and spiritual growth`,
-        // },
         {
             eventName: 'የቤተክርስቲያን አገልግሎት',
             eventLead: 'Michael Shimeles',
-            eventTime: '4:00pm',
+            eventTime: '3:30pm',
             eventDate: 'Sunday',
             eventAddress: '65 Sunrise Ave',
-            eventDescription: `እርስዎ እንዳሉ ይምጡ እና የአቀባበል የእምነት ማህበረሰባችን አካል ይሁኑ፣ የምንሰግድበት፣ የምንጸልይበት እና ስለ ኢየሱስ የምንማርበት፣ መንፈሳዊ ጉዟችንን በማጠናከር እና በሂደቱ ውስጥ ዘላቂ ግንኙነቶችን እንፈጥራለን።`,
+            eventDescription: `እግዚአብሔርን በማምለክ፣ በመጸለይ እና ስለ ኢየሱስ ክርስቶስ ያለንን ግንዛቤ በምናሳድግበት አንድ ላይ በምንሰባሰብበት ትርጉም ያለው ፕሮግራም ላይ ይቀላቀሉን።`,
+        },
+        {
+            eventName: 'በአካል የመጽሐፍ ቅዱስ ጥናት እና ጸሎት',
+            eventLead: 'Michael Shimeles',
+            eventTime: '9:00pm',
+            eventDate: 'Friday',
+            eventAddress: '100 Halsey Ave',
+            eventDescription: `በአካል በመገናኘት በምናደርገው የመጽሐፍ ቅዱስ ጥናት ላይ ይቀላቀሉን። በዚህ ጊዜ ኢየሱስን የምናከብርበት፣ እራሳችንን የምናንጽበት እና መንፈሳዊ ማንነታችንን የምናዳብርበት በአካል ለምናደርገው የመጽሐፍ ቅዱስ ጥናት እና ጸሎታችን ይቀላቀሉን።
+            `,
+        },
+        {
+            eventName: 'ኦንላይን የመጽሐፍ ቅዱስ ጥናት',
+            eventLead: 'Michael Shimeles',
+            eventTime: '7:30pm',
+            eventDate: 'Weekly',
+            eventAddress: 'Online',
+            eventDescription: `ኦንላይን በመገናኘት በምናደርገው የመጽሐፍ ቅዱስ ጥናት ላይ ይቀላቀሉን። የመጽሐፍ ቅዱስ ጥናት ክፍለ ጊዜዎች ከቤትዎ ሆነው መንፈሳዊ ጉዞ ይጀምሩ። በስልክ ቁጥር 416-839-7968 ወይም 647-608-8189
+            ዕሮብ 7፡30 PM`,
         },
         // Add more schedule items as needed
     ];
@@ -36,30 +38,44 @@ const AmharicMinistryPage: React.FC = () => {
     const howWeServeItems = [
         {
             title: 'የእሁድ አገልግሎት',
-            description: `የቤተ ክርስቲያናችን ደቀመዛሙርት አማኞች በመጽሐፍ ቅዱሳዊ ትምህርት እና ጥሪያቸውን በአገልግሎት እንዲፈጽሙ በማስታጠቅ።`,
+            description: `የቤተ ክርስቲያናችንን አባሎች በመጽሐፍ ቅዱሳዊ ትምህርት ደቀመዛሙርት ማድረግና ጥሪያቸውን በሚገባ አውቀው አምላካቸውን እንዲያገለግሉ ማስታጠቅ እና በጸሎት፣ በአምልኮ እና የእግዚአብሔርን ትእዛዝ እንዲታዘዙ የአባሎቻችንን እምነት እናሳድጋለን።
+            `,
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/sermon.jpg`,
         },
         {
             title: 'የመጽሐፍ ቅዱስ ጥናት',
-            description: 'የመጽሐፍ ቅዱስ ጥናት ለክርስቲያኖች አስፈላጊ ነው ምክንያቱም እምነታቸውን ያጠናክራል፣ ከአምላክ ጋር ያላቸውን ዝምድና ያጠናክራል እንዲሁም የጽድቅ ሕይወት እንዲመሩ መመሪያ ይሰጣል።',
+            description: 'የመጽሐፍ ቅዱስ ጥናት ለክርስቲያኖች በጣም አስፈላጊ ነው ምክንያቱም አማኞች እምነታቸውን እንዲያድግ ፤ ከአምላካቸው ጋር ያላቸውን ዝምድና እንዲጠነክርና የጽድቅን ሕይወት እንዲመሩ እናስጠናቸዋለን።            ',
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/biblestudy.jpg`,
         },
         {
             title: 'ጸሎት',
-            description: `በየሳምንቱ፣ በየሳምንቱ፣ የልባችንን ፍላጎት እና ጭንቀቶችን በኢየሱስ እግር ስር ለማስቀመጥ በእምነት እና በአንድነት መንፈስ እንሰበሰባለን፣ በትሑት ልቦች እና ጽኑ እምነት፣ ለፈውስ፣ ሰላም፣ ደስታ እና የመንፈስ ፍሬዎች ሁሉ በህይወታችን እና በዙሪያችን ባለው ዓለም ውስጥ ይገለጣል.`,
+            description: `በየሳምንቱ በእምነት እና በአንድነት መንፈስ በአምላካችን እግር ሥር ልባችንን ለማፍሰስ እንሰበሰባለን። በዚህ ጊዜ ስለ ልጆችና ወጣቶች ፤ ስለ ሀገር ፤ ስለ ትሁት ልብ ፤ ስለ ጽኑ እምነት ፤ ስለ ፈውስ ፤ ስለ ሰላም ፤ ስለ ፍቅር ፤ ስለ ደስታ ፤ እና ስለ መንፈስ ፍሬዎች . . ወዘተ እንፀልያለን።
+            `,
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethprayer.jpg`,
         },
         {
-            title: "ጥምቀት",
-            description: `ጥምቀት አንድ ሰው በኢየሱስ ክርስቶስ ላይ ያለውን እምነት በአደባባይ ማወጁን፣ የኃጢያት ንስሃ መግባቱን እና እሱን ለመከተል መሰጠትን የሚያመለክት ጉልህ መንፈሳዊ ተግባር ነው፣ ይህም በውሃ ውስጥ በመጥለቅ ነው።`,
+            title: "ወጣት አዋቂዎች",
+            description: `ጎልማሶችን በፍቅር እና በጥበብ በመምራት በኢየሱስ ክርስቶስ በእምነት ወደተሞላ ሕይወትና ልባቸውን በኢየሱስ ክርስቶስ መንገድ ላይ እንዲያደርጉ በመንከባከብ መንገዱን እንዲያውቁ እናግዛቸዋለን።            `,
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethbaptism.jpg`
 
         },
         {
-            title: "የጥናት ቡድኖች",
-            description: `ትርጉም ላለው ህብረት፣ መንፈሳዊ እድገት እና በእምነት ጉዞዎ ላይ ድጋፍ ለማግኘት የቅርብ የተሳሰረ የሕዋስ ቡድኖቻችንን ይቀላቀሉ።`,
+            title: "ልጆች",
+            description: `ልጆችን በፍቅር እና በጥንቃቄ በመምራት የኢየሱስ ክርስቶስን ትምህርት እናስተዋውቃቸዋለን። ከእድሜ ጋር በሚስማማ ትምህርት እና ጸሎት እምነታቸውን ለማሳደግ እንጥራለን።
+            `,
             imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethfamily.png`
-
+        },
+        {
+            title: "ጥምቀት",
+            description: `አንድ አማኝ በኢየሱስ ክርስቶስ ላይ ያለውን እምነት በውሃ ውስጥ በመጥለቅ፣ በኃጢአት ንስሐ እና እርሱን ለመከተል ቃል መግባታቸውን የሚያሳዩበት ትርጉም ያለው መንፈሳዊ ሥርዓት በመሆኑ ከመሠረታዊ የክርስትና ትምህርት በመቀጠል እናጠምቃለን።
+            `,
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethfamily.png`
+        },
+        {
+            title: "የጥናት ቡድኖች",
+            description: `ትርጉም ላለው ህብረት፣ መንፈሳዊ እድገት እና በእምነት ጉዞዎ ውስጥ ድጋፍ ለማግኘት የቅርብ የተሳሰረ የጥናት ቡድኖቻችንን ይቀላቀሉ።
+            `,
+            imageUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/ethfamily.png`
         }
     ];
 
@@ -69,7 +85,7 @@ const AmharicMinistryPage: React.FC = () => {
             <div className='container mx-auto px-6 py-10'>
                 <div className='mt-[3rem]' id="weekly-page">
                     <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-                        ሳምንታዊ መርሐግብር
+                        እንኳን ደህና መጡ!
                     </h2>
                     <div className='flex flex-wrap justify-start mt-[2rem] gap-4'>
                         {scheduleItems.map((item, index) => (
