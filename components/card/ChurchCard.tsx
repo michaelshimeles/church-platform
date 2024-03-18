@@ -10,7 +10,7 @@ interface ChurchCardProps {
 const ChurchCard: React.FC<ChurchCardProps> = ({ image, language, church, description }) => {
 
     return (
-        <a href={language === "English" ? "/english-ministry" : "/coming-soon"} className="group relative block bg-black sm:w-[400px]">
+        <a href={language === "English" ? "/english-ministry" : "/amharic-ministry"} className="group relative block bg-black sm:w-[400px]">
             <Image
                 alt="Developer"
                 src={image}
