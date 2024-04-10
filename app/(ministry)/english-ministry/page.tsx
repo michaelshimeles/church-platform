@@ -19,7 +19,7 @@ const EnglishMinistryPage = ({ }) => {
         {
             eventName: 'In-Person Bible Study & Prayer',
             eventLead: 'Michael Shimeles',
-            eventTime: '9:00pm',
+            eventTime: '7:30pm',
             eventDate: 'Friday',
             eventAddress: '100 Halsey Ave',
             eventDescription: `Join us for enriching in-person Bible study and heartfelt prayer gatherings where Jesus is glorified, and we are edified, fostering a sense of community and spiritual growth`,

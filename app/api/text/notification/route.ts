@@ -86,7 +86,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             ) {
               try {
                 const message = await client.messages.create({
-                  body: "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
+                  body: "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 7:30pm EST",
                   messagingServiceSid: messagingServiceSid,
                   from: "+17576459906",
                   to: schedule[i]?.phoneNumber,
@@ -96,7 +96,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                   await textLog(
                     "+17576459906",
                     schedule[i]?.phoneNumber,
-                    "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST"
+                    "Just a friendly reminder that the In-Person Bible Study & Prayer is tomorrow! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 7:30pm EST"
                   );
                 }
               } catch (error) {
@@ -165,7 +165,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             ) {
               try {
                 const message = await client.messages.create({
-                  body: "Just a friendly reminder that the In-Person Bible Study & Prayer is in 30 minutes! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 9:00pm EST",
+                  body: "Just a friendly reminder that the In-Person Bible Study & Prayer is in 30 minutes! Make sure you make time and don't miss it! The address is 100 Halsey Avenue and it starts at 7:30pm EST",
                   messagingServiceSid: messagingServiceSid,
                   from: "+17576459906",
                   to: schedule[i]?.phoneNumber,

@@ -17,7 +17,7 @@ const AmharicMinistryPage: React.FC = () => {
         {
             eventName: 'በአካል የመጽሐፍ ቅዱስ ጥናት እና ጸሎት',
             eventLead: 'Michael Shimeles',
-            eventTime: '9:00pm',
+            eventTime: '7:30pm',
             eventDate: 'Friday',
             eventAddress: '100 Halsey Ave',
             eventDescription: `በአካል በመገናኘት በምናደርገው የመጽሐፍ ቅዱስ ጥናት ላይ ይቀላቀሉን። በዚህ ጊዜ ኢየሱስን የምናከብርበት፣ እራሳችንን የምናንጽበት እና መንፈሳዊ ማንነታችንን የምናዳብርበት በአካል ለምናደርገው የመጽሐፍ ቅዱስ ጥናት እና ጸሎታችን ይቀላቀሉን።
