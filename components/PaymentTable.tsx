@@ -15,9 +15,7 @@ import { Button } from "./ui/button";
 import { useGetDonations } from "@/utils/hooks/useGetDonations";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 export default function PaymentTable() {
-    const { isLoaded, isSignedIn, user } = useUser();
-    const [billingInfo, setBillingInfo] = useState<any>(null)
-    const [paymentInfo, setPaymentInfo] = useState<any>(null)
+    const { user } = useUser();
 
 
     const { data, error, isLoading, isFetched } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)

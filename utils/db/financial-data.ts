@@ -9,6 +9,7 @@ export const financialData = async (email: string) => {
       .from("payments")
       .select("*")
       .eq("receipt_email", email)
+      .eq("type", "charge.succeeded")
       .order("id", { ascending: true }); // Sort by 'created_time' in ascending order
 
     if (error?.code) {

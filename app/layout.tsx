@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
 import './globals.css'
 import Provider from '@/utils/provider'
 import { Analytics } from '@vercel/analytics/react';
