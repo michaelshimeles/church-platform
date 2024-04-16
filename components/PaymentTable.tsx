@@ -1,22 +1,18 @@
 "use client"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useUser } from "@clerk/nextjs";
-import { DollarSignIcon, Info, Loader2, Receipt, UsersIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import * as Sentry from "@sentry/nextjs";
+import { Loader2, Receipt } from "lucide-react";
 
 export const Icon = {
     spinner: Loader2,
 };
 
-import { DialogClose } from "@radix-ui/react-dialog";
+import { useGetDonations } from "@/utils/hooks/useGetDonations";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { useGetDonations } from "@/utils/hooks/useGetDonations";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 export default function PaymentTable() {
     const { user } = useUser();
-
 
     const { data, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
 
@@ -62,14 +58,6 @@ export default function PaymentTable() {
                         <div className="text-2xl font-bold">{data?.financials?.payments ? data?.financials?.payments?.length : 0}</div>
                     </CardContent>
                 </Card>
-                {/* <Card className="flex flex-col w-full">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                        <CardTitle className="text-sm font-medium">Last Donation Amount</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{data?.financials?.payments ? CAD.format(Number(data?.financials?.payments[0]?.amount) / 100) : 0}</div>
-                    </CardContent>
-                </Card> */}
             </div>
             {!isLoading ?
                 <Table className="border">
