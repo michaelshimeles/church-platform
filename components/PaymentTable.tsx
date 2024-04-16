@@ -18,7 +18,7 @@ export default function PaymentTable() {
     const { user } = useUser();
 
 
-    const { data, error, isLoading, isFetched } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
+    const { data, isLoading } = useGetDonations(user?.emailAddresses?.[0]?.emailAddress as string, user)
 
     let CAD = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -27,6 +27,8 @@ export default function PaymentTable() {
 
     let totalAmount = 0
     const result = data?.financials?.payments?.map((info: any) => totalAmount = (totalAmount + Number(info?.amount) / 100))
+
+    console.log('data', data?.financials?.payments)
 
     return (
         <div className="flex flex-col gap-5 w-full">
