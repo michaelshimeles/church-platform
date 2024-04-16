@@ -62,14 +62,14 @@ export default function PaymentTable() {
                         <div className="text-2xl font-bold">{data?.financials?.payments ? data?.financials?.payments?.length : 0}</div>
                     </CardContent>
                 </Card>
-                <Card className="flex flex-col w-full">
+                {/* <Card className="flex flex-col w-full">
                     <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                         <CardTitle className="text-sm font-medium">Last Donation Amount</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">{data?.financials?.payments ? CAD.format(Number(data?.financials?.payments[0]?.amount) / 100) : 0}</div>
                     </CardContent>
-                </Card>
+                </Card> */}
             </div>
             {!isLoading ?
                 <Table className="border">
